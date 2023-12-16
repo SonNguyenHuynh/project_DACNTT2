@@ -3,8 +3,17 @@ from typing import List, Set
 from TransactionDTO import TransactionDTO
 from ItemsetSupportCalculators import expected_support, itemset_weight
 
-def expected_weighted_support(itemset: Set[str], transactions: List[TransactionDTO]) -> float:
-    exp_support = expected_support(itemset, transactions)
-    itemset_weight_value = itemset_weight(itemset, transactions)
+def expectedWeightedSupport(weight: [], expectedSupportValueList: []):
+    # print(weight)
+    # print(expectedSupportValueList)
 
-    return exp_support * itemset_weight_value
+    result =[]
+    for i in weight:
+        for j in expectedSupportValueList:
+            if(list(i.keys())[0] == list(j.keys())[0]):
+                weightValue =  i.get(list(i.keys())[0])
+                expectedSupportValue = j.get(list(j.keys())[0])
+                expectedWeightedSupport = weightValue * expectedSupportValue
+                
+                result.append({list(i.keys())[0]:expectedWeightedSupport})
+    return result
