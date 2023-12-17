@@ -10,6 +10,13 @@ class TransactionDTO:
         self.weight_table = weight_table
         self.probability = self.calculate_probability()
 
+    def syntheticChain(self):
+        listString= []
+        for item in self.items:
+            listString.append(item.item)
+        syntheticChain = sorted(generate_strings(self,listString))
+        return syntheticChain
+
     def calculate_probability(self) -> float:
         listString= []
         for item in self.items:
@@ -26,6 +33,15 @@ class TransactionDTO:
             result.update({i: total})
         return result
     
-    def get_weighted_support(self, itemset) -> float:
-        return sum(self.weight_table.get_weight(item.item) * (item.item in itemset) for item in self.items)
-
+    
+    def calculateTubw(self,weightTable):
+        array =[]
+        for i in self.items:
+            weight =weightTable.get_weight(i.item)
+            array.append(weight)
+        maxWeight= max(array)
+        return {self.tid:maxWeight} 
+    
+    def calculateTubp(self):
+        tubp =  max(x.probability for x in self.items)
+        return {self.tid:tubp}

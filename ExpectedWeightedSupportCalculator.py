@@ -1,7 +1,7 @@
 # ExpectedWeightedSupportCalculator.py
 from typing import List, Set
 from TransactionDTO import TransactionDTO
-from ItemsetSupportCalculators import expected_support, itemset_weight
+from ItemsetSupportCalculators import expected_support, itemsetWeight
 
 def expectedWeightedSupport(weight: [], expectedSupportValueList: []):
     # print(weight)

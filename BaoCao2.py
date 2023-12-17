@@ -1,6 +1,6 @@
 
 from ItemDto import ItemDto
-from ItemsetSupportCalculators import itemset_weight
+from ItemsetSupportCalculators import itemsetWeight
 from TidDto import TidDto
 from TransactionDTO import TransactionDTO
 from WeightTable import WeightTable

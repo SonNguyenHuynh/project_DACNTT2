@@ -4,7 +4,7 @@ from TransactionDTO import TransactionDTO
 def expected_support(itemset: Set[str], transactions: List[TransactionDTO]) -> float:
     return sum(transaction.probability * (itemset.issubset(item.item for item in transaction.items)) for transaction in transactions)
 
-def itemset_weight(itemset: Set[str], transactions: List[TransactionDTO]) -> float:
+def itemsetWeight(itemset: Set[str], transactions: List[TransactionDTO]) -> float:
     total_weight = 0.0
     total_items = 0
 

@@ -1,6 +1,5 @@
 
 from ItemDto import ItemDto
-from ItemsetSupportCalculators import itemset_weight
 from TidDto import TidDto
 from TransactionDTO import TransactionDTO
 from WeightTable import WeightTable
@@ -12,19 +11,25 @@ from ExpectedWeightedSupportCalculator import expectedWeightedSupport
 
 class Lin2016:
     
-    def lin2016(self):    
+    def execute(self):    
         # weight_table = WeightTable()
         dataBase = Lin2016().createDataBase()
         transactions = dataBase[0]
         weightTable = dataBase[1]
         weightOfSyntheticChain = weightTable.calculate_probability()
-        print(weightOfSyntheticChain)
+        # print(weightOfSyntheticChain)
+
 
 
         
         # print(weightOfSyntheticChain)
         ds = DS(tid=1, transactions=transactions)
         syntheticChain = ds.syntheticChain
+        expectedWeighted = 0.1
+        expectedWeightedValue = len(ds.transactions) * expectedWeighted
+
+        # print(expectedWeightedValue)
+
         # print(syntheticChain)
         # print(ds.tid)
 
@@ -34,22 +39,104 @@ class Lin2016:
         # print(weightTable.calculate_probability())
 
         itemsetProbabilityInATransaction = [] 
-        print('Itemset probability in a transaction')
+        # print('Itemset probability in a transaction')
         for i in ds.transactions:
             itemsetProbabilityInATransaction.append(i.probability)
 
+        # print('itemset probability in a transaction')
         # print(itemsetProbabilityInATransaction)
 
         # Calculate Expected Support of an Itemset
         expectedSupportValue = expectedSupport(syntheticChain, itemsetProbabilityInATransaction)
-        print(f"Expected Support of : {expectedSupportValue}")
-        print()
+        # print(f"Expected Support of : {expectedSupportValue}")
+        # print()
 
         # Calculate Expected Weighted Support of an Itemset
         expectedWeightedSupportValue = expectedWeightedSupport(weightOfSyntheticChain, expectedSupportValue)
-        print(f"Expected Weighted Support")
-        print(expectedWeightedSupportValue)
+        # print(f"Expected Weighted Support")
+        # print(expectedWeightedSupportValue)
 
+        print('hewi')
+        hewi =Lin2016().calculatetHewis(expectedWeightedSupportValue,expectedWeightedValue)
+        print(hewi)
+
+        tubw =[]
+        for i in ds.transactions:
+            tubw.append(i.calculateTubw(weightTable))
+
+        # print('tubw : ')
+        # print(tubw)
+
+        tubp = []
+        for i in ds.transactions:
+            tubp.append(i.calculateTubp())
+        # print('tubp')
+        # print(tubp)
+
+        # print('tubwp')
+        tubwp = Lin2016().calculatetTubwp(tubp,tubw)
+        # print(tubwp)
+
+        # print('iubwp')
+        iubwp= Lin2016().calculatetIubwp(syntheticChain,ds,tubwp)
+        # print(iubwp)
+
+        HUBEWI = Lin2016().calculatetHubewi(iubwp,expectedWeightedValue)
+        print('HUBEWI')
+        print(HUBEWI)
+
+    def calculatetHewis(self,expectedWeightedSupportValue,expectedWeightedValue):
+        result =[]
+        for i in expectedWeightedSupportValue:
+            if(i.get(list(i.keys())[0])>=expectedWeightedValue):
+                result.append(i)
+        sortedData = sorted(result, key=lambda x: len(list(x.keys())[0]))
+
+        return sortedData
+
+    def calculatetHubewi(self,iubwp,expectedWeightedValue):
+        result =[]
+        for i in iubwp:
+            if(i.get(list(i.keys())[0])>=expectedWeightedValue):
+                result.append(i)
+        sortedData = sorted(result, key=lambda x: len(list(x.keys())[0]))
+
+        return sortedData
+
+
+
+
+    def calculatetTubwp(self,tubp,tubw):
+        result =[]
+        for i in tubp:
+            for j in tubw:
+                if(list(i.keys())[0] == list(j.keys())[0]):
+                    tubpValue =  i.get(list(i.keys())[0])
+                    tubwValue = j.get(list(j.keys())[0])
+                    tubwpValue = tubpValue * tubwValue
+                    
+                    result.append({list(i.keys())[0]:tubwpValue})
+        return result
+
+    def calculatetIubwp(self,syntheticChain,ds,tubwp):
+        iubwp = []
+        for i in syntheticChain:
+            tubwpArray=[]
+            for j in ds.transactions:
+                for x in j.syntheticChain():
+                    if(i == x):
+                        tubwpTid =tubwp[j.tid-1]
+                        tubwpValue =tubwpTid.get(j.tid)
+                        tubwpArray.append(tubwpValue)
+            if(len(tubwpArray)):
+                iubwp.append({i:sum(tubwpArray)})
+        return iubwp
+    
+    
+    
+    
+    
+    
     
     def createDataBase(self):
         # transaction1 = TransactionDTO(item=[ItemDto(item='A',probability=0.25),ItemDto(item='C',probability=0.4),ItemDto(item='E',probability=1.0)])
