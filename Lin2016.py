@@ -6,12 +6,108 @@ from WeightTable import WeightTable
 from DS import DS
 from ExpectedSupportCalculator import expectedSupport
 from ExpectedWeightedSupportCalculator import expectedWeightedSupport
+from Util import getItemByLength
+from Util import Apriori_gen
 
 
 
 class Lin2016:
     
     def execute(self):    
+        # weight_table = WeightTable()
+        dataBase = Lin2016().createDataBase()
+        transactions = dataBase[0]
+        weightTable = dataBase[1]
+        weightOfSyntheticChain = weightTable.calculate_probability()
+        # print(weightOfSyntheticChain)
+
+
+
+        
+        # print(weightOfSyntheticChain)
+        ds = DS(tid=1, transactions=transactions)
+        syntheticChain = ds.syntheticChain
+        expectedWeighted = 0.1
+        expectedWeightedValue = len(ds.transactions) * expectedWeighted
+        k=1
+        tubw =[]
+        for i in ds.transactions:
+            tubw.append(i.calculateTubw(weightTable))
+
+        # print('tubw : ')
+        # print(tubw)
+
+        tubp = []
+        for i in ds.transactions:
+            tubp.append(i.calculateTubp())
+        # print('tubp')
+        # print(tubp)
+
+        # print('tubwp')
+        tubwp = Lin2016().calculatetTubwp(tubp,tubw)
+        # print(tubwp)
+
+        syntheticChainByK = getItemByLength(syntheticChain,k)
+
+        # print('iubwp')
+        iubwp= Lin2016().calculatetIubwp(syntheticChainByK,ds,tubwp)
+        # print(iubwp)
+
+        HUBEWIs =[]
+        HUBEWI1=[]
+        for i in iubwp:
+            if(i.get(list(i.keys())[0])>=expectedWeightedValue):
+                HUBEWI1.append(i)
+                HUBEWIs.append(i)
+        k=2
+
+        while(len(HUBEWI1)):
+            syntheticChainByK = getItemByLength(syntheticChain,k)
+            iubwpByK= Lin2016().calculatetIubwp(syntheticChainByK,ds,tubwp)
+            HUBEWIk=[]
+            for i in iubwpByK:
+                if(i.get(list(i.keys())[0])>=expectedWeightedValue):
+                    HUBEWIk.append(i)
+                    HUBEWIs.append(i)
+            HUBEWI1=HUBEWIk
+            k=k+1
+        
+        itemsetProbabilityInATransaction = [] 
+        # print('Itemset probability in a transaction')
+        for i in ds.transactions:
+            itemsetProbabilityInATransaction.append(i.probability)
+
+        # print('itemset probability in a transaction')
+        # print(itemsetProbabilityInATransaction)
+            
+        itemHUBEWIs=[]
+        hewis=[]
+        for i in HUBEWIs:
+            itemHUBEWIs.append(list(i.keys())[0])
+
+        # Calculate Expected Support of an Itemset
+        for i in itemHUBEWIs:
+            expectedSupportValue = expectedSupport([i], itemsetProbabilityInATransaction)
+            # print(f"Expected Support of : {expectedSupportValue}")
+            # print(expectedSupportValue)
+
+            # Calculate Expected Weighted Support of an Itemset
+            expectedWeightedSupportValue = expectedWeightedSupport(weightOfSyntheticChain, expectedSupportValue)
+            # print(f"Expected Weighted Support")
+            # print(expectedWeightedSupportValue)
+
+            # print('hewi')
+            hewik =Lin2016().calculatetHewis(expectedWeightedSupportValue,expectedWeightedValue)
+            if(len(hewik)):
+                hewis.append(hewik[0])
+        
+        print(HUBEWIs)
+        for i in hewis:
+            print([i.item,i.probability])
+
+
+    
+    def calculateExample():
         # weight_table = WeightTable()
         dataBase = Lin2016().createDataBase()
         transactions = dataBase[0]
@@ -85,14 +181,14 @@ class Lin2016:
         print('HUBEWI')
         print(HUBEWI)
 
-    def calculatetHewis(self,expectedWeightedSupportValue,expectedWeightedValue):
+
+    def calculatetHewis(self,expectedWeightedSupportValue: list[ItemDto],expectedWeightedValue:int):
         result =[]
         for i in expectedWeightedSupportValue:
-            if(i.get(list(i.keys())[0])>=expectedWeightedValue):
+            if(i.probability >=expectedWeightedValue):
                 result.append(i)
-        sortedData = sorted(result, key=lambda x: len(list(x.keys())[0]))
 
-        return sortedData
+        return result
 
     def calculatetHubewi(self,iubwp,expectedWeightedValue):
         result =[]

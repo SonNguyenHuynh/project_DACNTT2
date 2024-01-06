@@ -1,6 +1,6 @@
 from typing import List, Tuple
 from ItemDto import ItemDto
-from Util import generate_strings
+from Util import generateStrings
 from WeightTable import WeightTable
 
 class TransactionDTO:
@@ -14,14 +14,14 @@ class TransactionDTO:
         listString= []
         for item in self.items:
             listString.append(item.item)
-        syntheticChain = sorted(generate_strings(self,listString))
+        syntheticChain = sorted(generateStrings(self,listString))
         return syntheticChain
 
     def calculate_probability(self) -> float:
         listString= []
         for item in self.items:
             listString.append(item.item)
-        syntheticChain = sorted(generate_strings(self,listString))
+        syntheticChain = sorted(generateStrings(self,listString))
         
         result= {}
         for i in syntheticChain:
