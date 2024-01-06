@@ -1,5 +1,5 @@
 from TransactionDTO import TransactionDTO
-from Util import generate_strings
+from Util import generateStrings
 
 class DS:
     def __init__(self, tid, transactions):
@@ -12,4 +12,4 @@ class DS:
         for i in self.transactions:
             for j in i.items:
                 listChart.append(j.item)
-        return sorted(generate_strings(self,list(dict.fromkeys(listChart))))
+        return sorted(generateStrings(self,list(dict.fromkeys(listChart))))
