@@ -7,7 +7,8 @@ from DS import DS
 from ExpectedSupportCalculator import expectedSupport
 from ExpectedWeightedSupportCalculator import expectedWeightedSupport
 from Util import getItemByLength
-from Util import Apriori_gen
+from Util import AprioriGen
+import random
 
 
 
@@ -16,9 +17,11 @@ class Lin2016:
     def execute(self):    
         # weight_table = WeightTable()
         dataBase = Lin2016().createDataBase()
+        # dataBase = Lin2016().readFile()
+
         transactions = dataBase[0]
         weightTable = dataBase[1]
-        weightOfSyntheticChain = weightTable.calculate_probability()
+        # weightOfSyntheticChain = weightTable.calculate_probability()
         # print(weightOfSyntheticChain)
 
 
@@ -26,7 +29,7 @@ class Lin2016:
         
         # print(weightOfSyntheticChain)
         ds = DS(tid=1, transactions=transactions)
-        syntheticChain = ds.syntheticChain
+        # syntheticChain = ds.syntheticChain
         expectedWeighted = 0.1
         expectedWeightedValue = len(ds.transactions) * expectedWeighted
         k=1
@@ -47,27 +50,28 @@ class Lin2016:
         tubwp = Lin2016().calculatetTubwp(tubp,tubw)
         # print(tubwp)
 
-        syntheticChainByK = getItemByLength(syntheticChain,k)
-
         # print('iubwp')
-        iubwp= Lin2016().calculatetIubwp(syntheticChainByK,ds,tubwp)
+        iubwp= Lin2016().calculatetIubwp(ds,tubwp)
         # print(iubwp)
 
         HUBEWIs =[]
         HUBEWI1=[]
         for i in iubwp:
-            if(i.get(list(i.keys())[0])>=expectedWeightedValue):
-                HUBEWI1.append(i)
+            if(i.probability>=expectedWeightedValue):
+                HUBEWI1.append(i.item)
                 HUBEWIs.append(i)
+        
         k=2
-
+        
         while(len(HUBEWI1)):
-            syntheticChainByK = getItemByLength(syntheticChain,k)
-            iubwpByK= Lin2016().calculatetIubwp(syntheticChainByK,ds,tubwp)
+            frequent_itemsets_kminus1 = [[item] for item in HUBEWI1]
+
+            syntheticChainByK = AprioriGen(sorted(frequent_itemsets_kminus1))
+            iubwpByK= Lin2016().calculatetIubwpWithCk(syntheticChainByK,ds,tubwp)
             HUBEWIk=[]
             for i in iubwpByK:
-                if(i.get(list(i.keys())[0])>=expectedWeightedValue):
-                    HUBEWIk.append(i)
+                if(i.probability >=expectedWeightedValue):
+                    HUBEWIk.append(i.item)
                     HUBEWIs.append(i)
             HUBEWI1=HUBEWIk
             k=k+1
@@ -214,20 +218,57 @@ class Lin2016:
                     result.append({list(i.keys())[0]:tubwpValue})
         return result
 
-    def calculatetIubwp(self,syntheticChain,ds,tubwp):
+    def calculatetIubwp(self,ds:DS,tubwp):
         iubwp = []
-        for i in syntheticChain:
-            tubwpArray=[]
-            for j in ds.transactions:
-                for x in j.syntheticChain():
-                    if(i == x):
-                        tubwpTid =tubwp[j.tid-1]
-                        tubwpValue =tubwpTid.get(j.tid)
-                        tubwpArray.append(tubwpValue)
-            if(len(tubwpArray)):
-                iubwp.append({i:sum(tubwpArray)})
+        for i in ds.transactions:
+            for j in i.items:
+                if(len(iubwp)==0):
+                    tubwpTid =tubwp[i.tid-1]
+                    tubwpValue =tubwpTid.get(i.tid)
+                    iubwp.append(ItemDto(item=j.item,probability=tubwpValue))
+                else:
+                    checkValue= False
+                    for k in iubwp:
+                        if(k.item == j.item):
+                            checkValue =True
+                            break
+                    if(checkValue):
+                        tubwpTid =tubwp[i.tid-1]
+                        tubwpValue =tubwpTid.get(i.tid)
+                        k.probability = k.probability + tubwpValue
+                    else:
+                        tubwpTid =tubwp[i.tid-1]
+                        tubwpValue =tubwpTid.get(i.tid)
+                        iubwp.append(ItemDto(item=j.item,probability=tubwpValue))
         return iubwp
     
+    def calculatetIubwpWithCk(self,syntheticChainByK,ds:DS,tubwp):
+        iubwp = []
+        for i in ds.transactions:
+            for j in syntheticChainByK:
+                keysConcatenated = ''.join(tpl.item for tpl in i.items)
+                checkItemInIubwp= False
+                for k in iubwp:
+                    if(k.item == j):
+                        checkItemInIubwp =True
+                        break
+                itemIsValid = False
+                countChar = 0 
+                for char in j:
+                    if(char in keysConcatenated):
+                        countChar +=1
+                if(countChar == len(j)):
+                    itemIsValid =True
+                if(itemIsValid and checkItemInIubwp == False ):
+                    tubwpTid =tubwp[i.tid-1]
+                    tubwpValue =tubwpTid.get(i.tid)
+                    iubwp.append(ItemDto(item=j,probability=tubwpValue))
+                if(itemIsValid and checkItemInIubwp):
+                    tubwpTid =tubwp[i.tid-1]
+                    tubwpValue =tubwpTid.get(i.tid)
+                    k.probability = k.probability + tubwpValue
+        return iubwp
+
     
     
     
@@ -266,3 +307,39 @@ class Lin2016:
         ]
 
         return [transactions,weightTable]
+    
+    def readFile(self):
+        data=[]
+        items=[]
+        with open('data.txt', 'r') as file:
+            for line in file:
+                itemList = line.split()
+                dataLine = [int(number) for number in itemList]
+                data.append(dataLine)
+
+                for item in itemList:
+                    dataLine=[item]
+                    items.append(str(item))
+        items = sorted(list(set(items)))
+
+        # print(data)
+        # print(items)
+        convertItems  = {key: round(random.uniform(0, 1), 2) for key in items}
+        # print(convertItems)
+        convertData = [[(str(item), round(random.uniform(0, 1), 2)) for item in sublist] for sublist in data]
+        # print(convertData)
+
+        weightTable = WeightTable(convertItems)
+        transactions_data = convertData
+        transactions = [
+            TransactionDTO(tid=i+1, items=data, weight_table=weightTable) for i, data in enumerate(transactions_data)
+        ]
+
+        return [transactions,weightTable]
+    
+
+
+
+
+
+

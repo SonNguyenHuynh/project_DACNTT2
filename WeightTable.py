@@ -1,4 +1,4 @@
-from Util import generateStrings
+from Util import AprioriGen
 
 
 class WeightTable:
@@ -12,7 +12,7 @@ class WeightTable:
 
     def calculate_probability(self):
         listString= list(self.weights.keys())
-        syntheticChain = sorted(generateStrings(self,listString))
+        syntheticChain = AprioriGen(self,listString)
         
         result= []
         for i in syntheticChain:
