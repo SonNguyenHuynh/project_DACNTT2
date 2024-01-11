@@ -1,5 +1,6 @@
 
 import os
+import time
 from Apriori import apriori
 from ItemDto import ItemDto
 from ItemsetWeightCalculator import itemsetWeightCalculator
@@ -13,6 +14,7 @@ from Util import getItemByLength, powerset
 from Util import AprioriGen
 import random
 from collections import defaultdict
+import psutil
 
 from calculatoritemsetProbabilityInATransaction import calculatorItemsetProbabilityInATransaction
 
@@ -24,6 +26,11 @@ class Lin2016:
         # weight_table = WeightTable()
         dataBase = Lin2016().createDataBase()
         # dataBase = Lin2016().readFile()
+        process = psutil.Process()
+
+        start_time = time.time()
+        start_memory = process.memory_info().rss / (1024 ** 2)  # in megabytes
+
 
         transactions = dataBase[0]
         weightTable = dataBase[1]
@@ -109,7 +116,6 @@ class Lin2016:
         
             
             itemsetWeight = itemsetWeightCalculator(expectedSupportValue,weightTable)
-            print(itemsetWeight)
 
             # # Calculate Expected Weighted Support of an Itemset
             expectedWeightedSupportValue = expectedWeightedSupport(itemsetWeight, expectedSupportValue)
@@ -119,13 +125,19 @@ class Lin2016:
             if(expectedWeightedSupportValue.probability >=expectedWeightedValue ):
                 HEWIs.append(expectedWeightedSupportValue)
         
-        for i in HEWIs:
-            print(i.item,i.probability)
-        Lin2016().writeFile(HEWIs)
+        end_memory = process.memory_info().rss / (1024 ** 2)  # in megabytes
+        memory_usage = end_memory - start_memory
+
+        end_time = time.time()
+        runtime = end_time - start_time
+        print(runtime)
+        
+
+        Lin2016().writeFile(HEWIs,runtime,memory_usage)
         
         print('done')
 
-    def writeFile(self,data:[ItemDto]):
+    def writeFile(self,data:[ItemDto],runtime,memory_usage):
         folder_path = "output"
         file_path = "example.txt"
 
@@ -141,6 +153,14 @@ class Lin2016:
         with open(file_path, 'w') as file:
             for i in data:
                 file.write(str(set(i.item)) +' : '+ str(i.probability) + '\n')
+            
+            file.write('\n' + '\n'+ '\n' + '\n')
+            file.write('runtime' + ' : '+ str(runtime) + ' s' + '\n')
+            file.write('memory usage' + ' : '+ str(memory_usage) + ' MB'+ '\n')
+
+
+
+
 
 
     def calculatorHewis(self,expectedWeightedSupportValue: list[ItemDto],expectedWeightedValue:int):
