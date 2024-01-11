@@ -1,4 +1,5 @@
 
+import os
 from Apriori import apriori
 from ItemDto import ItemDto
 from ItemsetWeightCalculator import itemsetWeightCalculator
@@ -13,14 +14,16 @@ from Util import AprioriGen
 import random
 from collections import defaultdict
 
+from calculatoritemsetProbabilityInATransaction import calculatorItemsetProbabilityInATransaction
+
 
 
 class Lin2016:
     
     def execute(self):    
         # weight_table = WeightTable()
-        # dataBase = Lin2016().createDataBase()
-        dataBase = Lin2016().readFile()
+        dataBase = Lin2016().createDataBase()
+        # dataBase = Lin2016().readFile()
 
         transactions = dataBase[0]
         weightTable = dataBase[1]
@@ -33,7 +36,7 @@ class Lin2016:
         # print(weightOfSyntheticChain)
         ds = DS(tid=1, transactions=transactions)
         # syntheticChain = ds.syntheticChain
-        expectedWeighted = 0.01
+        expectedWeighted = 0.1
         expectedWeightedValue = len(ds.transactions) * expectedWeighted
         
         data=[]
@@ -82,44 +85,24 @@ class Lin2016:
 
         while(len(currentLSet)):
 
-            ck= apriori(currentLSet,data,0.03,0.05,k,globalItemSetWithSup)
+            ck= apriori(currentLSet,data,0.3,0.5,k,globalItemSetWithSup)
             globalItemSetWithSup=ck[2]
-            iubwpByK= Lin2016().calculatetIubwpWithCk(ck[0],ds,tubwp)
             HUBEWIk=[]
-            for i in iubwpByK:
-                if(i.probability >=expectedWeightedValue):
-                    HUBEWIk.append(frozenset(i.item))
-                    HUBEWIs.append(i)
+            for i in ck[0]:
+                iubwp= Lin2016().calculatetIubwpWithCk(i,ds,tubwp)
+
+                if(iubwp.probability >=expectedWeightedValue):
+                    HUBEWIk.append(frozenset(iubwp.item))
+                    HUBEWIs.append(iubwp)
             currentLSet=[]
             currentLSet=HUBEWIk
             k=k+1
         
-        itemsetProbabilityInATransaction = []
-        # print('Itemset probability in a transaction')
-        for transaction in ds.transactions:
-            probabilityInATransaction = []
-            for HUBEWI in HUBEWIs:
-                count = 0
-                total = 1
-                subsets = HUBEWI.item
-                for item in transaction.items:
-                    for subset in subsets:
-                        if(item.item == subset):
-                            total*=item.probability
-                            count+=1
-                if(count == len(subsets)):
-                    probabilityInATransaction.append(ItemDto(item=subsets,probability=total))
-            itemsetProbabilityInATransaction.append(probabilityInATransaction)
 
-
-
-
-        # print('itemset probability in a transaction')
-        # print(itemsetProbabilityInATransaction)
-            
 
         # Calculate Expected Support of an Itemset
         for i in HUBEWIs:
+            itemsetProbabilityInATransaction= calculatorItemsetProbabilityInATransaction(i,ds)
             expectedSupportValue = expectedSupportCalculator(i, itemsetProbabilityInATransaction)
             # print(f"Expected Support of : {expectedSupportValue}")
             # print(expectedSupportValue)
@@ -138,87 +121,29 @@ class Lin2016:
         
         for i in HEWIs:
             print(i.item,i.probability)
+        Lin2016().writeFile(HEWIs)
         
         print('done')
 
-
-    
-    def calculateExample():
-        # weight_table = WeightTable()
-        dataBase = Lin2016().createDataBase()
-        transactions = dataBase[0]
-        weightTable = dataBase[1]
-        weightOfSyntheticChain = weightTable.calculate_probability()
-        # print(weightOfSyntheticChain)
+    def writeFile(self,data:[ItemDto]):
+        folder_path = "output"
+        file_path = "example.txt"
 
 
+        # Ensure the folder exists, create it if necessary
+        if not os.path.exists(folder_path):
+            os.makedirs(folder_path)
 
-        
-        # print(weightOfSyntheticChain)
-        ds = DS(tid=1, transactions=transactions)
-        syntheticChain = ds.syntheticChain
-        expectedWeighted = 0.1
-        expectedWeightedValue = len(ds.transactions) * expectedWeighted
-
-        # print(expectedWeightedValue)
-
-        # print(syntheticChain)
-        # print(ds.tid)
-
-        #  Calculate Itemset Weight
-
-        # print('Itemset weight in D')
-        # print(weightTable.calculate_probability())
-
-        itemsetProbabilityInATransaction = [] 
-        # print('Itemset probability in a transaction')
-        for i in ds.transactions:
-            itemsetProbabilityInATransaction.append(i.probability)
-
-        # print('itemset probability in a transaction')
-        # print(itemsetProbabilityInATransaction)
-
-        # Calculate Expected Support of an Itemset
-        expectedSupportValue = expectedSupport(syntheticChain, itemsetProbabilityInATransaction)
-        # print(f"Expected Support of : {expectedSupportValue}")
-        # print()
-
-        # Calculate Expected Weighted Support of an Itemset
-        expectedWeightedSupportValue = expectedWeightedSupport(weightOfSyntheticChain, expectedSupportValue)
-        # print(f"Expected Weighted Support")
-        # print(expectedWeightedSupportValue)
-
-        print('hewi')
-        hewi =Lin2016().calculatetHewis(expectedWeightedSupportValue,expectedWeightedValue)
-        print(hewi)
-
-        tubw =[]
-        for i in ds.transactions:
-            tubw.append(i.calculateTubw(weightTable))
-
-        # print('tubw : ')
-        # print(tubw)
-
-        tubp = []
-        for i in ds.transactions:
-            tubp.append(i.calculateTubp())
-        # print('tubp')
-        # print(tubp)
-
-        # print('tubwp')
-        tubwp = Lin2016().calculatetTubwp(tubp,tubw)
-        # print(tubwp)
-
-        # print('iubwp')
-        iubwp= Lin2016().calculatetIubwp(syntheticChain,ds,tubwp)
-        # print(iubwp)
-
-        HUBEWI = Lin2016().calculatetHubewi(iubwp,expectedWeightedValue)
-        print('HUBEWI')
-        print(HUBEWI)
+        # Construct the full file path
+        file_path = os.path.join(folder_path, file_path)
 
 
-    def calculatetHewis(self,expectedWeightedSupportValue: list[ItemDto],expectedWeightedValue:int):
+        with open(file_path, 'w') as file:
+            for i in data:
+                file.write(str(set(i.item)) +' : '+ str(i.probability) + '\n')
+
+
+    def calculatorHewis(self,expectedWeightedSupportValue: list[ItemDto],expectedWeightedValue:int):
         result =[]
         for i in expectedWeightedSupportValue:
             if(i.probability >=expectedWeightedValue):
@@ -226,7 +151,7 @@ class Lin2016:
 
         return result
 
-    def calculatetHubewi(self,iubwp,expectedWeightedValue):
+    def calculatorHubewi(self,iubwp,expectedWeightedValue):
         result =[]
         for i in iubwp:
             if(i.get(list(i.keys())[0])>=expectedWeightedValue):
@@ -238,7 +163,7 @@ class Lin2016:
 
 
 
-    def calculatetTubwp(self,tubp,tubw):
+    def calculatorTubwp(self,tubp,tubw):
         result =[]
         for i in tubp:
             for j in tubw:
@@ -271,32 +196,17 @@ class Lin2016:
                         iubwp.append(ItemDto(item=j.item,probability=tubwpValue))
         return iubwp
     
-    def calculatetIubwpWithCk(self,ck,ds:DS,tubwp):
-        iubwp = []
-        for i in ds.transactions:
-            for ckItem in ck:
-                countChar = 0 
-                subsets = set(ckItem)
-                checkItemInIubwp= False
-                for k in iubwp:
-                    if(k.item == subsets):
-                        checkItemInIubwp =True
-                        break
-                itemIsValid = False
-                for item in i.items:
-                    for subset in subsets:
-                        if(item.item == subset):
-                            countChar+=1       
-                if(countChar == len(subsets)):
-                    itemIsValid =True
-                if(itemIsValid and checkItemInIubwp == False ):
-                    tubwpValue =tubwp[i.tid-1]
-                    iubwp.append(ItemDto(item=subsets,probability=tubwpValue))
-                if(itemIsValid and checkItemInIubwp):
-                    tubwpValue =tubwp[i.tid-1]
-                    k.probability = k.probability + tubwpValue
-                   
-        return iubwp
+    def calculatetIubwpWithCk(self,itemck:set,ds:DS,tubwp):
+        total = 0
+        for transaction in ds.transactions:
+            count = 0 
+            for item in transaction.items:
+                for i in itemck:
+                    if(item.item == i):
+                        count+=1
+            if(count == len(itemck)):
+                total+=tubwp[transaction.tid -1]
+        return ItemDto(item=itemck,probability=total)
 
     
     
