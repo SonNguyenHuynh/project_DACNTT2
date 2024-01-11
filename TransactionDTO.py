@@ -40,11 +40,11 @@ class TransactionDTO:
             weight =weightTable.get_weight(i.item)
             array.append(weight)
         maxWeight= max(array)
-        return {self.tid:maxWeight} 
+        return ItemDto(item=self.tid,probability=maxWeight) 
     
     def calculateTubp(self):
         tubp =  max(x.probability for x in self.items)
-        return {self.tid:tubp}
+        return ItemDto(item=self.tid,probability=tubp)
     
     def calculateIubwp(self,weightTable):
         array =[]

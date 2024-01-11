@@ -32,50 +32,100 @@ def AprioriGen(frequent_itemsets_k):
 
     return candidate_itemsets_kplus1
 
+from csv import reader
+from collections import defaultdict
+from itertools import chain, combinations
 
-def AprioriGen(frequent_itemsets_kminus1):
-    """
-    Generate candidate itemsets of size k from frequent itemsets of size k-1.
+def dataToCSV(fname):
+    first = True
+    currentID = 1
+    with open(fname, 'r') as dataFile, open(fname + '.csv', 'w') as outputCSV:
+        for line in dataFile:
+            nums = line.split()
+            itemSetID = nums[1]
+            item = nums[2]
+            if(int(itemSetID) == currentID):
+                if(first):
+                    outputCSV.write(item)
+                else:
+                    outputCSV.write(',' + item)
+                first = False
+            else:
+                outputCSV.write('\n' + item)
+                currentID += 1
 
-    Parameters:
-    - frequent_itemsets_kminus1: A list of frequent itemsets of size k-1.
 
-    Returns:
-    - candidate_itemsets: A list of candidate itemsets of size k.
-    """
+def powerset(s):
+    return chain.from_iterable(combinations(s, r) for r in range(1, len(s)))
 
-    candidate_itemsets = []
 
-    # Join step: Joining two frequent itemsets of size k-1 to create a candidate itemset of size k
-    for i in range(len(frequent_itemsets_kminus1)):
-        for j in range(i + 1, len(frequent_itemsets_kminus1)):
-            itemset1 = frequent_itemsets_kminus1[i]
-            itemset2 = frequent_itemsets_kminus1[j]
+def getFromFile(fname):
+    itemSets = []
+    itemSet = set()
 
-            # Check if the first k-2 elements are the same
-            if itemset1[:-1] == itemset2[:-1]:
-                # Create a new candidate itemset by combining the two frequent itemsets
-                candidate_itemset = itemset1 + [itemset2[-1]]
+    with open(fname, 'r') as file:
+        csv_reader = reader(file,delimiter=',')
+        for line in csv_reader:
+            line = list(filter(None, line))
+            record = set(line)
+            for item in record:
+                itemSet.add(frozenset([item]))
+            itemSets.append(record)
+    return itemSet, itemSets
 
-                # Pruning step: Check if all subsets of the candidate itemset are frequent
-                if all(subset in frequent_itemsets_kminus1 for subset in getSubsets(candidate_itemset)):
-                    candidate_itemset=  ''.join(candidate_itemset)
 
-                    candidate_itemsets.append(candidate_itemset)
+def getAboveMinSup(itemSet, itemSetList, minSup, globalItemSetWithSup):
+    freqItemSet = set()
+    localItemSetWithSup = defaultdict(int)
 
-    return candidate_itemsets
+    for item in itemSet:
+        for itemSet in itemSetList:
+            if item.issubset(itemSet):
+                globalItemSetWithSup[item] += 1
+                localItemSetWithSup[item] += 1
 
-def getSubsets(itemset):
-    """
-    Generate all non-empty subsets of an itemset.
+    for item, supCount in localItemSetWithSup.items():
+        support = float(supCount / len(itemSetList))
+        if(support >= minSup):
+            freqItemSet.add(item)
 
-    Parameters:
-    - itemset: A list representing an itemset.
+    return freqItemSet
 
-    Returns:
-    - subsets: A list of all non-empty subsets of the itemset.
-    """
-    subsets = []
-    for i in range(len(itemset)):
-        subsets.append(itemset[:i] + itemset[i+1:])
-    return subsets
+
+def getUnion(itemSet, length):
+    return set([i.union(j) for i in itemSet for j in itemSet if len(i.union(j)) == length])
+
+
+def pruning(candidateSet, prevFreqSet, length):
+    tempCandidateSet = candidateSet.copy()
+    for item in candidateSet:
+        subsets = combinations(item, length)
+        for subset in subsets:
+            # if the subset is not in previous K-frequent get, then remove the set
+            if(frozenset(subset) not in prevFreqSet):
+                tempCandidateSet.remove(item)
+                break
+    return tempCandidateSet
+
+
+def associationRule(freqItemSet, itemSetWithSup, minConf):
+    rules = []
+    for k, itemSet in freqItemSet.items():
+        for item in itemSet:
+            subsets = powerset(item)
+            for s in subsets:
+                confidence = float(
+                    itemSetWithSup[item] / itemSetWithSup[frozenset(s)])
+                if(confidence > minConf):
+                    rules.append([set(s), set(item.difference(s)), confidence])
+    return rules
+
+
+def getItemSetFromList(itemSetList):
+    tempItemSet = set()
+
+    for itemSet in itemSetList:
+        for item in itemSet:
+            tempItemSet.add(frozenset([item]))
+
+    return tempItemSet

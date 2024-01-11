@@ -1,14 +1,17 @@
 
+from Apriori import apriori
 from ItemDto import ItemDto
+from ItemsetWeightCalculator import itemsetWeightCalculator
 from TidDto import TidDto
 from TransactionDTO import TransactionDTO
 from WeightTable import WeightTable
 from DS import DS
-from ExpectedSupportCalculator import expectedSupport
+from ExpectedSupportCalculator import  expectedSupportCalculator
 from ExpectedWeightedSupportCalculator import expectedWeightedSupport
-from Util import getItemByLength
+from Util import getItemByLength, powerset
 from Util import AprioriGen
 import random
+from collections import defaultdict
 
 
 
@@ -16,8 +19,8 @@ class Lin2016:
     
     def execute(self):    
         # weight_table = WeightTable()
-        dataBase = Lin2016().createDataBase()
-        # dataBase = Lin2016().readFile()
+        # dataBase = Lin2016().createDataBase()
+        dataBase = Lin2016().readFile()
 
         transactions = dataBase[0]
         weightTable = dataBase[1]
@@ -30,24 +33,36 @@ class Lin2016:
         # print(weightOfSyntheticChain)
         ds = DS(tid=1, transactions=transactions)
         # syntheticChain = ds.syntheticChain
-        expectedWeighted = 0.1
+        expectedWeighted = 0.01
         expectedWeightedValue = len(ds.transactions) * expectedWeighted
-        k=1
-        tubw =[]
+        
+        data=[]
         for i in ds.transactions:
-            tubw.append(i.calculateTubw(weightTable))
+            tidKeys=[]
+            for j in i.items:
+                tidKeys.append(j.item)
+            data.append(set(tidKeys))
+            # data.append(set(item for item in i.items)) 
+
+        tubw =[]
+        tubp = []
+        tubwp= []
+
+        for i in ds.transactions:
+            tubw=i.calculateTubw(weightTable)
+            tubp=i.calculateTubp()
+            tubwp.append(tubw.probability*tubp.probability)
+
+
 
         # print('tubw : ')
         # print(tubw)
 
-        tubp = []
-        for i in ds.transactions:
-            tubp.append(i.calculateTubp())
         # print('tubp')
         # print(tubp)
 
         # print('tubwp')
-        tubwp = Lin2016().calculatetTubwp(tubp,tubw)
+        # tubwp = Lin2016().calculatetTubwp(tubp,tubw)
         # print(tubwp)
 
         # print('iubwp')
@@ -55,59 +70,76 @@ class Lin2016:
         # print(iubwp)
 
         HUBEWIs =[]
-        HUBEWI1=[]
+        currentLSet=[]
+        HEWIs=[]
         for i in iubwp:
             if(i.probability>=expectedWeightedValue):
-                HUBEWI1.append(i.item)
+                currentLSet.append(frozenset({i.item}))
                 HUBEWIs.append(i)
         
         k=2
-        
-        while(len(HUBEWI1)):
-            frequent_itemsets_kminus1 = [[item] for item in HUBEWI1]
+        globalItemSetWithSup = defaultdict(int)
 
-            syntheticChainByK = AprioriGen(sorted(frequent_itemsets_kminus1))
-            iubwpByK= Lin2016().calculatetIubwpWithCk(syntheticChainByK,ds,tubwp)
+        while(len(currentLSet)):
+
+            ck= apriori(currentLSet,data,0.03,0.05,k,globalItemSetWithSup)
+            globalItemSetWithSup=ck[2]
+            iubwpByK= Lin2016().calculatetIubwpWithCk(ck[0],ds,tubwp)
             HUBEWIk=[]
             for i in iubwpByK:
                 if(i.probability >=expectedWeightedValue):
-                    HUBEWIk.append(i.item)
+                    HUBEWIk.append(frozenset(i.item))
                     HUBEWIs.append(i)
-            HUBEWI1=HUBEWIk
+            currentLSet=[]
+            currentLSet=HUBEWIk
             k=k+1
         
-        itemsetProbabilityInATransaction = [] 
+        itemsetProbabilityInATransaction = []
         # print('Itemset probability in a transaction')
-        for i in ds.transactions:
-            itemsetProbabilityInATransaction.append(i.probability)
+        for transaction in ds.transactions:
+            probabilityInATransaction = []
+            for HUBEWI in HUBEWIs:
+                count = 0
+                total = 1
+                subsets = HUBEWI.item
+                for item in transaction.items:
+                    for subset in subsets:
+                        if(item.item == subset):
+                            total*=item.probability
+                            count+=1
+                if(count == len(subsets)):
+                    probabilityInATransaction.append(ItemDto(item=subsets,probability=total))
+            itemsetProbabilityInATransaction.append(probabilityInATransaction)
+
+
+
 
         # print('itemset probability in a transaction')
         # print(itemsetProbabilityInATransaction)
             
-        itemHUBEWIs=[]
-        hewis=[]
-        for i in HUBEWIs:
-            itemHUBEWIs.append(list(i.keys())[0])
 
         # Calculate Expected Support of an Itemset
-        for i in itemHUBEWIs:
-            expectedSupportValue = expectedSupport([i], itemsetProbabilityInATransaction)
+        for i in HUBEWIs:
+            expectedSupportValue = expectedSupportCalculator(i, itemsetProbabilityInATransaction)
             # print(f"Expected Support of : {expectedSupportValue}")
             # print(expectedSupportValue)
-
-            # Calculate Expected Weighted Support of an Itemset
-            expectedWeightedSupportValue = expectedWeightedSupport(weightOfSyntheticChain, expectedSupportValue)
-            # print(f"Expected Weighted Support")
-            # print(expectedWeightedSupportValue)
-
-            # print('hewi')
-            hewik =Lin2016().calculatetHewis(expectedWeightedSupportValue,expectedWeightedValue)
-            if(len(hewik)):
-                hewis.append(hewik[0])
         
-        print(HUBEWIs)
-        for i in hewis:
-            print([i.item,i.probability])
+            
+            itemsetWeight = itemsetWeightCalculator(expectedSupportValue,weightTable)
+            print(itemsetWeight)
+
+            # # Calculate Expected Weighted Support of an Itemset
+            expectedWeightedSupportValue = expectedWeightedSupport(itemsetWeight, expectedSupportValue)
+            # # print(f"Expected Weighted Support")
+            print(expectedWeightedSupportValue)
+
+            if(expectedWeightedSupportValue.probability >=expectedWeightedValue ):
+                HEWIs.append(expectedWeightedSupportValue)
+        
+        for i in HEWIs:
+            print(i.item,i.probability)
+        
+        print('done')
 
 
     
@@ -223,8 +255,7 @@ class Lin2016:
         for i in ds.transactions:
             for j in i.items:
                 if(len(iubwp)==0):
-                    tubwpTid =tubwp[i.tid-1]
-                    tubwpValue =tubwpTid.get(i.tid)
+                    tubwpValue =tubwp[i.tid-1]
                     iubwp.append(ItemDto(item=j.item,probability=tubwpValue))
                 else:
                     checkValue= False
@@ -233,43 +264,40 @@ class Lin2016:
                             checkValue =True
                             break
                     if(checkValue):
-                        tubwpTid =tubwp[i.tid-1]
-                        tubwpValue =tubwpTid.get(i.tid)
+                        tubwpValue =tubwp[i.tid-1]
                         k.probability = k.probability + tubwpValue
                     else:
-                        tubwpTid =tubwp[i.tid-1]
-                        tubwpValue =tubwpTid.get(i.tid)
+                        tubwpValue =tubwp[i.tid-1]
                         iubwp.append(ItemDto(item=j.item,probability=tubwpValue))
         return iubwp
     
-    def calculatetIubwpWithCk(self,syntheticChainByK,ds:DS,tubwp):
+    def calculatetIubwpWithCk(self,ck,ds:DS,tubwp):
         iubwp = []
         for i in ds.transactions:
-            for j in syntheticChainByK:
-                keysConcatenated = ''.join(tpl.item for tpl in i.items)
+            for ckItem in ck:
+                countChar = 0 
+                subsets = set(ckItem)
                 checkItemInIubwp= False
                 for k in iubwp:
-                    if(k.item == j):
+                    if(k.item == subsets):
                         checkItemInIubwp =True
                         break
                 itemIsValid = False
-                countChar = 0 
-                for char in j:
-                    if(char in keysConcatenated):
-                        countChar +=1
-                if(countChar == len(j)):
+                for item in i.items:
+                    for subset in subsets:
+                        if(item.item == subset):
+                            countChar+=1       
+                if(countChar == len(subsets)):
                     itemIsValid =True
                 if(itemIsValid and checkItemInIubwp == False ):
-                    tubwpTid =tubwp[i.tid-1]
-                    tubwpValue =tubwpTid.get(i.tid)
-                    iubwp.append(ItemDto(item=j,probability=tubwpValue))
+                    tubwpValue =tubwp[i.tid-1]
+                    iubwp.append(ItemDto(item=subsets,probability=tubwpValue))
                 if(itemIsValid and checkItemInIubwp):
-                    tubwpTid =tubwp[i.tid-1]
-                    tubwpValue =tubwpTid.get(i.tid)
+                    tubwpValue =tubwp[i.tid-1]
                     k.probability = k.probability + tubwpValue
+                   
         return iubwp
 
-    
     
     
     
