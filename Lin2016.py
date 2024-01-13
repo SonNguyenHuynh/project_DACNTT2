@@ -24,8 +24,22 @@ class Lin2016:
     
     def execute(self):    
         # weight_table = WeightTable()
-        dataBase = Lin2016().createDataBase()
-        # dataBase = Lin2016().readFile()
+        # dataBase,filename = Lin2016().createDataBase()
+        # Lin2016().handleLogic(dataBase,0.1,filename)
+        # mushroom = Lin2016().readFile('input/data.txt')
+        # Lin2016().handleLogic(mushroom,0.1,'data.txt')
+        mushroom = Lin2016().readFile('input/mushroom.txt')
+        Lin2016().handleLogic(mushroom,0.00001,'mushroom-0,00001.txt')
+        retail = Lin2016().readFile('input/retail.txt')
+        Lin2016().handleLogic(retail,0.00001,'retail-0,00001.txt')
+        T40I10D100K = Lin2016().readFile('input/T40I10D100K.txt')
+        Lin2016().handleLogic(T40I10D100K,0.00001,'T40I10D100K-0,00001.txt')
+
+
+
+
+    def handleLogic(self,dataBase: list,minEWSup: int,filename:str):
+        print('start')
         process = psutil.Process()
 
         start_time = time.time()
@@ -43,7 +57,7 @@ class Lin2016:
         # print(weightOfSyntheticChain)
         ds = DS(tid=1, transactions=transactions)
         # syntheticChain = ds.syntheticChain
-        expectedWeighted = 0.1
+        expectedWeighted = minEWSup
         expectedWeightedValue = len(ds.transactions) * expectedWeighted
         
         data=[]
@@ -82,10 +96,17 @@ class Lin2016:
         HUBEWIs =[]
         currentLSet=[]
         HEWIs=[]
+        lenght1= []
+        lenght2=[]
         for i in iubwp:
             if(i.probability>=expectedWeightedValue):
                 currentLSet.append(frozenset({i.item}))
                 HUBEWIs.append(i)
+            if(len(i.item)==1):
+                lenght1.append(frozenset({i.item}))
+            if(len(i.item)==2):
+                lenght2.append(frozenset({i.item}))
+
         
         k=2
         globalItemSetWithSup = defaultdict(int)
@@ -120,7 +141,6 @@ class Lin2016:
             # # Calculate Expected Weighted Support of an Itemset
             expectedWeightedSupportValue = expectedWeightedSupport(itemsetWeight, expectedSupportValue)
             # # print(f"Expected Weighted Support")
-            print(expectedWeightedSupportValue)
 
             if(expectedWeightedSupportValue.probability >=expectedWeightedValue ):
                 HEWIs.append(expectedWeightedSupportValue)
@@ -130,16 +150,15 @@ class Lin2016:
 
         end_time = time.time()
         runtime = end_time - start_time
-        print(runtime)
         
 
-        Lin2016().writeFile(HEWIs,runtime,memory_usage)
+        Lin2016().writeFile(filename,HEWIs,runtime,memory_usage,len(ds.transactions),expectedWeighted)
         
         print('done')
 
-    def writeFile(self,data:[ItemDto],runtime,memory_usage):
+    def writeFile(self,filename:str,data:[ItemDto],runtime,memory_usage,lenData:int,minEXSup:float):
         folder_path = "output"
-        file_path = "example.txt"
+        file_path = filename
 
 
         # Ensure the folder exists, create it if necessary
@@ -152,9 +171,16 @@ class Lin2016:
 
         with open(file_path, 'w') as file:
             for i in data:
-                file.write(str(set(i.item)) +' : '+ str(i.probability) + '\n')
+                if isinstance(i.item, frozenset):
+                    file.write(str(set(i.item)) +' : '+ str(i.probability) + '\n')
+                else:
+                    file.write(str(i.item) +' : '+ str(i.probability) + '\n')
+
             
             file.write('\n' + '\n'+ '\n' + '\n')
+            file.write('length' + ' : '+ str(lenData) + '\n')
+            file.write('minEXSup' + ' : '+ str(minEXSup*100)+ ' %' + '\n')
+            file.write('candidate' + ' : '+ str(len(data)) + '\n')
             file.write('runtime' + ' : '+ str(runtime) + ' s' + '\n')
             file.write('memory usage' + ' : '+ str(memory_usage) + ' MB'+ '\n')
 
@@ -264,12 +290,12 @@ class Lin2016:
             TransactionDTO(tid=i+1, items=data, weight_table=weightTable) for i, data in enumerate(transactions_data)
         ]
 
-        return [transactions,weightTable]
+        return [transactions,weightTable],'example.txt'
     
-    def readFile(self):
+    def readFile(self,input:str):
         data=[]
         items=[]
-        with open('data.txt', 'r') as file:
+        with open(input, 'r') as file:
             for line in file:
                 itemList = line.split()
                 dataLine = [int(number) for number in itemList]
