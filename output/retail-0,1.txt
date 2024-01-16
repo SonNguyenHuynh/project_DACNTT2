@@ -1,0 +1,9 @@
+
+
+
+
+length : 43405
+minEXSup : 10.0 %
+candidate : 0
+runtime : 106.04215431213379 s
+memory usage : 21.49609375 MB

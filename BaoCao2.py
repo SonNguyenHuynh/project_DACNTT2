@@ -1,11 +1,11 @@
 
+from ExpectedSupportCalculator import expectedSupportCalculator
 from ItemDto import ItemDto
 from ItemsetSupportCalculators import itemsetWeight
 from TidDto import TidDto
 from TransactionDTO import TransactionDTO
 from WeightTable import WeightTable
 from DS import DS
-from ExpectedSupportCalculator import expectedSupport
 from ExpectedWeightedSupportCalculator import expectedWeightedSupport
 
 
@@ -41,7 +41,7 @@ class Baocao2:
         # print(itemsetProbabilityInATransaction)
 
         # Calculate Expected Support of an Itemset
-        expectedSupportValue = expectedSupport(syntheticChain, itemsetProbabilityInATransaction)
+        expectedSupportValue = expectedSupportCalculator(syntheticChain, itemsetProbabilityInATransaction)
         print(f"Expected Support of : {expectedSupportValue}")
         print()
 

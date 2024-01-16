@@ -1,0 +1,906 @@
+[
+    {
+        "label": "reader",
+        "importPath": "csv",
+        "description": "csv",
+        "isExtraImport": true,
+        "detail": "csv",
+        "documentation": {}
+    },
+    {
+        "label": "reader",
+        "importPath": "csv",
+        "description": "csv",
+        "isExtraImport": true,
+        "detail": "csv",
+        "documentation": {}
+    },
+    {
+        "label": "defaultdict",
+        "importPath": "collections",
+        "description": "collections",
+        "isExtraImport": true,
+        "detail": "collections",
+        "documentation": {}
+    },
+    {
+        "label": "defaultdict",
+        "importPath": "collections",
+        "description": "collections",
+        "isExtraImport": true,
+        "detail": "collections",
+        "documentation": {}
+    },
+    {
+        "label": "defaultdict",
+        "importPath": "collections",
+        "description": "collections",
+        "isExtraImport": true,
+        "detail": "collections",
+        "documentation": {}
+    },
+    {
+        "label": "chain",
+        "importPath": "itertools",
+        "description": "itertools",
+        "isExtraImport": true,
+        "detail": "itertools",
+        "documentation": {}
+    },
+    {
+        "label": "combinations",
+        "importPath": "itertools",
+        "description": "itertools",
+        "isExtraImport": true,
+        "detail": "itertools",
+        "documentation": {}
+    },
+    {
+        "label": "combinations",
+        "importPath": "itertools",
+        "description": "itertools",
+        "isExtraImport": true,
+        "detail": "itertools",
+        "documentation": {}
+    },
+    {
+        "label": "chain",
+        "importPath": "itertools",
+        "description": "itertools",
+        "isExtraImport": true,
+        "detail": "itertools",
+        "documentation": {}
+    },
+    {
+        "label": "combinations",
+        "importPath": "itertools",
+        "description": "itertools",
+        "isExtraImport": true,
+        "detail": "itertools",
+        "documentation": {}
+    },
+    {
+        "label": "OptionParser",
+        "importPath": "optparse",
+        "description": "optparse",
+        "isExtraImport": true,
+        "detail": "optparse",
+        "documentation": {}
+    },
+    {
+        "label": "associationRule",
+        "importPath": "Util",
+        "description": "Util",
+        "isExtraImport": true,
+        "detail": "Util",
+        "documentation": {}
+    },
+    {
+        "label": "getAboveMinSup",
+        "importPath": "Util",
+        "description": "Util",
+        "isExtraImport": true,
+        "detail": "Util",
+        "documentation": {}
+    },
+    {
+        "label": "getFromFile",
+        "importPath": "Util",
+        "description": "Util",
+        "isExtraImport": true,
+        "detail": "Util",
+        "documentation": {}
+    },
+    {
+        "label": "getItemSetFromList",
+        "importPath": "Util",
+        "description": "Util",
+        "isExtraImport": true,
+        "detail": "Util",
+        "documentation": {}
+    },
+    {
+        "label": "getUnion",
+        "importPath": "Util",
+        "description": "Util",
+        "isExtraImport": true,
+        "detail": "Util",
+        "documentation": {}
+    },
+    {
+        "label": "pruning",
+        "importPath": "Util",
+        "description": "Util",
+        "isExtraImport": true,
+        "detail": "Util",
+        "documentation": {}
+    },
+    {
+        "label": "generateStrings",
+        "importPath": "Util",
+        "description": "Util",
+        "isExtraImport": true,
+        "detail": "Util",
+        "documentation": {}
+    },
+    {
+        "label": "getItemByLength",
+        "importPath": "Util",
+        "description": "Util",
+        "isExtraImport": true,
+        "detail": "Util",
+        "documentation": {}
+    },
+    {
+        "label": "powerset",
+        "importPath": "Util",
+        "description": "Util",
+        "isExtraImport": true,
+        "detail": "Util",
+        "documentation": {}
+    },
+    {
+        "label": "AprioriGen",
+        "importPath": "Util",
+        "description": "Util",
+        "isExtraImport": true,
+        "detail": "Util",
+        "documentation": {}
+    },
+    {
+        "label": "generateStrings",
+        "importPath": "Util",
+        "description": "Util",
+        "isExtraImport": true,
+        "detail": "Util",
+        "documentation": {}
+    },
+    {
+        "label": "AprioriGen",
+        "importPath": "Util",
+        "description": "Util",
+        "isExtraImport": true,
+        "detail": "Util",
+        "documentation": {}
+    },
+    {
+        "label": "expectedSupportCalculator",
+        "importPath": "ExpectedSupportCalculator",
+        "description": "ExpectedSupportCalculator",
+        "isExtraImport": true,
+        "detail": "ExpectedSupportCalculator",
+        "documentation": {}
+    },
+    {
+        "label": "expectedSupportCalculator",
+        "importPath": "ExpectedSupportCalculator",
+        "description": "ExpectedSupportCalculator",
+        "isExtraImport": true,
+        "detail": "ExpectedSupportCalculator",
+        "documentation": {}
+    },
+    {
+        "label": "ItemDto",
+        "importPath": "ItemDto",
+        "description": "ItemDto",
+        "isExtraImport": true,
+        "detail": "ItemDto",
+        "documentation": {}
+    },
+    {
+        "label": "ItemDto",
+        "importPath": "ItemDto",
+        "description": "ItemDto",
+        "isExtraImport": true,
+        "detail": "ItemDto",
+        "documentation": {}
+    },
+    {
+        "label": "ItemDto",
+        "importPath": "ItemDto",
+        "description": "ItemDto",
+        "isExtraImport": true,
+        "detail": "ItemDto",
+        "documentation": {}
+    },
+    {
+        "label": "ItemDto",
+        "importPath": "ItemDto",
+        "description": "ItemDto",
+        "isExtraImport": true,
+        "detail": "ItemDto",
+        "documentation": {}
+    },
+    {
+        "label": "ItemDto",
+        "importPath": "ItemDto",
+        "description": "ItemDto",
+        "isExtraImport": true,
+        "detail": "ItemDto",
+        "documentation": {}
+    },
+    {
+        "label": "ItemDto",
+        "importPath": "ItemDto",
+        "description": "ItemDto",
+        "isExtraImport": true,
+        "detail": "ItemDto",
+        "documentation": {}
+    },
+    {
+        "label": "ItemDto",
+        "importPath": "ItemDto",
+        "description": "ItemDto",
+        "isExtraImport": true,
+        "detail": "ItemDto",
+        "documentation": {}
+    },
+    {
+        "label": "ItemDto",
+        "importPath": "ItemDto",
+        "description": "ItemDto",
+        "isExtraImport": true,
+        "detail": "ItemDto",
+        "documentation": {}
+    },
+    {
+        "label": "itemsetWeight",
+        "importPath": "ItemsetSupportCalculators",
+        "description": "ItemsetSupportCalculators",
+        "isExtraImport": true,
+        "detail": "ItemsetSupportCalculators",
+        "documentation": {}
+    },
+    {
+        "label": "expected_support",
+        "importPath": "ItemsetSupportCalculators",
+        "description": "ItemsetSupportCalculators",
+        "isExtraImport": true,
+        "detail": "ItemsetSupportCalculators",
+        "documentation": {}
+    },
+    {
+        "label": "itemsetWeight",
+        "importPath": "ItemsetSupportCalculators",
+        "description": "ItemsetSupportCalculators",
+        "isExtraImport": true,
+        "detail": "ItemsetSupportCalculators",
+        "documentation": {}
+    },
+    {
+        "label": "itemsetWeight",
+        "importPath": "ItemsetSupportCalculators",
+        "description": "ItemsetSupportCalculators",
+        "isExtraImport": true,
+        "detail": "ItemsetSupportCalculators",
+        "documentation": {}
+    },
+    {
+        "label": "TidDto",
+        "importPath": "TidDto",
+        "description": "TidDto",
+        "isExtraImport": true,
+        "detail": "TidDto",
+        "documentation": {}
+    },
+    {
+        "label": "TidDto",
+        "importPath": "TidDto",
+        "description": "TidDto",
+        "isExtraImport": true,
+        "detail": "TidDto",
+        "documentation": {}
+    },
+    {
+        "label": "TidDto",
+        "importPath": "TidDto",
+        "description": "TidDto",
+        "isExtraImport": true,
+        "detail": "TidDto",
+        "documentation": {}
+    },
+    {
+        "label": "TransactionDTO",
+        "importPath": "TransactionDTO",
+        "description": "TransactionDTO",
+        "isExtraImport": true,
+        "detail": "TransactionDTO",
+        "documentation": {}
+    },
+    {
+        "label": "TransactionDTO",
+        "importPath": "TransactionDTO",
+        "description": "TransactionDTO",
+        "isExtraImport": true,
+        "detail": "TransactionDTO",
+        "documentation": {}
+    },
+    {
+        "label": "TransactionDTO",
+        "importPath": "TransactionDTO",
+        "description": "TransactionDTO",
+        "isExtraImport": true,
+        "detail": "TransactionDTO",
+        "documentation": {}
+    },
+    {
+        "label": "TransactionDTO",
+        "importPath": "TransactionDTO",
+        "description": "TransactionDTO",
+        "isExtraImport": true,
+        "detail": "TransactionDTO",
+        "documentation": {}
+    },
+    {
+        "label": "TransactionDTO",
+        "importPath": "TransactionDTO",
+        "description": "TransactionDTO",
+        "isExtraImport": true,
+        "detail": "TransactionDTO",
+        "documentation": {}
+    },
+    {
+        "label": "TransactionDTO",
+        "importPath": "TransactionDTO",
+        "description": "TransactionDTO",
+        "isExtraImport": true,
+        "detail": "TransactionDTO",
+        "documentation": {}
+    },
+    {
+        "label": "TransactionDTO",
+        "importPath": "TransactionDTO",
+        "description": "TransactionDTO",
+        "isExtraImport": true,
+        "detail": "TransactionDTO",
+        "documentation": {}
+    },
+    {
+        "label": "TransactionDTO",
+        "importPath": "TransactionDTO",
+        "description": "TransactionDTO",
+        "isExtraImport": true,
+        "detail": "TransactionDTO",
+        "documentation": {}
+    },
+    {
+        "label": "WeightTable",
+        "importPath": "WeightTable",
+        "description": "WeightTable",
+        "isExtraImport": true,
+        "detail": "WeightTable",
+        "documentation": {}
+    },
+    {
+        "label": "WeightTable",
+        "importPath": "WeightTable",
+        "description": "WeightTable",
+        "isExtraImport": true,
+        "detail": "WeightTable",
+        "documentation": {}
+    },
+    {
+        "label": "WeightTable",
+        "importPath": "WeightTable",
+        "description": "WeightTable",
+        "isExtraImport": true,
+        "detail": "WeightTable",
+        "documentation": {}
+    },
+    {
+        "label": "WeightTable",
+        "importPath": "WeightTable",
+        "description": "WeightTable",
+        "isExtraImport": true,
+        "detail": "WeightTable",
+        "documentation": {}
+    },
+    {
+        "label": "WeightTable",
+        "importPath": "WeightTable",
+        "description": "WeightTable",
+        "isExtraImport": true,
+        "detail": "WeightTable",
+        "documentation": {}
+    },
+    {
+        "label": "DS",
+        "importPath": "DS",
+        "description": "DS",
+        "isExtraImport": true,
+        "detail": "DS",
+        "documentation": {}
+    },
+    {
+        "label": "DS",
+        "importPath": "DS",
+        "description": "DS",
+        "isExtraImport": true,
+        "detail": "DS",
+        "documentation": {}
+    },
+    {
+        "label": "DS",
+        "importPath": "DS",
+        "description": "DS",
+        "isExtraImport": true,
+        "detail": "DS",
+        "documentation": {}
+    },
+    {
+        "label": "DS",
+        "importPath": "DS",
+        "description": "DS",
+        "isExtraImport": true,
+        "detail": "DS",
+        "documentation": {}
+    },
+    {
+        "label": "expectedWeightedSupport",
+        "importPath": "ExpectedWeightedSupportCalculator",
+        "description": "ExpectedWeightedSupportCalculator",
+        "isExtraImport": true,
+        "detail": "ExpectedWeightedSupportCalculator",
+        "documentation": {}
+    },
+    {
+        "label": "expectedWeightedSupport",
+        "importPath": "ExpectedWeightedSupportCalculator",
+        "description": "ExpectedWeightedSupportCalculator",
+        "isExtraImport": true,
+        "detail": "ExpectedWeightedSupportCalculator",
+        "documentation": {}
+    },
+    {
+        "label": "expectedWeightedSupport",
+        "importPath": "ExpectedWeightedSupportCalculator",
+        "description": "ExpectedWeightedSupportCalculator",
+        "isExtraImport": true,
+        "detail": "ExpectedWeightedSupportCalculator",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Set",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Set",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Set",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Set",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Set",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "apriori",
+        "importPath": "Apriori",
+        "description": "Apriori",
+        "isExtraImport": true,
+        "detail": "Apriori",
+        "documentation": {}
+    },
+    {
+        "label": "itemsetWeightCalculator",
+        "importPath": "ItemsetWeightCalculator",
+        "description": "ItemsetWeightCalculator",
+        "isExtraImport": true,
+        "detail": "ItemsetWeightCalculator",
+        "documentation": {}
+    },
+    {
+        "label": "random",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "random",
+        "description": "random",
+        "detail": "random",
+        "documentation": {}
+    },
+    {
+        "label": "psutil",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "psutil",
+        "description": "psutil",
+        "detail": "psutil",
+        "documentation": {}
+    },
+    {
+        "label": "calculatorItemsetProbabilityInATransaction",
+        "importPath": "calculatoritemsetProbabilityInATransaction",
+        "description": "calculatoritemsetProbabilityInATransaction",
+        "isExtraImport": true,
+        "detail": "calculatoritemsetProbabilityInATransaction",
+        "documentation": {}
+    },
+    {
+        "label": "Lin2016",
+        "importPath": "Lin2016",
+        "description": "Lin2016",
+        "isExtraImport": true,
+        "detail": "Lin2016",
+        "documentation": {}
+    },
+    {
+        "label": "Baocao2",
+        "importPath": "BaoCao2",
+        "description": "BaoCao2",
+        "isExtraImport": true,
+        "detail": "BaoCao2",
+        "documentation": {}
+    },
+    {
+        "label": "apriori",
+        "kind": 2,
+        "importPath": "Apriori",
+        "description": "Apriori",
+        "peekOfCode": "def apriori(itemSetList, minSup, minConf):\n    C1ItemSet = getItemSetFromList(itemSetList)\n    # Final result global frequent itemset\n    globalFreqItemSet = dict()\n    # Storing global itemset with support count\n    globalItemSetWithSup = defaultdict(int)\n    L1ItemSet = getAboveMinSup(\n        C1ItemSet, itemSetList, minSup, globalItemSetWithSup)\n    currentLSet = L1ItemSet\n    k = 2",
+        "detail": "Apriori",
+        "documentation": {}
+    },
+    {
+        "label": "aprioriFromFile",
+        "kind": 2,
+        "importPath": "Apriori",
+        "description": "Apriori",
+        "peekOfCode": "def aprioriFromFile(fname, minSup, minConf):\n    C1ItemSet, itemSetList = getFromFile(fname)\n    # Final result global frequent itemset\n    globalFreqItemSet = dict()\n    # Storing global itemset with support count\n    globalItemSetWithSup = defaultdict(int)\n    L1ItemSet = getAboveMinSup(\n        C1ItemSet, itemSetList, minSup, globalItemSetWithSup)\n    currentLSet = L1ItemSet\n    k = 2",
+        "detail": "Apriori",
+        "documentation": {}
+    },
+    {
+        "label": "apriori",
+        "kind": 2,
+        "importPath": "Apriori",
+        "description": "Apriori",
+        "peekOfCode": "def apriori(C1ItemSet,itemSetList, minSup, minConf,k,globalItemSetWithSup):\n    # Final result global frequent itemset\n    globalFreqItemSet = dict()\n    # Storing global itemset with support count\n    L1ItemSet = getAboveMinSup(\n        C1ItemSet, itemSetList, minSup, globalItemSetWithSup)\n    currentLSet = L1ItemSet\n    # Calculating frequent item set\n        # Storing frequent itemset\n        # Self-joinin g Lk",
+        "detail": "Apriori",
+        "documentation": {}
+    },
+    {
+        "label": "Baocao2",
+        "kind": 6,
+        "importPath": "BaoCao2",
+        "description": "BaoCao2",
+        "peekOfCode": "class Baocao2:\n    def Baocao2(self):    \n        # weight_table = WeightTable()\n        dataBase = Baocao2().createDataBase()\n        transactions = dataBase[0]\n        weightTable = dataBase[1]\n        weightOfSyntheticChain = weightTable.calculate_probability()\n        print(weightOfSyntheticChain)\n        # print(weightOfSyntheticChain)\n        ds = DS(tid=1, transactions=transactions)",
+        "detail": "BaoCao2",
+        "documentation": {}
+    },
+    {
+        "label": "calculatorItemsetProbabilityInATransaction",
+        "kind": 2,
+        "importPath": "calculatoritemsetProbabilityInATransaction",
+        "description": "calculatoritemsetProbabilityInATransaction",
+        "peekOfCode": "def calculatorItemsetProbabilityInATransaction(itemset: ItemDto, ds:DS):\n    result = []\n    total = 1\n    for transaction in ds.transactions:\n        total = 1\n        count = 0\n        for itemdto in transaction.items:\n            for item in itemset.item:\n                if(itemdto.item == item):\n                    count +=1",
+        "detail": "calculatoritemsetProbabilityInATransaction",
+        "documentation": {}
+    },
+    {
+        "label": "DS",
+        "kind": 6,
+        "importPath": "DS",
+        "description": "DS",
+        "peekOfCode": "class DS:\n    def __init__(self, tid, transactions):\n        self.tid = tid\n        self.transactions = transactions\n        # self.syntheticChain = self.getSyntheticChain()\n    def getSyntheticChain(self):\n        listChart = []\n        for i in self.transactions:\n            for j in i.items:\n                listChart.append(j.item)",
+        "detail": "DS",
+        "documentation": {}
+    },
+    {
+        "label": "expectedSupportCalculator",
+        "kind": 2,
+        "importPath": "ExpectedSupportCalculator",
+        "description": "ExpectedSupportCalculator",
+        "peekOfCode": "def expectedSupportCalculator(itemset: ItemDto, itemsetProbabilityInATransactions: [ItemDto]):\n    total = 0\n    for itemsetProbabilityInATransaction in itemsetProbabilityInATransactions:\n        total +=itemsetProbabilityInATransaction.probability\n    return ItemDto(item=itemset.item,probability=total)",
+        "detail": "ExpectedSupportCalculator",
+        "documentation": {}
+    },
+    {
+        "label": "expectedWeightedSupport",
+        "kind": 2,
+        "importPath": "ExpectedWeightedSupportCalculator",
+        "description": "ExpectedWeightedSupportCalculator",
+        "peekOfCode": "def expectedWeightedSupport(itemsetWeight: ItemDto, expectedSupportValue:ItemDto):\n    # print(weight)\n    # print(expectedSupportValueList)\n    return ItemDto(item=itemsetWeight.item,probability=itemsetWeight.probability * expectedSupportValue.probability)",
+        "detail": "ExpectedWeightedSupportCalculator",
+        "documentation": {}
+    },
+    {
+        "label": "HewiUaprior",
+        "kind": 6,
+        "importPath": "Hewi-uaprior",
+        "description": "Hewi-uaprior",
+        "peekOfCode": "class HewiUaprior:\n    def execute(self):    \n        # weight_table = WeightTable()\n        dataBase,filename = HewiUaprior().createDataBase()\n        HewiUaprior().handleLogic(dataBase,0.1,filename)\n        # mushroom = Lin2016().readFile('input/data.txt')\n        # Lin2016().handleLogic(mushroom,0.1,'data.txt')\n        # mushroom = Lin2016().readFile('input/mushroom.txt')\n        # Lin2016().handleLogic(mushroom,0.00001,'mushroom-0,00001.txt')\n        # retail = Lin2016().readFile('input/retail.txt')",
+        "detail": "Hewi-uaprior",
+        "documentation": {}
+    },
+    {
+        "label": "ItemDto",
+        "kind": 6,
+        "importPath": "ItemDto",
+        "description": "ItemDto",
+        "peekOfCode": "class ItemDto:\n    def __init__(self, item, probability):\n        self.item = item\n        self.probability = probability",
+        "detail": "ItemDto",
+        "documentation": {}
+    },
+    {
+        "label": "expected_support",
+        "kind": 2,
+        "importPath": "ItemsetSupportCalculators",
+        "description": "ItemsetSupportCalculators",
+        "peekOfCode": "def expected_support(itemset: Set[str], transactions: List[TransactionDTO]) -> float:\n    return sum(transaction.probability * (itemset.issubset(item.item for item in transaction.items)) for transaction in transactions)\ndef itemsetWeight(itemset: Set[str], transactions: List[TransactionDTO]) -> float:\n    total_weight = 0.0\n    total_items = 0\n    for transaction in transactions:\n        for item in transaction.items:\n            if item.item in itemset:\n                total_weight += transaction.weight_table.get_weight(item.item)\n                total_items += 1",
+        "detail": "ItemsetSupportCalculators",
+        "documentation": {}
+    },
+    {
+        "label": "itemsetWeight",
+        "kind": 2,
+        "importPath": "ItemsetSupportCalculators",
+        "description": "ItemsetSupportCalculators",
+        "peekOfCode": "def itemsetWeight(itemset: Set[str], transactions: List[TransactionDTO]) -> float:\n    total_weight = 0.0\n    total_items = 0\n    for transaction in transactions:\n        for item in transaction.items:\n            if item.item in itemset:\n                total_weight += transaction.weight_table.get_weight(item.item)\n                total_items += 1\n    if total_items == 0:\n        return 0.0",
+        "detail": "ItemsetSupportCalculators",
+        "documentation": {}
+    },
+    {
+        "label": "itemsetWeightCalculator",
+        "kind": 2,
+        "importPath": "ItemsetWeightCalculator",
+        "description": "ItemsetWeightCalculator",
+        "peekOfCode": "def itemsetWeightCalculator(itemset: ItemDto, weightTable: WeightTable):\n    total = 0\n    for item in itemset.item:\n        value=weightTable.get_weight(item=item)\n        total += value\n    return ItemDto(item=itemset.item,probability=total/len(itemset.item))",
+        "detail": "ItemsetWeightCalculator",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def main():\n    lint2016 = Lin2016().execute()\n    # baocao2 = Baocao2().Baocao2()\nif __name__ == \"__main__\":\n    main()",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "TidDto",
+        "kind": 6,
+        "importPath": "TidDto",
+        "description": "TidDto",
+        "peekOfCode": "class TidDto:\n    def __init__(self, tid):\n        self.tid = tid",
+        "detail": "TidDto",
+        "documentation": {}
+    },
+    {
+        "label": "TransactionDTO",
+        "kind": 6,
+        "importPath": "TransactionDTO",
+        "description": "TransactionDTO",
+        "peekOfCode": "class TransactionDTO:\n    def __init__(self, tid, items: List[Tuple[str, float]], weight_table):\n        self.tid = tid\n        self.items = [ItemDto(item=item, probability=probability) for item, probability in items]\n        self.weight_table = weight_table\n    def syntheticChain(self):\n        listString= []\n        for item in self.items:\n            listString.append(item.item)\n        syntheticChain = sorted(generateStrings(self,listString))",
+        "detail": "TransactionDTO",
+        "documentation": {}
+    },
+    {
+        "label": "generateStrings",
+        "kind": 2,
+        "importPath": "Util",
+        "description": "Util",
+        "peekOfCode": "def generateStrings(self,characters):\n    result = []\n    def generate_helper(current_string, index):\n        if index == len(characters):\n            if current_string:  # Only append non-empty strings\n                result.append(current_string)\n            return\n        # Include the character at the current index\n        generate_helper(current_string + characters[index], index + 1)\n        # Exclude the character at the current index",
+        "detail": "Util",
+        "documentation": {}
+    },
+    {
+        "label": "getItemByLength",
+        "kind": 2,
+        "importPath": "Util",
+        "description": "Util",
+        "peekOfCode": "def getItemByLength(characters: list[str],k:int):\n    result = [combo for combo in characters if len(combo) == k]\n    return result\ndef AprioriGen(frequent_itemsets_k):\n    candidate_itemsets_kplus1 = []\n    num_itemsets = len(frequent_itemsets_k)\n    for i in range(num_itemsets):\n        for j in range(i + 1, num_itemsets):\n            candidate_itemset = list(set(frequent_itemsets_k[i]).union(frequent_itemsets_k[j]))\n            if all(set(subset) in frequent_itemsets_k for subset in combinations(candidate_itemset, len(candidate_itemset) - 1)):",
+        "detail": "Util",
+        "documentation": {}
+    },
+    {
+        "label": "AprioriGen",
+        "kind": 2,
+        "importPath": "Util",
+        "description": "Util",
+        "peekOfCode": "def AprioriGen(frequent_itemsets_k):\n    candidate_itemsets_kplus1 = []\n    num_itemsets = len(frequent_itemsets_k)\n    for i in range(num_itemsets):\n        for j in range(i + 1, num_itemsets):\n            candidate_itemset = list(set(frequent_itemsets_k[i]).union(frequent_itemsets_k[j]))\n            if all(set(subset) in frequent_itemsets_k for subset in combinations(candidate_itemset, len(candidate_itemset) - 1)):\n                candidate_itemsets_kplus1.append(sorted(candidate_itemset))\n    return candidate_itemsets_kplus1\nfrom csv import reader",
+        "detail": "Util",
+        "documentation": {}
+    },
+    {
+        "label": "dataToCSV",
+        "kind": 2,
+        "importPath": "Util",
+        "description": "Util",
+        "peekOfCode": "def dataToCSV(fname):\n    first = True\n    currentID = 1\n    with open(fname, 'r') as dataFile, open(fname + '.csv', 'w') as outputCSV:\n        for line in dataFile:\n            nums = line.split()\n            itemSetID = nums[1]\n            item = nums[2]\n            if(int(itemSetID) == currentID):\n                if(first):",
+        "detail": "Util",
+        "documentation": {}
+    },
+    {
+        "label": "powerset",
+        "kind": 2,
+        "importPath": "Util",
+        "description": "Util",
+        "peekOfCode": "def powerset(s):\n    return chain.from_iterable(combinations(s, r) for r in range(1, len(s)))\ndef getFromFile(fname):\n    itemSets = []\n    itemSet = set()\n    with open(fname, 'r') as file:\n        csv_reader = reader(file,delimiter=',')\n        for line in csv_reader:\n            line = list(filter(None, line))\n            record = set(line)",
+        "detail": "Util",
+        "documentation": {}
+    },
+    {
+        "label": "getFromFile",
+        "kind": 2,
+        "importPath": "Util",
+        "description": "Util",
+        "peekOfCode": "def getFromFile(fname):\n    itemSets = []\n    itemSet = set()\n    with open(fname, 'r') as file:\n        csv_reader = reader(file,delimiter=',')\n        for line in csv_reader:\n            line = list(filter(None, line))\n            record = set(line)\n            for item in record:\n                itemSet.add(frozenset([item]))",
+        "detail": "Util",
+        "documentation": {}
+    },
+    {
+        "label": "getAboveMinSup",
+        "kind": 2,
+        "importPath": "Util",
+        "description": "Util",
+        "peekOfCode": "def getAboveMinSup(itemSet, itemSetList, minSup, globalItemSetWithSup):\n    freqItemSet = set()\n    localItemSetWithSup = defaultdict(int)\n    for item in itemSet:\n        for itemSet in itemSetList:\n            if item.issubset(itemSet):\n                globalItemSetWithSup[item] += 1\n                localItemSetWithSup[item] += 1\n    for item, supCount in localItemSetWithSup.items():\n        support = float(supCount / len(itemSetList))",
+        "detail": "Util",
+        "documentation": {}
+    },
+    {
+        "label": "getUnion",
+        "kind": 2,
+        "importPath": "Util",
+        "description": "Util",
+        "peekOfCode": "def getUnion(itemSet, length):\n    return set([i.union(j) for i in itemSet for j in itemSet if len(i.union(j)) == length])\ndef pruning(candidateSet, prevFreqSet, length):\n    tempCandidateSet = candidateSet.copy()\n    for item in candidateSet:\n        subsets = combinations(item, length)\n        for subset in subsets:\n            # if the subset is not in previous K-frequent get, then remove the set\n            if(frozenset(subset) not in prevFreqSet):\n                tempCandidateSet.remove(item)",
+        "detail": "Util",
+        "documentation": {}
+    },
+    {
+        "label": "pruning",
+        "kind": 2,
+        "importPath": "Util",
+        "description": "Util",
+        "peekOfCode": "def pruning(candidateSet, prevFreqSet, length):\n    tempCandidateSet = candidateSet.copy()\n    for item in candidateSet:\n        subsets = combinations(item, length)\n        for subset in subsets:\n            # if the subset is not in previous K-frequent get, then remove the set\n            if(frozenset(subset) not in prevFreqSet):\n                tempCandidateSet.remove(item)\n                break\n    return tempCandidateSet",
+        "detail": "Util",
+        "documentation": {}
+    },
+    {
+        "label": "associationRule",
+        "kind": 2,
+        "importPath": "Util",
+        "description": "Util",
+        "peekOfCode": "def associationRule(freqItemSet, itemSetWithSup, minConf):\n    rules = []\n    for k, itemSet in freqItemSet.items():\n        for item in itemSet:\n            subsets = powerset(item)\n            for s in subsets:\n                confidence = float(\n                    itemSetWithSup[item] / itemSetWithSup[frozenset(s)])\n                if(confidence > minConf):\n                    rules.append([set(s), set(item.difference(s)), confidence])",
+        "detail": "Util",
+        "documentation": {}
+    },
+    {
+        "label": "getItemSetFromList",
+        "kind": 2,
+        "importPath": "Util",
+        "description": "Util",
+        "peekOfCode": "def getItemSetFromList(itemSetList):\n    tempItemSet = set()\n    for itemSet in itemSetList:\n        for item in itemSet:\n            tempItemSet.add(frozenset([item]))\n    return tempItemSet",
+        "detail": "Util",
+        "documentation": {}
+    },
+    {
+        "label": "WeightTable",
+        "kind": 6,
+        "importPath": "WeightTable",
+        "description": "WeightTable",
+        "peekOfCode": "class WeightTable:\n    def __init__(self,weight):\n        self.weights = weight\n        # self.weights = {'A': 0.1, 'B': 0.8, 'C': 0.3, 'D': 1.0, 'E': 0.6, 'F': 1.0}\n    def get_weight(self, item):\n        return self.weights.get(item, 0.0)\n    def calculate_probability(self):\n        listString= list(self.weights.keys())\n        syntheticChain = AprioriGen(self,listString)\n        result= []",
+        "detail": "WeightTable",
+        "documentation": {}
+    }
+]

@@ -1,13 +1,9 @@
 from typing import List, Set
+from ItemDto import ItemDto
 from TransactionDTO import TransactionDTO
 
-def expectedSupport(itemset: Set[str], itemsetProbabilityInATransaction: []):
-    result=[]
-    for i in itemset:
-        total = 0
-        for j in itemsetProbabilityInATransaction:
-            item = j.get(i)
-            if(item):
-                total+=item
-        result.append({i:total})
-    return result
+def expectedSupportCalculator(itemset: ItemDto, itemsetProbabilityInATransactions: [ItemDto]):
+    total = 0
+    for itemsetProbabilityInATransaction in itemsetProbabilityInATransactions:
+        total +=itemsetProbabilityInATransaction.probability
+    return ItemDto(item=itemset.item,probability=total)

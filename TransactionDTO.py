@@ -1,6 +1,6 @@
 from typing import List, Tuple
 from ItemDto import ItemDto
-from Util import generate_strings
+from Util import generateStrings
 from WeightTable import WeightTable
 
 class TransactionDTO:
@@ -8,20 +8,20 @@ class TransactionDTO:
         self.tid = tid
         self.items = [ItemDto(item=item, probability=probability) for item, probability in items]
         self.weight_table = weight_table
-        self.probability = self.calculate_probability()
+
 
     def syntheticChain(self):
         listString= []
         for item in self.items:
             listString.append(item.item)
-        syntheticChain = sorted(generate_strings(self,listString))
+        syntheticChain = sorted(generateStrings(self,listString))
         return syntheticChain
 
     def calculate_probability(self) -> float:
         listString= []
         for item in self.items:
             listString.append(item.item)
-        syntheticChain = sorted(generate_strings(self,listString))
+        syntheticChain = sorted(generateStrings(self,listString))
         
         result= {}
         for i in syntheticChain:
@@ -40,8 +40,16 @@ class TransactionDTO:
             weight =weightTable.get_weight(i.item)
             array.append(weight)
         maxWeight= max(array)
-        return {self.tid:maxWeight} 
+        return ItemDto(item=self.tid,probability=maxWeight) 
     
     def calculateTubp(self):
         tubp =  max(x.probability for x in self.items)
-        return {self.tid:tubp}
+        return ItemDto(item=self.tid,probability=tubp)
+    
+    def calculateIubwp(self,weightTable):
+        array =[]
+        for i in self.items:
+            weight =weightTable.get_weight(i.item)
+            array.append(weight)
+        maxWeight= max(array)
+        return {self.tid:maxWeight} 
