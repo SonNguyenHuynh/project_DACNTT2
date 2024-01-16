@@ -20,30 +20,32 @@ from calculatoritemsetProbabilityInATransaction import calculatorItemsetProbabil
 
 
 
-class Lin2016:
+class HewiUaprior:
     
     def execute(self):    
         # weight_table = WeightTable()
-        # dataBase,filename = Lin2016().createDataBase()
-        # Lin2016().handleLogic(dataBase,0.1,filename)
+        dataBase,filename = HewiUaprior().createDataBase()
+        HewiUaprior().handleLogic(dataBase,0.1,filename)
         # mushroom = Lin2016().readFile('input/data.txt')
         # Lin2016().handleLogic(mushroom,0.1,'data.txt')
-        mushroom = Lin2016().readFile('input/mushroom.txt')
-        Lin2016().handleLogic(mushroom,0.00001,'mushroom-0,00001.txt')
-        retail = Lin2016().readFile('input/retail.txt')
-        Lin2016().handleLogic(retail,0.00001,'retail-0,00001.txt')
-        T40I10D100K = Lin2016().readFile('input/T40I10D100K.txt')
-        Lin2016().handleLogic(T40I10D100K,0.00001,'T40I10D100K-0,00001.txt')
+        # mushroom = Lin2016().readFile('input/mushroom.txt')
+        # Lin2016().handleLogic(mushroom,0.00001,'mushroom-0,00001.txt')
+        # retail = Lin2016().readFile('input/retail.txt')
+        # Lin2016().handleLogic(retail,0.00001,'retail-0,00001.txt')
+        # T40I10D100K = Lin2016().readFile('input/T40I10D100K.txt')
+        # Lin2016().handleLogic(T40I10D100K,0.00001,'T40I10D100K-0,00001.txt')
 
 
 
 
     def handleLogic(self,dataBase: list,minEWSup: int,filename:str):
+        """
+        """
         print('start')
         process = psutil.Process()
 
-        start_time = time.time()
-        start_memory = process.memory_info().rss / (1024 ** 2)  # in megabytes
+        startTime = time.time()
+        startMemory = process.memory_info().rss / (1024 ** 2)  # in megabytes
 
 
         transactions = dataBase[0]
@@ -78,58 +80,45 @@ class Lin2016:
             tubwp.append(tubw.probability*tubp.probability)
 
 
-
-        # print('tubw : ')
-        # print(tubw)
-
-        # print('tubp')
-        # print(tubp)
-
-        # print('tubwp')
-        # tubwp = Lin2016().calculatetTubwp(tubp,tubw)
-        # print(tubwp)
-
-        # print('iubwp')
-        iubwp= Lin2016().calculatetIubwp(ds,tubwp)
+        iubwp= HewiUaprior().calculatetIubwp(ds,tubwp)
         # print(iubwp)
 
-        HUBEWIs =[]
+        hubewis =[]
         currentLSet=[]
-        HEWIs=[]
-        lenght1= []
-        lenght2=[]
+        hewis=[]
+
         for i in iubwp:
             if(i.probability>=expectedWeightedValue):
                 currentLSet.append(frozenset({i.item}))
-                HUBEWIs.append(i)
-            if(len(i.item)==1):
-                lenght1.append(frozenset({i.item}))
-            if(len(i.item)==2):
-                lenght2.append(frozenset({i.item}))
+                hubewis.append(i)
+
 
         
         k=2
         globalItemSetWithSup = defaultdict(int)
 
         while(len(currentLSet)):
-
+            # tinh to hop k
             ck= apriori(currentLSet,data,0.3,0.5,k,globalItemSetWithSup)
             globalItemSetWithSup=ck[2]
-            HUBEWIk=[]
+
+            hubewik=[]
+
+            # tính iubwp trong tổ hợp k vừa tìm được
             for i in ck[0]:
-                iubwp= Lin2016().calculatetIubwpWithCk(i,ds,tubwp)
+                iubwp= HewiUaprior().calculatetIubwpWithCk(i,ds,tubwp)
 
                 if(iubwp.probability >=expectedWeightedValue):
-                    HUBEWIk.append(frozenset(iubwp.item))
-                    HUBEWIs.append(iubwp)
+                    hubewik.append(frozenset(iubwp.item))
+                    hubewis.append(iubwp)
             currentLSet=[]
-            currentLSet=HUBEWIk
+            currentLSet=hubewik
             k=k+1
         
 
 
         # Calculate Expected Support of an Itemset
-        for i in HUBEWIs:
+        for i in hubewis:
             itemsetProbabilityInATransaction= calculatorItemsetProbabilityInATransaction(i,ds)
             expectedSupportValue = expectedSupportCalculator(i, itemsetProbabilityInATransaction)
             # print(f"Expected Support of : {expectedSupportValue}")
@@ -143,33 +132,33 @@ class Lin2016:
             # # print(f"Expected Weighted Support")
 
             if(expectedWeightedSupportValue.probability >=expectedWeightedValue ):
-                HEWIs.append(expectedWeightedSupportValue)
+                hewis.append(expectedWeightedSupportValue)
         
-        end_memory = process.memory_info().rss / (1024 ** 2)  # in megabytes
-        memory_usage = end_memory - start_memory
+        endMemory = process.memory_info().rss / (1024 ** 2)  # in megabytes
+        memory_usage = endMemory - startMemory
 
-        end_time = time.time()
-        runtime = end_time - start_time
+        endTime = time.time()
+        runtime = endTime - startTime
         
 
-        Lin2016().writeFile(filename,HEWIs,runtime,memory_usage,len(ds.transactions),expectedWeighted)
+        HewiUaprior().writeFile(filename,hewis,runtime,memory_usage,len(ds.transactions),expectedWeighted)
         
         print('done')
 
     def writeFile(self,filename:str,data:[ItemDto],runtime,memory_usage,lenData:int,minEXSup:float):
-        folder_path = "output"
-        file_path = filename
+        folderPath = "output"
+        filePath = filename
 
 
         # Ensure the folder exists, create it if necessary
-        if not os.path.exists(folder_path):
-            os.makedirs(folder_path)
+        if not os.path.exists(folderPath):
+            os.makedirs(folderPath)
 
         # Construct the full file path
-        file_path = os.path.join(folder_path, file_path)
+        filePath = os.path.join(folderPath, filePath)
 
 
-        with open(file_path, 'w') as file:
+        with open(filePath, 'w') as file:
             for i in data:
                 if isinstance(i.item, frozenset):
                     file.write(str(set(i.item)) +' : '+ str(i.probability) + '\n')
@@ -221,7 +210,7 @@ class Lin2016:
                     result.append({list(i.keys())[0]:tubwpValue})
         return result
 
-    def calculatetIubwp(self,ds:DS,tubwp):
+    def calculatetIubwp(self,ds:DS,tubwp)-> list[ItemDto]:
         iubwp = []
         for i in ds.transactions:
             for j in i.items:

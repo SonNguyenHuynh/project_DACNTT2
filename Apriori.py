@@ -97,24 +97,3 @@ def apriori(C1ItemSet,itemSetList, minSup, minConf,k,globalItemSetWithSup):
 
     return globalFreqItemSet[k], rules ,globalItemSetWithSup
 
-if __name__ == "__main__":
-    optparser = OptionParser()
-    optparser.add_option('-f', '--inputFile',
-                         dest='inputFile',
-                         help='CSV filename',
-                         default='data.csv')
-    optparser.add_option('-s', '--minSupport',
-                         dest='minSup',
-                         help='Min support (float)',
-                         default=0.3,
-                         type='float')
-    optparser.add_option('-c', '--minConfidence',
-                         dest='minConf',
-                         help='Min confidence (float)',
-                         default=0.5,
-                         type='float')
-
-    (options, args) = optparser.parse_args()
-
-    freqItemSet, rules = aprioriFromFile(options.inputFile, options.minSup, options.minConf)
-    print(freqItemSet)

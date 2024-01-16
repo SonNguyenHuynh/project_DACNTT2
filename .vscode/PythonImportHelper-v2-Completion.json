@@ -724,6 +724,15 @@
         "documentation": {}
     },
     {
+        "label": "HewiUaprior",
+        "kind": 6,
+        "importPath": "Hewi-uaprior",
+        "description": "Hewi-uaprior",
+        "peekOfCode": "class HewiUaprior:\n    def execute(self):    \n        # weight_table = WeightTable()\n        dataBase,filename = HewiUaprior().createDataBase()\n        HewiUaprior().handleLogic(dataBase,0.1,filename)\n        # mushroom = Lin2016().readFile('input/data.txt')\n        # Lin2016().handleLogic(mushroom,0.1,'data.txt')\n        # mushroom = Lin2016().readFile('input/mushroom.txt')\n        # Lin2016().handleLogic(mushroom,0.00001,'mushroom-0,00001.txt')\n        # retail = Lin2016().readFile('input/retail.txt')",
+        "detail": "Hewi-uaprior",
+        "documentation": {}
+    },
+    {
         "label": "ItemDto",
         "kind": 6,
         "importPath": "ItemDto",
@@ -757,15 +766,6 @@
         "description": "ItemsetWeightCalculator",
         "peekOfCode": "def itemsetWeightCalculator(itemset: ItemDto, weightTable: WeightTable):\n    total = 0\n    for item in itemset.item:\n        value=weightTable.get_weight(item=item)\n        total += value\n    return ItemDto(item=itemset.item,probability=total/len(itemset.item))",
         "detail": "ItemsetWeightCalculator",
-        "documentation": {}
-    },
-    {
-        "label": "Lin2016",
-        "kind": 6,
-        "importPath": "Lin2016",
-        "description": "Lin2016",
-        "peekOfCode": "class Lin2016:\n    def execute(self):    \n        # weight_table = WeightTable()\n        dataBase = Lin2016().createDataBase()\n        # dataBase = Lin2016().readFile()\n        process = psutil.Process()\n        start_time = time.time()\n        start_memory = process.memory_info().rss / (1024 ** 2)  # in megabytes\n        transactions = dataBase[0]\n        weightTable = dataBase[1]",
-        "detail": "Lin2016",
         "documentation": {}
     },
     {
