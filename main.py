@@ -1,17 +1,17 @@
 
+from HewiUaprior import HewiUaprior
 from ItemDto import ItemDto
 from ItemsetSupportCalculators import itemsetWeight
 from TidDto import TidDto
 from TransactionDTO import TransactionDTO
+from WdFim import WdFim
 from WeightTable import WeightTable
 from DS import DS
 from ExpectedWeightedSupportCalculator import expectedWeightedSupport
-from Lin2016 import Lin2016
-from BaoCao2 import Baocao2
 
 def main():
-    lint2016 = Lin2016().execute()
-    # baocao2 = Baocao2().Baocao2()
+    # hewiUaprior = HewiUaprior().execute()
+    wdFim = WdFim().execute()
 
 if __name__ == "__main__":
     main()
