@@ -36,47 +36,33 @@ class WdFim:
             data.append(set(tidKeys))
             # data.append(set(item for item in i.items)) 
         
-        wfis= WdFim().calculateExpwSup(ds=ds,weightTable=weightTable,expectedWeightedValue=expectedWeightedValue)
+        WFIS,CWFIS1= WdFim().calculateExpwSup(ds=ds,weightTable=weightTable,expectedWeightedValue=expectedWeightedValue)
 
-        cwfis1 = []
-  
+        WFISK_1=WFIS
 
+        SCWFIS1 = CWFIS1
+        CWFISK_1 = CWFIS1
 
-        wfis  
-
-        wfisk=[]
-        for i in wfis:
-            wfisk.append(frozenset({i.item}))
-
-        cwfis1:list[frozenset] = []
-        scwfi1:list[ItemDto] = []
-        for i in weightTable.weights:
-            cwfis1.append(frozenset({i}))
-
-            scwfi1.append(ItemDto(item=i,probability=weightTable.get_weight(i)))
-            print(i)
-        
-        scwfi1.sort(key=lambda x: x.probability)
+ 
+        SCWFIS1.sort(key=lambda x: x.probability)
 
         k=2
 
-        while(len(wfisk)):
+        while(len(WFISK_1)):
             # tinh to hop k
-            cwfisk  = WdFim().connection(wfisk,cwfis1,k)
-            cwfis1
-            scwfi1
+            CWFISK  = WdFim().connection(WFISK_1,CWFIS1,k)
 
             # NCWFISk = wConnection((CWFISk-1 - WFISk-1), SCWFIS1) 
-            removeItem= WdFim().removeItem(cwfis1,wfisk)
+            removeItem= WdFim().removeItem(CWFISK_1,WFISK_1)
             # tạo tổ hợp B với item trong scwfi1 có popariti nhỏ hơn
-            ncwfisk = WdFim().wConnection(removeItem,scwfi1,k)
-            cwfis1 = cwfisk
+            NCWFISK = WdFim().wConnection(removeItem,SCWFIS1,k)
+            CWFISK_1 = []
 
-            rcwfisk = WdFim().removeItem(data1=cwfisk,data2=ncwfisk)
+            RCWFISK = WdFim().calculatorRCWFISK(data1=CWFISK,data2=NCWFISK)
             # print(rcwfisk)
 
-            wfisk=[]
-            for i in rcwfisk:
+            WFISK_1=[]
+            for i in RCWFISK:
                 itemsetProbabilityInATransaction= calculatorItemsetProbabilityInATransactionWithFrozenset(i,ds)
                 expectedSupportValue = expectedSupportCalculatorWithFrozenset(i, itemsetProbabilityInATransaction)
                 # print(f"Expected Support of : {expectedSupportValue}")
@@ -88,36 +74,57 @@ class WdFim:
                 # # Calculate Expected Weighted Support of an Itemset
                 expectedWeightedSupportValue = expectedWeightedSupport(itemsetWeight, expectedSupportValue)
                 # # print(f"Expected Weighted Support")
-
+                CWFISK_1.append(expectedWeightedSupportValue)
                 if(expectedWeightedSupportValue.probability >=expectedWeightedValue ):
-                    wfis.append(expectedWeightedSupportValue)  
-                    wfisk.append(frozenset(expectedWeightedSupportValue.item))
+                    WFIS.append(expectedWeightedSupportValue)  
+                    WFISK_1.append(expectedWeightedSupportValue)
             k+=1
 
 
         
-        print(wfis)
+        print(WFIS)
+    
+    def calculatorRCWFISK(self,data1:list[frozenset],data2: list[frozenset]):
+        RCWFISK:list[frozenset]=[]
+        for i in data1:
+            isValid =False
+            for j in data2:
+                if(i == j):
+                    isValid =True
+            if(isValid == False):
+                RCWFISK.append(i)
+            else:
+                print(i)    
+
+        return RCWFISK
+
+
         
-    def removeItem(self,data1:list[frozenset],data2: list[frozenset]):
-        return [item for item in data1 if item not in data2]
+    def removeItem(self,data1:list[ItemDto],data2: list[ItemDto]):
+        result: list[ItemDto] = []
+        for i  in data1:
+            isValid = False
+            for j in data2:
+                if(i.item == j.item):
+                    isValid = True
+            if(isValid == False):
+                result.append(i)
+        return result
 
 
 
-    def wConnection(self,wfis:list[frozenset],scwfi: list[ItemDto],length:int):
-        data:list[ItemDto] =[]
+    def wConnection(self,removeItem:list[ItemDto],scwfi: list[ItemDto],length:int):
         result:list[ItemDto] =[]
 
-        data= WdFim().calculatorWeightItem(wfis,scwfi)
-
-        for i in data:
+        for i in removeItem:
             for j in scwfi:
-                if(i.item != j.item and i.probability > j.probability):
+                if(i.probability > j.probability and len(frozenset(i.item).union(frozenset(j.item))) == length):
                     result.append(frozenset(i.item).union(frozenset(j.item)))
 
         return result
     
-    def connection(self,wfis:list[frozenset],cwfis: list[frozenset],length:int):
-        return set([i.union(j) for i in cwfis for j in wfis if len(i.union(j)) == length])
+    def connection(self,wfis:list[ItemDto],cwfis: list[ItemDto],length:int):
+        return set([frozenset(i.item).union(frozenset(j.item)) for i in cwfis for j in wfis if len(frozenset(i.item).union(frozenset(j.item))) == length])
     
     def calculatorWeightItem(self,data:list[frozenset],weightTable: list[ItemDto]):
         result:list[ItemDto] =[]
@@ -135,8 +142,9 @@ class WdFim:
 
     
     def calculateExpwSup(self,ds:DS,weightTable:WeightTable,expectedWeightedValue:int)-> list[ItemDto]:
-        expwSup = []
+        expwSup:list[itemDto] = []
         expSup =[]
+        cwfis1:list[ItemDto] = [] 
         for transaction in ds.transactions:
             for itemDto in transaction.items:
                 if(len(expSup)==0):
@@ -157,10 +165,11 @@ class WdFim:
 
         for item in expSup:
             probability=item.probability * weightTable.get_weight(item.item)
+            cwfis1.append(ItemDto(item=item.item,probability=probability))
 
             if(probability > expectedWeightedValue):
                 expwSup.append(ItemDto(item=item.item,probability=probability))
-        return expwSup
+        return expwSup,cwfis1
     
     def calculateExpwSupWithRcwfis(self,ds:list[frozenset],weightTable:WeightTable,expectedWeightedValue:int)-> list[ItemDto]:
         expwSup = []
