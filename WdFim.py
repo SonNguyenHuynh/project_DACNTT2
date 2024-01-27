@@ -1,5 +1,11 @@
 
+import WdFim
+import os
 from collections import defaultdict
+from multiprocessing import process
+import time
+
+import psutil
 from Apriori import apriori
 from ExpectedSupportCalculator import expectedSupportCalculator, expectedSupportCalculatorWithFrozenset
 from ItemDto import ItemDto
@@ -17,16 +23,33 @@ from calculatoritemsetProbabilityInATransaction import calculatorItemsetProbabil
 
 
 class WdFim:
-    
+
     def execute(self):    
+    # weight_table = WeightTable()
+        dataBase,fileName = WdFim().createDataBase()
+        WdFim().handleLogic(dataBase,0.1,fileName)
+        value = 0.01
+
+        mushroom = WdFim().readFile('input/DataTest/mushroom.txt','input/DataTest/mushroom-weight-table.txt')
+        WdFim().handleLogic(mushroom,value,'mushroom-' + str(value * 100)+'%-test.txt')
+        retail = WdFim().readFile('input/DataTest/retail.txt','input/DataTest/retail-weight-table.txt')
+        WdFim().handleLogic(retail,value,'retail-' + str(value * 100)+'%.txt')
+        T40I10D100K = WdFim().readFile('input/DataTest/T40I10D100K.txt','input/DataTest/T40I10D100K-weight-table.txt')
+        WdFim().handleLogic(T40I10D100K,value,'T40I10D100K-' + str(value * 100)+'%.txt')
+    
+    def handleLogic(self,dataBase: list,minEWSup: int,filename:str):    
+        print('start')
+        process = psutil.Process()
+
+        startTime = time.time()
+        startMemory = process.memory_info().rss / (1024 ** 2)  # in megabytes
         # weight_table = WeightTable()
-        dataBase = WdFim().createDataBase()
         transactions = dataBase[0]
         weightTable = dataBase[1]
         
         # print(weightOfSyntheticChain)
         ds = DS(tid=1, transactions=transactions)
-        expectedWeighted = 0.1
+        expectedWeighted = minEWSup
         expectedWeightedValue = len(ds.transactions) * expectedWeighted
         data=[]
         for i in ds.transactions:
@@ -82,8 +105,16 @@ class WdFim:
 
 
         
-        print(WFIS)
-    
+        endMemory = process.memory_info().rss / (1024 ** 2)  # in megabytes
+        memory_usage = endMemory - startMemory
+
+        endTime = time.time()
+        runtime = endTime - startTime
+        
+
+        WdFim().writeFile(filename,WFIS,runtime,memory_usage,len(ds.transactions),expectedWeighted)
+        
+        print('done')    
     def calculatorRCWFISK(self,data1:list[frozenset],data2: list[frozenset]):
         RCWFISK:list[frozenset]=[]
         for i in data1:
@@ -92,9 +123,7 @@ class WdFim:
                 if(i == j):
                     isValid =True
             if(isValid == False):
-                RCWFISK.append(i)
-            else:
-                print(i)    
+                RCWFISK.append(i)  
 
         return RCWFISK
 
@@ -218,4 +247,68 @@ class WdFim:
             TransactionDTO(tid=i+1, items=data, weight_table=weightTable) for i, data in enumerate(transactions_data)
         ]
 
+        return [transactions,weightTable],'example.txt'
+    
+    def readFile(self,dataFile:str,weightTableFile:str):
+        data=[]
+        items=[]
+        with open(dataFile, 'r') as file:
+            for line in file:
+                itemList = line.split()
+                dataLine = []
+                for number in itemList:
+                    numberValue = number.strip('()').split(',')
+                    dataLine.append((str(numberValue[0]),float(numberValue[1])))
+                data.append(dataLine)
+
+        with open(weightTableFile, 'r') as file:
+            for line in file:
+                itemList = line.split()
+                weightTable = {}
+                for number in itemList:
+                    numberValue = number.strip('()').split(',')
+                    weightTable[str(numberValue[0])] = float(numberValue[1])
+
+        # print(data)
+        # print(items)
+        # convertItems  = {key: round(random.uniform(0, 1), 2) for key in items}
+        # print(convertItems)
+        # convertData = [[(str(item), round(random.uniform(0, 1), 2)) for item in sublist] for sublist in data]
+        # print(convertData)
+
+        weightTable = WeightTable(weightTable)
+        transactions_data = data
+        transactions = [
+            TransactionDTO(tid=i+1, items=data, weight_table=weightTable) for i, data in enumerate(transactions_data)
+        ]
+
         return [transactions,weightTable]
+    
+    def writeFile(self,filename:str,data:[ItemDto],runtime,memory_usage,lenData:int,minEXSup:float):
+        folderPath = "output/WdFim"
+        filePath = filename
+
+
+        # Ensure the folder exists, create it if necessary
+        if not os.path.exists(folderPath):
+            os.makedirs(folderPath)
+
+        # Construct the full file path
+        filePath = os.path.join(folderPath, filePath)
+
+
+        with open(filePath, 'w') as file:
+            for i in data:
+                if isinstance(i.item, frozenset):
+                    file.write(str(set(i.item)) +' : '+ str(i.probability) + '\n')
+                else:
+                    file.write(str(i.item) +' : '+ str(i.probability) + '\n')
+
+            
+            file.write('\n' + '\n'+ '\n' + '\n')
+            file.write('length' + ' : '+ str(lenData) + '\n')
+            file.write('minEXSup' + ' : '+ str(minEXSup*100)+ ' %' + '\n')
+            file.write('candidate' + ' : '+ str(len(data)) + '\n')
+            file.write('runtime' + ' : '+ str(runtime) + ' s' + '\n')
+            file.write('memory usage' + ' : '+ str(memory_usage) + ' MB'+ '\n')
+

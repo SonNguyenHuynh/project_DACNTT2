@@ -392,6 +392,22 @@
         "documentation": {}
     },
     {
+        "label": "ItemDto",
+        "importPath": "ItemDto",
+        "description": "ItemDto",
+        "isExtraImport": true,
+        "detail": "ItemDto",
+        "documentation": {}
+    },
+    {
+        "label": "TransactionDTO",
+        "importPath": "TransactionDTO",
+        "description": "TransactionDTO",
+        "isExtraImport": true,
+        "detail": "TransactionDTO",
+        "documentation": {}
+    },
+    {
         "label": "TransactionDTO",
         "importPath": "TransactionDTO",
         "description": "TransactionDTO",
@@ -497,6 +513,63 @@
         "documentation": {}
     },
     {
+        "label": "random",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "random",
+        "description": "random",
+        "detail": "random",
+        "documentation": {}
+    },
+    {
+        "label": "WeightTable",
+        "importPath": "WeightTable",
+        "description": "WeightTable",
+        "isExtraImport": true,
+        "detail": "WeightTable",
+        "documentation": {}
+    },
+    {
+        "label": "WeightTable",
+        "importPath": "WeightTable",
+        "description": "WeightTable",
+        "isExtraImport": true,
+        "detail": "WeightTable",
+        "documentation": {}
+    },
+    {
+        "label": "WeightTable",
+        "importPath": "WeightTable",
+        "description": "WeightTable",
+        "isExtraImport": true,
+        "detail": "WeightTable",
+        "documentation": {}
+    },
+    {
+        "label": "WeightTable",
+        "importPath": "WeightTable",
+        "description": "WeightTable",
+        "isExtraImport": true,
+        "detail": "WeightTable",
+        "documentation": {}
+    },
+    {
+        "label": "WeightTable",
+        "importPath": "WeightTable",
+        "description": "WeightTable",
+        "isExtraImport": true,
+        "detail": "WeightTable",
+        "documentation": {}
+    },
+    {
+        "label": "WeightTable",
+        "importPath": "WeightTable",
+        "description": "WeightTable",
+        "isExtraImport": true,
+        "detail": "WeightTable",
+        "documentation": {}
+    },
+    {
         "label": "time",
         "kind": 6,
         "isExtraImport": true,
@@ -562,46 +635,6 @@
         "documentation": {}
     },
     {
-        "label": "WeightTable",
-        "importPath": "WeightTable",
-        "description": "WeightTable",
-        "isExtraImport": true,
-        "detail": "WeightTable",
-        "documentation": {}
-    },
-    {
-        "label": "WeightTable",
-        "importPath": "WeightTable",
-        "description": "WeightTable",
-        "isExtraImport": true,
-        "detail": "WeightTable",
-        "documentation": {}
-    },
-    {
-        "label": "WeightTable",
-        "importPath": "WeightTable",
-        "description": "WeightTable",
-        "isExtraImport": true,
-        "detail": "WeightTable",
-        "documentation": {}
-    },
-    {
-        "label": "WeightTable",
-        "importPath": "WeightTable",
-        "description": "WeightTable",
-        "isExtraImport": true,
-        "detail": "WeightTable",
-        "documentation": {}
-    },
-    {
-        "label": "WeightTable",
-        "importPath": "WeightTable",
-        "description": "WeightTable",
-        "isExtraImport": true,
-        "detail": "WeightTable",
-        "documentation": {}
-    },
-    {
         "label": "expectedSupportCalculator",
         "importPath": "ExpectedSupportCalculator",
         "description": "ExpectedSupportCalculator",
@@ -650,15 +683,6 @@
         "documentation": {}
     },
     {
-        "label": "random",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "random",
-        "description": "random",
-        "detail": "random",
-        "documentation": {}
-    },
-    {
         "label": "psutil",
         "kind": 6,
         "isExtraImport": true,
@@ -693,10 +717,27 @@
     },
     {
         "label": "WdFim",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "WdFim",
+        "description": "WdFim",
+        "detail": "WdFim",
+        "documentation": {}
+    },
+    {
+        "label": "WdFim",
         "importPath": "WdFim",
         "description": "WdFim",
         "isExtraImport": true,
         "detail": "WdFim",
+        "documentation": {}
+    },
+    {
+        "label": "process",
+        "importPath": "multiprocessing",
+        "description": "multiprocessing",
+        "isExtraImport": true,
+        "detail": "multiprocessing",
         "documentation": {}
     },
     {
@@ -781,11 +822,20 @@
         "documentation": {}
     },
     {
+        "label": "readFile",
+        "kind": 2,
+        "importPath": "GeneratoFIle",
+        "description": "GeneratoFIle",
+        "peekOfCode": "def readFile():\n    data=[]\n    items=[]\n    input= 'input/T40I10D100K.txt'\n    with open(input, 'r') as file:\n        for line in file:\n            itemList = line.split()\n            dataLine = [int(number) for number in itemList]\n            data.append(dataLine)\n            for item in itemList:",
+        "detail": "GeneratoFIle",
+        "documentation": {}
+    },
+    {
         "label": "HewiUaprior",
         "kind": 6,
         "importPath": "HewiUaprior",
         "description": "HewiUaprior",
-        "peekOfCode": "class HewiUaprior:\n    def execute(self):    \n        # weight_table = WeightTable()\n        dataBase,filename = HewiUaprior().createDataBase()\n        HewiUaprior().handleLogic(dataBase,0.1,filename)\n        # mushroom = Lin2016().readFile('input/data.txt')\n        # Lin2016().handleLogic(mushroom,0.1,'data.txt')\n        # mushroom = Lin2016().readFile('input/mushroom.txt')\n        # Lin2016().handleLogic(mushroom,0.00001,'mushroom-0,00001.txt')\n        # retail = Lin2016().readFile('input/retail.txt')",
+        "peekOfCode": "class HewiUaprior:\n    def execute(self):    \n        # weight_table = WeightTable()\n        # dataBase,filename = HewiUaprior().createDataBase()\n        # HewiUaprior().handleLogic(dataBase,0.1,filename)\n        value = 0.00001\n        mushroom = HewiUaprior().readFile('input/DataTest/mushroom.txt','input/DataTest/mushroom-weight-table.txt')\n        HewiUaprior().handleLogic(mushroom,value,'mushroom-' + str(value * 100)+'%.txt')\n        retail = HewiUaprior().readFile('input/DataTest/retail.txt','input/DataTest/retail-weight-table.txt')\n        HewiUaprior().handleLogic(retail,value,'retail-' + str(value * 100)+'%.txt')",
         "detail": "HewiUaprior",
         "documentation": {}
     },
@@ -830,7 +880,7 @@
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def main():\n    # hewiUaprior = HewiUaprior().execute()\n    wdFim = WdFim().execute()\nif __name__ == \"__main__\":\n    main()",
+        "peekOfCode": "def main():\n    hewiUaprior = HewiUaprior().execute()\n    # wdFim = WdFim().execute()\nif __name__ == \"__main__\":\n    main()",
         "detail": "main",
         "documentation": {}
     },
@@ -956,7 +1006,7 @@
         "kind": 6,
         "importPath": "WdFim",
         "description": "WdFim",
-        "peekOfCode": "class WdFim:\n    def execute(self):    \n        # weight_table = WeightTable()\n        dataBase = WdFim().createDataBase()\n        transactions = dataBase[0]\n        weightTable = dataBase[1]\n        # print(weightOfSyntheticChain)\n        ds = DS(tid=1, transactions=transactions)\n        expectedWeighted = 0.1\n        expectedWeightedValue = len(ds.transactions) * expectedWeighted",
+        "peekOfCode": "class WdFim:\n    def execute(self):    \n    # weight_table = WeightTable()\n        dataBase,fileName = WdFim().createDataBase()\n        WdFim().handleLogic(dataBase,0.1,fileName)\n        value = 0.01\n        mushroom = WdFim().readFile('input/DataTest/mushroom.txt','input/DataTest/mushroom-weight-table.txt')\n        WdFim().handleLogic(mushroom,value,'mushroom-' + str(value * 100)+'%-test.txt')\n        retail = WdFim().readFile('input/DataTest/retail.txt','input/DataTest/retail-weight-table.txt')\n        WdFim().handleLogic(retail,value,'retail-' + str(value * 100)+'%.txt')",
         "detail": "WdFim",
         "documentation": {}
     },

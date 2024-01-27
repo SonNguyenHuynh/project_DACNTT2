@@ -10,8 +10,8 @@ from DS import DS
 from ExpectedWeightedSupportCalculator import expectedWeightedSupport
 
 def main():
-    # hewiUaprior = HewiUaprior().execute()
-    wdFim = WdFim().execute()
+    hewiUaprior = HewiUaprior().execute()
+    # wdFim = WdFim().execute()
 
 if __name__ == "__main__":
     main()

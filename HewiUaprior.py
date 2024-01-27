@@ -24,16 +24,15 @@ class HewiUaprior:
     
     def execute(self):    
         # weight_table = WeightTable()
-        dataBase,filename = HewiUaprior().createDataBase()
-        HewiUaprior().handleLogic(dataBase,0.1,filename)
-        # mushroom = Lin2016().readFile('input/data.txt')
-        # Lin2016().handleLogic(mushroom,0.1,'data.txt')
-        # mushroom = Lin2016().readFile('input/mushroom.txt')
-        # Lin2016().handleLogic(mushroom,0.00001,'mushroom-0,00001.txt')
-        # retail = Lin2016().readFile('input/retail.txt')
-        # Lin2016().handleLogic(retail,0.00001,'retail-0,00001.txt')
-        # T40I10D100K = Lin2016().readFile('input/T40I10D100K.txt')
-        # Lin2016().handleLogic(T40I10D100K,0.00001,'T40I10D100K-0,00001.txt')
+        # dataBase,filename = HewiUaprior().createDataBase()
+        # HewiUaprior().handleLogic(dataBase,0.1,filename)
+        value = 0.00001
+        mushroom = HewiUaprior().readFile('input/DataTest/mushroom.txt','input/DataTest/mushroom-weight-table.txt')
+        HewiUaprior().handleLogic(mushroom,value,'mushroom-' + str(value * 100)+'%.txt')
+        retail = HewiUaprior().readFile('input/DataTest/retail.txt','input/DataTest/retail-weight-table.txt')
+        HewiUaprior().handleLogic(retail,value,'retail-' + str(value * 100)+'%.txt')
+        T40I10D100K = HewiUaprior().readFile('input/DataTest/T40I10D100K.txt','input/DataTest/T40I10D100K-weight-table.txt')
+        HewiUaprior().handleLogic(T40I10D100K,value,'T40I10D100K-' + str(value * 100)+'%.txt')
 
 
 
@@ -146,7 +145,7 @@ class HewiUaprior:
         print('done')
 
     def writeFile(self,filename:str,data:[ItemDto],runtime,memory_usage,lenData:int,minEXSup:float):
-        folderPath = "output"
+        folderPath = "output/HewiUaprior"
         filePath = filename
 
 
@@ -281,29 +280,35 @@ class HewiUaprior:
 
         return [transactions,weightTable],'example.txt'
     
-    def readFile(self,input:str):
+    def readFile(self,dataFile:str,weightTableFile:str):
         data=[]
         items=[]
-        with open(input, 'r') as file:
+        with open(dataFile, 'r') as file:
             for line in file:
                 itemList = line.split()
-                dataLine = [int(number) for number in itemList]
+                dataLine = []
+                for number in itemList:
+                    numberValue = number.strip('()').split(',')
+                    dataLine.append((str(numberValue[0]),float(numberValue[1])))
                 data.append(dataLine)
 
-                for item in itemList:
-                    dataLine=[item]
-                    items.append(str(item))
-        items = sorted(list(set(items)))
+        with open(weightTableFile, 'r') as file:
+            for line in file:
+                itemList = line.split()
+                weightTable = {}
+                for number in itemList:
+                    numberValue = number.strip('()').split(',')
+                    weightTable[str(numberValue[0])] = float(numberValue[1])
 
         # print(data)
         # print(items)
-        convertItems  = {key: round(random.uniform(0, 1), 2) for key in items}
+        # convertItems  = {key: round(random.uniform(0, 1), 2) for key in items}
         # print(convertItems)
-        convertData = [[(str(item), round(random.uniform(0, 1), 2)) for item in sublist] for sublist in data]
+        # convertData = [[(str(item), round(random.uniform(0, 1), 2)) for item in sublist] for sublist in data]
         # print(convertData)
 
-        weightTable = WeightTable(convertItems)
-        transactions_data = convertData
+        weightTable = WeightTable(weightTable)
+        transactions_data = data
         transactions = [
             TransactionDTO(tid=i+1, items=data, weight_table=weightTable) for i, data in enumerate(transactions_data)
         ]
