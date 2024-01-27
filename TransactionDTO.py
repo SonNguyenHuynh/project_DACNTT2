@@ -16,23 +16,6 @@ class TransactionDTO:
             listString.append(item.item)
         syntheticChain = sorted(generateStrings(self,listString))
         return syntheticChain
-
-    def calculate_probability(self) -> float:
-        listString= []
-        for item in self.items:
-            listString.append(item.item)
-        syntheticChain = sorted(generateStrings(self,listString))
-        
-        result= {}
-        for i in syntheticChain:
-            total = 1
-            for j in i:
-                for x in self.items:
-                    if x.item == j :
-                        total *= x.probability
-            result.update({i: total})
-        return result
-    
     
     def calculateTubw(self,weightTable):
         array =[]

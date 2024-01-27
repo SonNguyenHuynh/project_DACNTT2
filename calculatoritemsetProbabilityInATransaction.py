@@ -17,3 +17,20 @@ def calculatorItemsetProbabilityInATransaction(itemset: ItemDto, ds:DS):
         if(count== len(itemset.item)):
             result.append(ItemDto(item=itemset.item,probability=total))
     return result
+
+
+def calculatorItemsetProbabilityInATransactionWithFrozenset(itemset: frozenset, ds:DS):
+    result = []
+    total = 1
+    for transaction in ds.transactions:
+        total = 1
+        count = 0
+
+        for itemdto in transaction.items:
+            for item in itemset:
+                if(itemdto.item == item):
+                    count +=1
+                    total *= itemdto.probability
+        if(count== len(itemset)):
+            result.append(ItemDto(item=itemset,probability=total))
+    return result

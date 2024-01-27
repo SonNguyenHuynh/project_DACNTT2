@@ -40,6 +40,38 @@
         "documentation": {}
     },
     {
+        "label": "defaultdict",
+        "importPath": "collections",
+        "description": "collections",
+        "isExtraImport": true,
+        "detail": "collections",
+        "documentation": {}
+    },
+    {
+        "label": "chain",
+        "importPath": "itertools",
+        "description": "itertools",
+        "isExtraImport": true,
+        "detail": "itertools",
+        "documentation": {}
+    },
+    {
+        "label": "combinations",
+        "importPath": "itertools",
+        "description": "itertools",
+        "isExtraImport": true,
+        "detail": "itertools",
+        "documentation": {}
+    },
+    {
+        "label": "combinations",
+        "importPath": "itertools",
+        "description": "itertools",
+        "isExtraImport": true,
+        "detail": "itertools",
+        "documentation": {}
+    },
+    {
         "label": "chain",
         "importPath": "itertools",
         "description": "itertools",
@@ -56,23 +88,7 @@
         "documentation": {}
     },
     {
-        "label": "combinations",
-        "importPath": "itertools",
-        "description": "itertools",
-        "isExtraImport": true,
-        "detail": "itertools",
-        "documentation": {}
-    },
-    {
-        "label": "chain",
-        "importPath": "itertools",
-        "description": "itertools",
-        "isExtraImport": true,
-        "detail": "itertools",
-        "documentation": {}
-    },
-    {
-        "label": "combinations",
+        "label": "product",
         "importPath": "itertools",
         "description": "itertools",
         "isExtraImport": true,
@@ -184,302 +200,6 @@
         "documentation": {}
     },
     {
-        "label": "expectedSupportCalculator",
-        "importPath": "ExpectedSupportCalculator",
-        "description": "ExpectedSupportCalculator",
-        "isExtraImport": true,
-        "detail": "ExpectedSupportCalculator",
-        "documentation": {}
-    },
-    {
-        "label": "expectedSupportCalculator",
-        "importPath": "ExpectedSupportCalculator",
-        "description": "ExpectedSupportCalculator",
-        "isExtraImport": true,
-        "detail": "ExpectedSupportCalculator",
-        "documentation": {}
-    },
-    {
-        "label": "ItemDto",
-        "importPath": "ItemDto",
-        "description": "ItemDto",
-        "isExtraImport": true,
-        "detail": "ItemDto",
-        "documentation": {}
-    },
-    {
-        "label": "ItemDto",
-        "importPath": "ItemDto",
-        "description": "ItemDto",
-        "isExtraImport": true,
-        "detail": "ItemDto",
-        "documentation": {}
-    },
-    {
-        "label": "ItemDto",
-        "importPath": "ItemDto",
-        "description": "ItemDto",
-        "isExtraImport": true,
-        "detail": "ItemDto",
-        "documentation": {}
-    },
-    {
-        "label": "ItemDto",
-        "importPath": "ItemDto",
-        "description": "ItemDto",
-        "isExtraImport": true,
-        "detail": "ItemDto",
-        "documentation": {}
-    },
-    {
-        "label": "ItemDto",
-        "importPath": "ItemDto",
-        "description": "ItemDto",
-        "isExtraImport": true,
-        "detail": "ItemDto",
-        "documentation": {}
-    },
-    {
-        "label": "ItemDto",
-        "importPath": "ItemDto",
-        "description": "ItemDto",
-        "isExtraImport": true,
-        "detail": "ItemDto",
-        "documentation": {}
-    },
-    {
-        "label": "ItemDto",
-        "importPath": "ItemDto",
-        "description": "ItemDto",
-        "isExtraImport": true,
-        "detail": "ItemDto",
-        "documentation": {}
-    },
-    {
-        "label": "ItemDto",
-        "importPath": "ItemDto",
-        "description": "ItemDto",
-        "isExtraImport": true,
-        "detail": "ItemDto",
-        "documentation": {}
-    },
-    {
-        "label": "itemsetWeight",
-        "importPath": "ItemsetSupportCalculators",
-        "description": "ItemsetSupportCalculators",
-        "isExtraImport": true,
-        "detail": "ItemsetSupportCalculators",
-        "documentation": {}
-    },
-    {
-        "label": "expected_support",
-        "importPath": "ItemsetSupportCalculators",
-        "description": "ItemsetSupportCalculators",
-        "isExtraImport": true,
-        "detail": "ItemsetSupportCalculators",
-        "documentation": {}
-    },
-    {
-        "label": "itemsetWeight",
-        "importPath": "ItemsetSupportCalculators",
-        "description": "ItemsetSupportCalculators",
-        "isExtraImport": true,
-        "detail": "ItemsetSupportCalculators",
-        "documentation": {}
-    },
-    {
-        "label": "itemsetWeight",
-        "importPath": "ItemsetSupportCalculators",
-        "description": "ItemsetSupportCalculators",
-        "isExtraImport": true,
-        "detail": "ItemsetSupportCalculators",
-        "documentation": {}
-    },
-    {
-        "label": "TidDto",
-        "importPath": "TidDto",
-        "description": "TidDto",
-        "isExtraImport": true,
-        "detail": "TidDto",
-        "documentation": {}
-    },
-    {
-        "label": "TidDto",
-        "importPath": "TidDto",
-        "description": "TidDto",
-        "isExtraImport": true,
-        "detail": "TidDto",
-        "documentation": {}
-    },
-    {
-        "label": "TidDto",
-        "importPath": "TidDto",
-        "description": "TidDto",
-        "isExtraImport": true,
-        "detail": "TidDto",
-        "documentation": {}
-    },
-    {
-        "label": "TransactionDTO",
-        "importPath": "TransactionDTO",
-        "description": "TransactionDTO",
-        "isExtraImport": true,
-        "detail": "TransactionDTO",
-        "documentation": {}
-    },
-    {
-        "label": "TransactionDTO",
-        "importPath": "TransactionDTO",
-        "description": "TransactionDTO",
-        "isExtraImport": true,
-        "detail": "TransactionDTO",
-        "documentation": {}
-    },
-    {
-        "label": "TransactionDTO",
-        "importPath": "TransactionDTO",
-        "description": "TransactionDTO",
-        "isExtraImport": true,
-        "detail": "TransactionDTO",
-        "documentation": {}
-    },
-    {
-        "label": "TransactionDTO",
-        "importPath": "TransactionDTO",
-        "description": "TransactionDTO",
-        "isExtraImport": true,
-        "detail": "TransactionDTO",
-        "documentation": {}
-    },
-    {
-        "label": "TransactionDTO",
-        "importPath": "TransactionDTO",
-        "description": "TransactionDTO",
-        "isExtraImport": true,
-        "detail": "TransactionDTO",
-        "documentation": {}
-    },
-    {
-        "label": "TransactionDTO",
-        "importPath": "TransactionDTO",
-        "description": "TransactionDTO",
-        "isExtraImport": true,
-        "detail": "TransactionDTO",
-        "documentation": {}
-    },
-    {
-        "label": "TransactionDTO",
-        "importPath": "TransactionDTO",
-        "description": "TransactionDTO",
-        "isExtraImport": true,
-        "detail": "TransactionDTO",
-        "documentation": {}
-    },
-    {
-        "label": "TransactionDTO",
-        "importPath": "TransactionDTO",
-        "description": "TransactionDTO",
-        "isExtraImport": true,
-        "detail": "TransactionDTO",
-        "documentation": {}
-    },
-    {
-        "label": "WeightTable",
-        "importPath": "WeightTable",
-        "description": "WeightTable",
-        "isExtraImport": true,
-        "detail": "WeightTable",
-        "documentation": {}
-    },
-    {
-        "label": "WeightTable",
-        "importPath": "WeightTable",
-        "description": "WeightTable",
-        "isExtraImport": true,
-        "detail": "WeightTable",
-        "documentation": {}
-    },
-    {
-        "label": "WeightTable",
-        "importPath": "WeightTable",
-        "description": "WeightTable",
-        "isExtraImport": true,
-        "detail": "WeightTable",
-        "documentation": {}
-    },
-    {
-        "label": "WeightTable",
-        "importPath": "WeightTable",
-        "description": "WeightTable",
-        "isExtraImport": true,
-        "detail": "WeightTable",
-        "documentation": {}
-    },
-    {
-        "label": "WeightTable",
-        "importPath": "WeightTable",
-        "description": "WeightTable",
-        "isExtraImport": true,
-        "detail": "WeightTable",
-        "documentation": {}
-    },
-    {
-        "label": "DS",
-        "importPath": "DS",
-        "description": "DS",
-        "isExtraImport": true,
-        "detail": "DS",
-        "documentation": {}
-    },
-    {
-        "label": "DS",
-        "importPath": "DS",
-        "description": "DS",
-        "isExtraImport": true,
-        "detail": "DS",
-        "documentation": {}
-    },
-    {
-        "label": "DS",
-        "importPath": "DS",
-        "description": "DS",
-        "isExtraImport": true,
-        "detail": "DS",
-        "documentation": {}
-    },
-    {
-        "label": "DS",
-        "importPath": "DS",
-        "description": "DS",
-        "isExtraImport": true,
-        "detail": "DS",
-        "documentation": {}
-    },
-    {
-        "label": "expectedWeightedSupport",
-        "importPath": "ExpectedWeightedSupportCalculator",
-        "description": "ExpectedWeightedSupportCalculator",
-        "isExtraImport": true,
-        "detail": "ExpectedWeightedSupportCalculator",
-        "documentation": {}
-    },
-    {
-        "label": "expectedWeightedSupport",
-        "importPath": "ExpectedWeightedSupportCalculator",
-        "description": "ExpectedWeightedSupportCalculator",
-        "isExtraImport": true,
-        "detail": "ExpectedWeightedSupportCalculator",
-        "documentation": {}
-    },
-    {
-        "label": "expectedWeightedSupport",
-        "importPath": "ExpectedWeightedSupportCalculator",
-        "description": "ExpectedWeightedSupportCalculator",
-        "isExtraImport": true,
-        "detail": "ExpectedWeightedSupportCalculator",
-        "documentation": {}
-    },
-    {
         "label": "List",
         "importPath": "typing",
         "description": "typing",
@@ -576,12 +296,277 @@
         "documentation": {}
     },
     {
+        "label": "DS",
+        "importPath": "DS",
+        "description": "DS",
+        "isExtraImport": true,
+        "detail": "DS",
+        "documentation": {}
+    },
+    {
+        "label": "DS",
+        "importPath": "DS",
+        "description": "DS",
+        "isExtraImport": true,
+        "detail": "DS",
+        "documentation": {}
+    },
+    {
+        "label": "DS",
+        "importPath": "DS",
+        "description": "DS",
+        "isExtraImport": true,
+        "detail": "DS",
+        "documentation": {}
+    },
+    {
+        "label": "DS",
+        "importPath": "DS",
+        "description": "DS",
+        "isExtraImport": true,
+        "detail": "DS",
+        "documentation": {}
+    },
+    {
+        "label": "ItemDto",
+        "importPath": "ItemDto",
+        "description": "ItemDto",
+        "isExtraImport": true,
+        "detail": "ItemDto",
+        "documentation": {}
+    },
+    {
+        "label": "ItemDto",
+        "importPath": "ItemDto",
+        "description": "ItemDto",
+        "isExtraImport": true,
+        "detail": "ItemDto",
+        "documentation": {}
+    },
+    {
+        "label": "ItemDto",
+        "importPath": "ItemDto",
+        "description": "ItemDto",
+        "isExtraImport": true,
+        "detail": "ItemDto",
+        "documentation": {}
+    },
+    {
+        "label": "ItemDto",
+        "importPath": "ItemDto",
+        "description": "ItemDto",
+        "isExtraImport": true,
+        "detail": "ItemDto",
+        "documentation": {}
+    },
+    {
+        "label": "ItemDto",
+        "importPath": "ItemDto",
+        "description": "ItemDto",
+        "isExtraImport": true,
+        "detail": "ItemDto",
+        "documentation": {}
+    },
+    {
+        "label": "ItemDto",
+        "importPath": "ItemDto",
+        "description": "ItemDto",
+        "isExtraImport": true,
+        "detail": "ItemDto",
+        "documentation": {}
+    },
+    {
+        "label": "ItemDto",
+        "importPath": "ItemDto",
+        "description": "ItemDto",
+        "isExtraImport": true,
+        "detail": "ItemDto",
+        "documentation": {}
+    },
+    {
+        "label": "ItemDto",
+        "importPath": "ItemDto",
+        "description": "ItemDto",
+        "isExtraImport": true,
+        "detail": "ItemDto",
+        "documentation": {}
+    },
+    {
+        "label": "ItemDto",
+        "importPath": "ItemDto",
+        "description": "ItemDto",
+        "isExtraImport": true,
+        "detail": "ItemDto",
+        "documentation": {}
+    },
+    {
+        "label": "TransactionDTO",
+        "importPath": "TransactionDTO",
+        "description": "TransactionDTO",
+        "isExtraImport": true,
+        "detail": "TransactionDTO",
+        "documentation": {}
+    },
+    {
+        "label": "TransactionDTO",
+        "importPath": "TransactionDTO",
+        "description": "TransactionDTO",
+        "isExtraImport": true,
+        "detail": "TransactionDTO",
+        "documentation": {}
+    },
+    {
+        "label": "TransactionDTO",
+        "importPath": "TransactionDTO",
+        "description": "TransactionDTO",
+        "isExtraImport": true,
+        "detail": "TransactionDTO",
+        "documentation": {}
+    },
+    {
+        "label": "TransactionDTO",
+        "importPath": "TransactionDTO",
+        "description": "TransactionDTO",
+        "isExtraImport": true,
+        "detail": "TransactionDTO",
+        "documentation": {}
+    },
+    {
+        "label": "TransactionDTO",
+        "importPath": "TransactionDTO",
+        "description": "TransactionDTO",
+        "isExtraImport": true,
+        "detail": "TransactionDTO",
+        "documentation": {}
+    },
+    {
+        "label": "TransactionDTO",
+        "importPath": "TransactionDTO",
+        "description": "TransactionDTO",
+        "isExtraImport": true,
+        "detail": "TransactionDTO",
+        "documentation": {}
+    },
+    {
+        "label": "TransactionDTO",
+        "importPath": "TransactionDTO",
+        "description": "TransactionDTO",
+        "isExtraImport": true,
+        "detail": "TransactionDTO",
+        "documentation": {}
+    },
+    {
+        "label": "TransactionDTO",
+        "importPath": "TransactionDTO",
+        "description": "TransactionDTO",
+        "isExtraImport": true,
+        "detail": "TransactionDTO",
+        "documentation": {}
+    },
+    {
+        "label": "TransactionDTO",
+        "importPath": "TransactionDTO",
+        "description": "TransactionDTO",
+        "isExtraImport": true,
+        "detail": "TransactionDTO",
+        "documentation": {}
+    },
+    {
+        "label": "expected_support",
+        "importPath": "ItemsetSupportCalculators",
+        "description": "ItemsetSupportCalculators",
+        "isExtraImport": true,
+        "detail": "ItemsetSupportCalculators",
+        "documentation": {}
+    },
+    {
+        "label": "itemsetWeight",
+        "importPath": "ItemsetSupportCalculators",
+        "description": "ItemsetSupportCalculators",
+        "isExtraImport": true,
+        "detail": "ItemsetSupportCalculators",
+        "documentation": {}
+    },
+    {
+        "label": "itemsetWeight",
+        "importPath": "ItemsetSupportCalculators",
+        "description": "ItemsetSupportCalculators",
+        "isExtraImport": true,
+        "detail": "ItemsetSupportCalculators",
+        "documentation": {}
+    },
+    {
+        "label": "itemsetWeight",
+        "importPath": "ItemsetSupportCalculators",
+        "description": "ItemsetSupportCalculators",
+        "isExtraImport": true,
+        "detail": "ItemsetSupportCalculators",
+        "documentation": {}
+    },
+    {
         "label": "os",
         "kind": 6,
         "isExtraImport": true,
         "importPath": "os",
         "description": "os",
         "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "random",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "random",
+        "description": "random",
+        "detail": "random",
+        "documentation": {}
+    },
+    {
+        "label": "WeightTable",
+        "importPath": "WeightTable",
+        "description": "WeightTable",
+        "isExtraImport": true,
+        "detail": "WeightTable",
+        "documentation": {}
+    },
+    {
+        "label": "WeightTable",
+        "importPath": "WeightTable",
+        "description": "WeightTable",
+        "isExtraImport": true,
+        "detail": "WeightTable",
+        "documentation": {}
+    },
+    {
+        "label": "WeightTable",
+        "importPath": "WeightTable",
+        "description": "WeightTable",
+        "isExtraImport": true,
+        "detail": "WeightTable",
+        "documentation": {}
+    },
+    {
+        "label": "WeightTable",
+        "importPath": "WeightTable",
+        "description": "WeightTable",
+        "isExtraImport": true,
+        "detail": "WeightTable",
+        "documentation": {}
+    },
+    {
+        "label": "WeightTable",
+        "importPath": "WeightTable",
+        "description": "WeightTable",
+        "isExtraImport": true,
+        "detail": "WeightTable",
+        "documentation": {}
+    },
+    {
+        "label": "WeightTable",
+        "importPath": "WeightTable",
+        "description": "WeightTable",
+        "isExtraImport": true,
+        "detail": "WeightTable",
         "documentation": {}
     },
     {
@@ -602,6 +587,14 @@
         "documentation": {}
     },
     {
+        "label": "apriori",
+        "importPath": "Apriori",
+        "description": "Apriori",
+        "isExtraImport": true,
+        "detail": "Apriori",
+        "documentation": {}
+    },
+    {
         "label": "itemsetWeightCalculator",
         "importPath": "ItemsetWeightCalculator",
         "description": "ItemsetWeightCalculator",
@@ -610,12 +603,83 @@
         "documentation": {}
     },
     {
-        "label": "random",
-        "kind": 6,
+        "label": "itemsetWeightCalculator",
+        "importPath": "ItemsetWeightCalculator",
+        "description": "ItemsetWeightCalculator",
         "isExtraImport": true,
-        "importPath": "random",
-        "description": "random",
-        "detail": "random",
+        "detail": "ItemsetWeightCalculator",
+        "documentation": {}
+    },
+    {
+        "label": "TidDto",
+        "importPath": "TidDto",
+        "description": "TidDto",
+        "isExtraImport": true,
+        "detail": "TidDto",
+        "documentation": {}
+    },
+    {
+        "label": "TidDto",
+        "importPath": "TidDto",
+        "description": "TidDto",
+        "isExtraImport": true,
+        "detail": "TidDto",
+        "documentation": {}
+    },
+    {
+        "label": "TidDto",
+        "importPath": "TidDto",
+        "description": "TidDto",
+        "isExtraImport": true,
+        "detail": "TidDto",
+        "documentation": {}
+    },
+    {
+        "label": "expectedSupportCalculator",
+        "importPath": "ExpectedSupportCalculator",
+        "description": "ExpectedSupportCalculator",
+        "isExtraImport": true,
+        "detail": "ExpectedSupportCalculator",
+        "documentation": {}
+    },
+    {
+        "label": "expectedSupportCalculator",
+        "importPath": "ExpectedSupportCalculator",
+        "description": "ExpectedSupportCalculator",
+        "isExtraImport": true,
+        "detail": "ExpectedSupportCalculator",
+        "documentation": {}
+    },
+    {
+        "label": "expectedSupportCalculatorWithFrozenset",
+        "importPath": "ExpectedSupportCalculator",
+        "description": "ExpectedSupportCalculator",
+        "isExtraImport": true,
+        "detail": "ExpectedSupportCalculator",
+        "documentation": {}
+    },
+    {
+        "label": "expectedWeightedSupport",
+        "importPath": "ExpectedWeightedSupportCalculator",
+        "description": "ExpectedWeightedSupportCalculator",
+        "isExtraImport": true,
+        "detail": "ExpectedWeightedSupportCalculator",
+        "documentation": {}
+    },
+    {
+        "label": "expectedWeightedSupport",
+        "importPath": "ExpectedWeightedSupportCalculator",
+        "description": "ExpectedWeightedSupportCalculator",
+        "isExtraImport": true,
+        "detail": "ExpectedWeightedSupportCalculator",
+        "documentation": {}
+    },
+    {
+        "label": "expectedWeightedSupport",
+        "importPath": "ExpectedWeightedSupportCalculator",
+        "description": "ExpectedWeightedSupportCalculator",
+        "isExtraImport": true,
+        "detail": "ExpectedWeightedSupportCalculator",
         "documentation": {}
     },
     {
@@ -636,19 +700,44 @@
         "documentation": {}
     },
     {
-        "label": "Lin2016",
-        "importPath": "Lin2016",
-        "description": "Lin2016",
+        "label": "calculatorItemsetProbabilityInATransactionWithFrozenset",
+        "importPath": "calculatoritemsetProbabilityInATransaction",
+        "description": "calculatoritemsetProbabilityInATransaction",
         "isExtraImport": true,
-        "detail": "Lin2016",
+        "detail": "calculatoritemsetProbabilityInATransaction",
         "documentation": {}
     },
     {
-        "label": "Baocao2",
-        "importPath": "BaoCao2",
-        "description": "BaoCao2",
+        "label": "HewiUaprior",
+        "importPath": "HewiUaprior",
+        "description": "HewiUaprior",
         "isExtraImport": true,
-        "detail": "BaoCao2",
+        "detail": "HewiUaprior",
+        "documentation": {}
+    },
+    {
+        "label": "WdFim",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "WdFim",
+        "description": "WdFim",
+        "detail": "WdFim",
+        "documentation": {}
+    },
+    {
+        "label": "WdFim",
+        "importPath": "WdFim",
+        "description": "WdFim",
+        "isExtraImport": true,
+        "detail": "WdFim",
+        "documentation": {}
+    },
+    {
+        "label": "process",
+        "importPath": "multiprocessing",
+        "description": "multiprocessing",
+        "isExtraImport": true,
+        "detail": "multiprocessing",
         "documentation": {}
     },
     {
@@ -679,20 +768,20 @@
         "documentation": {}
     },
     {
-        "label": "Baocao2",
-        "kind": 6,
-        "importPath": "BaoCao2",
-        "description": "BaoCao2",
-        "peekOfCode": "class Baocao2:\n    def Baocao2(self):    \n        # weight_table = WeightTable()\n        dataBase = Baocao2().createDataBase()\n        transactions = dataBase[0]\n        weightTable = dataBase[1]\n        weightOfSyntheticChain = weightTable.calculate_probability()\n        print(weightOfSyntheticChain)\n        # print(weightOfSyntheticChain)\n        ds = DS(tid=1, transactions=transactions)",
-        "detail": "BaoCao2",
-        "documentation": {}
-    },
-    {
         "label": "calculatorItemsetProbabilityInATransaction",
         "kind": 2,
         "importPath": "calculatoritemsetProbabilityInATransaction",
         "description": "calculatoritemsetProbabilityInATransaction",
         "peekOfCode": "def calculatorItemsetProbabilityInATransaction(itemset: ItemDto, ds:DS):\n    result = []\n    total = 1\n    for transaction in ds.transactions:\n        total = 1\n        count = 0\n        for itemdto in transaction.items:\n            for item in itemset.item:\n                if(itemdto.item == item):\n                    count +=1",
+        "detail": "calculatoritemsetProbabilityInATransaction",
+        "documentation": {}
+    },
+    {
+        "label": "calculatorItemsetProbabilityInATransactionWithFrozenset",
+        "kind": 2,
+        "importPath": "calculatoritemsetProbabilityInATransaction",
+        "description": "calculatoritemsetProbabilityInATransaction",
+        "peekOfCode": "def calculatorItemsetProbabilityInATransactionWithFrozenset(itemset: frozenset, ds:DS):\n    result = []\n    total = 1\n    for transaction in ds.transactions:\n        total = 1\n        count = 0\n        for itemdto in transaction.items:\n            for item in itemset:\n                if(itemdto.item == item):\n                    count +=1",
         "detail": "calculatoritemsetProbabilityInATransaction",
         "documentation": {}
     },
@@ -710,7 +799,16 @@
         "kind": 2,
         "importPath": "ExpectedSupportCalculator",
         "description": "ExpectedSupportCalculator",
-        "peekOfCode": "def expectedSupportCalculator(itemset: ItemDto, itemsetProbabilityInATransactions: [ItemDto]):\n    total = 0\n    for itemsetProbabilityInATransaction in itemsetProbabilityInATransactions:\n        total +=itemsetProbabilityInATransaction.probability\n    return ItemDto(item=itemset.item,probability=total)",
+        "peekOfCode": "def expectedSupportCalculator(itemset: ItemDto, itemsetProbabilityInATransactions: [ItemDto]):\n    total = 0\n    for itemsetProbabilityInATransaction in itemsetProbabilityInATransactions:\n        total +=itemsetProbabilityInATransaction.probability\n    return ItemDto(item=itemset.item,probability=total)\ndef expectedSupportCalculatorWithFrozenset(itemset: frozenset, itemsetProbabilityInATransactions: [ItemDto]):\n    total = 0\n    for itemsetProbabilityInATransaction in itemsetProbabilityInATransactions:\n        total +=itemsetProbabilityInATransaction.probability\n    return ItemDto(item=itemset,probability=total)",
+        "detail": "ExpectedSupportCalculator",
+        "documentation": {}
+    },
+    {
+        "label": "expectedSupportCalculatorWithFrozenset",
+        "kind": 2,
+        "importPath": "ExpectedSupportCalculator",
+        "description": "ExpectedSupportCalculator",
+        "peekOfCode": "def expectedSupportCalculatorWithFrozenset(itemset: frozenset, itemsetProbabilityInATransactions: [ItemDto]):\n    total = 0\n    for itemsetProbabilityInATransaction in itemsetProbabilityInATransactions:\n        total +=itemsetProbabilityInATransaction.probability\n    return ItemDto(item=itemset,probability=total)",
         "detail": "ExpectedSupportCalculator",
         "documentation": {}
     },
@@ -724,12 +822,21 @@
         "documentation": {}
     },
     {
+        "label": "readFile",
+        "kind": 2,
+        "importPath": "GeneratoFIle",
+        "description": "GeneratoFIle",
+        "peekOfCode": "def readFile():\n    data=[]\n    items=[]\n    input= 'input/T40I10D100K.txt'\n    with open(input, 'r') as file:\n        for line in file:\n            itemList = line.split()\n            dataLine = [int(number) for number in itemList]\n            data.append(dataLine)\n            for item in itemList:",
+        "detail": "GeneratoFIle",
+        "documentation": {}
+    },
+    {
         "label": "HewiUaprior",
         "kind": 6,
-        "importPath": "Hewi-uaprior",
-        "description": "Hewi-uaprior",
-        "peekOfCode": "class HewiUaprior:\n    def execute(self):    \n        # weight_table = WeightTable()\n        dataBase,filename = HewiUaprior().createDataBase()\n        HewiUaprior().handleLogic(dataBase,0.1,filename)\n        # mushroom = Lin2016().readFile('input/data.txt')\n        # Lin2016().handleLogic(mushroom,0.1,'data.txt')\n        # mushroom = Lin2016().readFile('input/mushroom.txt')\n        # Lin2016().handleLogic(mushroom,0.00001,'mushroom-0,00001.txt')\n        # retail = Lin2016().readFile('input/retail.txt')",
-        "detail": "Hewi-uaprior",
+        "importPath": "HewiUaprior",
+        "description": "HewiUaprior",
+        "peekOfCode": "class HewiUaprior:\n    def execute(self):    \n        # weight_table = WeightTable()\n        # dataBase,filename = HewiUaprior().createDataBase()\n        # HewiUaprior().handleLogic(dataBase,0.1,filename)\n        value = 0.00001\n        mushroom = HewiUaprior().readFile('input/DataTest/mushroom.txt','input/DataTest/mushroom-weight-table.txt')\n        HewiUaprior().handleLogic(mushroom,value,'mushroom-' + str(value * 100)+'%.txt')\n        retail = HewiUaprior().readFile('input/DataTest/retail.txt','input/DataTest/retail-weight-table.txt')\n        HewiUaprior().handleLogic(retail,value,'retail-' + str(value * 100)+'%.txt')",
+        "detail": "HewiUaprior",
         "documentation": {}
     },
     {
@@ -773,7 +880,7 @@
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def main():\n    lint2016 = Lin2016().execute()\n    # baocao2 = Baocao2().Baocao2()\nif __name__ == \"__main__\":\n    main()",
+        "peekOfCode": "def main():\n    hewiUaprior = HewiUaprior().execute()\n    # wdFim = WdFim().execute()\nif __name__ == \"__main__\":\n    main()",
         "detail": "main",
         "documentation": {}
     },
@@ -892,6 +999,15 @@
         "description": "Util",
         "peekOfCode": "def getItemSetFromList(itemSetList):\n    tempItemSet = set()\n    for itemSet in itemSetList:\n        for item in itemSet:\n            tempItemSet.add(frozenset([item]))\n    return tempItemSet",
         "detail": "Util",
+        "documentation": {}
+    },
+    {
+        "label": "WdFim",
+        "kind": 6,
+        "importPath": "WdFim",
+        "description": "WdFim",
+        "peekOfCode": "class WdFim:\n    def execute(self):    \n    # weight_table = WeightTable()\n        dataBase,fileName = WdFim().createDataBase()\n        WdFim().handleLogic(dataBase,0.1,fileName)\n        value = 0.01\n        mushroom = WdFim().readFile('input/DataTest/mushroom.txt','input/DataTest/mushroom-weight-table.txt')\n        WdFim().handleLogic(mushroom,value,'mushroom-' + str(value * 100)+'%-test.txt')\n        retail = WdFim().readFile('input/DataTest/retail.txt','input/DataTest/retail-weight-table.txt')\n        WdFim().handleLogic(retail,value,'retail-' + str(value * 100)+'%.txt')",
+        "detail": "WdFim",
         "documentation": {}
     },
     {

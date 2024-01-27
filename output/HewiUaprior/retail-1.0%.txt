@@ -1,0 +1,10 @@
+{'48', '39'} : 2002.2124080000083
+
+
+
+
+length : 43405
+minEXSup : 1.0 %
+candidate : 1
+runtime : 92.62822556495667 s
+memory usage : 35.5078125 MB
