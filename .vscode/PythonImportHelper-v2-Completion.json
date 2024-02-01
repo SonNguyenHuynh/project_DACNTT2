@@ -104,31 +104,7 @@
         "documentation": {}
     },
     {
-        "label": "associationRule",
-        "importPath": "Util",
-        "description": "Util",
-        "isExtraImport": true,
-        "detail": "Util",
-        "documentation": {}
-    },
-    {
         "label": "getAboveMinSup",
-        "importPath": "Util",
-        "description": "Util",
-        "isExtraImport": true,
-        "detail": "Util",
-        "documentation": {}
-    },
-    {
-        "label": "getFromFile",
-        "importPath": "Util",
-        "description": "Util",
-        "isExtraImport": true,
-        "detail": "Util",
-        "documentation": {}
-    },
-    {
-        "label": "getItemSetFromList",
         "importPath": "Util",
         "description": "Util",
         "isExtraImport": true,
@@ -745,25 +721,7 @@
         "kind": 2,
         "importPath": "Apriori",
         "description": "Apriori",
-        "peekOfCode": "def apriori(itemSetList, minSup, minConf):\n    C1ItemSet = getItemSetFromList(itemSetList)\n    # Final result global frequent itemset\n    globalFreqItemSet = dict()\n    # Storing global itemset with support count\n    globalItemSetWithSup = defaultdict(int)\n    L1ItemSet = getAboveMinSup(\n        C1ItemSet, itemSetList, minSup, globalItemSetWithSup)\n    currentLSet = L1ItemSet\n    k = 2",
-        "detail": "Apriori",
-        "documentation": {}
-    },
-    {
-        "label": "aprioriFromFile",
-        "kind": 2,
-        "importPath": "Apriori",
-        "description": "Apriori",
-        "peekOfCode": "def aprioriFromFile(fname, minSup, minConf):\n    C1ItemSet, itemSetList = getFromFile(fname)\n    # Final result global frequent itemset\n    globalFreqItemSet = dict()\n    # Storing global itemset with support count\n    globalItemSetWithSup = defaultdict(int)\n    L1ItemSet = getAboveMinSup(\n        C1ItemSet, itemSetList, minSup, globalItemSetWithSup)\n    currentLSet = L1ItemSet\n    k = 2",
-        "detail": "Apriori",
-        "documentation": {}
-    },
-    {
-        "label": "apriori",
-        "kind": 2,
-        "importPath": "Apriori",
-        "description": "Apriori",
-        "peekOfCode": "def apriori(C1ItemSet,itemSetList, minSup, minConf,k,globalItemSetWithSup):\n    # Final result global frequent itemset\n    globalFreqItemSet = dict()\n    # Storing global itemset with support count\n    L1ItemSet = getAboveMinSup(\n        C1ItemSet, itemSetList, minSup, globalItemSetWithSup)\n    currentLSet = L1ItemSet\n    # Calculating frequent item set\n        # Storing frequent itemset\n        # Self-joinin g Lk",
+        "peekOfCode": "def apriori(C1ItemSet: list[frozenset],itemSetList:list[set], minSup:float,k:int,globalItemSetWithSup:defaultdict(int)):\n    \"\"\"_summary_\n    Args:\n        C1ItemSet (_type_): hubewis with k-1 \n        itemSetList (_type_): danh sách item in transactions\n        minSup (_type_): minSupport\n        minConf (_type_): min Confident\n        k (_type_): độ rộng của item \n        globalItemSetWithSup (defaultdict): count sô lần xuất hiện của item trong transactions\n    Returns:",
         "detail": "Apriori",
         "documentation": {}
     },
@@ -772,7 +730,7 @@
         "kind": 2,
         "importPath": "calculatoritemsetProbabilityInATransaction",
         "description": "calculatoritemsetProbabilityInATransaction",
-        "peekOfCode": "def calculatorItemsetProbabilityInATransaction(itemset: ItemDto, ds:DS):\n    result = []\n    total = 1\n    for transaction in ds.transactions:\n        total = 1\n        count = 0\n        for itemdto in transaction.items:\n            for item in itemset.item:\n                if(itemdto.item == item):\n                    count +=1",
+        "peekOfCode": "def calculatorItemsetProbabilityInATransaction(itemset: ItemDto, ds:DS):\n    \"\"\"tính toán ItemsetProbabilityInATransaction\n    Args:\n        itemset (ItemDto): frequent itemSet\n        ds (DS): ds transaction\n    Returns:\n        result: ItemsetProbabilityInATransaction\n    \"\"\"\n    result = []\n    total = 1",
         "detail": "calculatoritemsetProbabilityInATransaction",
         "documentation": {}
     },
@@ -799,7 +757,7 @@
         "kind": 2,
         "importPath": "ExpectedSupportCalculator",
         "description": "ExpectedSupportCalculator",
-        "peekOfCode": "def expectedSupportCalculator(itemset: ItemDto, itemsetProbabilityInATransactions: [ItemDto]):\n    total = 0\n    for itemsetProbabilityInATransaction in itemsetProbabilityInATransactions:\n        total +=itemsetProbabilityInATransaction.probability\n    return ItemDto(item=itemset.item,probability=total)\ndef expectedSupportCalculatorWithFrozenset(itemset: frozenset, itemsetProbabilityInATransactions: [ItemDto]):\n    total = 0\n    for itemsetProbabilityInATransaction in itemsetProbabilityInATransactions:\n        total +=itemsetProbabilityInATransaction.probability\n    return ItemDto(item=itemset,probability=total)",
+        "peekOfCode": "def expectedSupportCalculator(itemset: ItemDto, itemsetProbabilityInATransactions: [ItemDto]):\n    \"\"\"tính Expected support of an itemset in D\n    Args:\n        itemset (ItemDto): itemSet\n        itemsetProbabilityInATransactions (ItemDto]): itemset Probability In A Transactions\n    Returns:\n        _type_: Expected support\n    \"\"\"\n    total = 0\n    # tổng itemset Probability trong các transaction  ",
         "detail": "ExpectedSupportCalculator",
         "documentation": {}
     },
@@ -817,7 +775,7 @@
         "kind": 2,
         "importPath": "ExpectedWeightedSupportCalculator",
         "description": "ExpectedWeightedSupportCalculator",
-        "peekOfCode": "def expectedWeightedSupport(itemsetWeight: ItemDto, expectedSupportValue:ItemDto):\n    # print(weight)\n    # print(expectedSupportValueList)\n    return ItemDto(item=itemsetWeight.item,probability=itemsetWeight.probability * expectedSupportValue.probability)",
+        "peekOfCode": "def expectedWeightedSupport(itemsetWeight: ItemDto, expectedSupportValue:ItemDto):\n    \"\"\"tính expected Weighted Support\n    Args:\n        itemsetWeight (ItemDto): weight frequent itemSet\n        expectedSupportValue (ItemDto): expectedSupportValue\n    Returns:\n        _type_: expectedWeightedSupport\n    \"\"\"\n    return ItemDto(item=itemsetWeight.item,probability=itemsetWeight.probability * expectedSupportValue.probability)",
         "detail": "ExpectedWeightedSupportCalculator",
         "documentation": {}
     },
@@ -835,7 +793,7 @@
         "kind": 6,
         "importPath": "HewiUaprior",
         "description": "HewiUaprior",
-        "peekOfCode": "class HewiUaprior:\n    def execute(self):    \n        # weight_table = WeightTable()\n        # dataBase,filename = HewiUaprior().createDataBase()\n        # HewiUaprior().handleLogic(dataBase,0.1,filename)\n        value = 0.00001\n        mushroom = HewiUaprior().readFile('input/DataTest/mushroom.txt','input/DataTest/mushroom-weight-table.txt')\n        HewiUaprior().handleLogic(mushroom,value,'mushroom-' + str(value * 100)+'%.txt')\n        retail = HewiUaprior().readFile('input/DataTest/retail.txt','input/DataTest/retail-weight-table.txt')\n        HewiUaprior().handleLogic(retail,value,'retail-' + str(value * 100)+'%.txt')",
+        "peekOfCode": "class HewiUaprior:\n    def execute(self):    \n        # weight_table = WeightTable()\n        dataBase,filename = HewiUaprior().createDataBase()\n        HewiUaprior().handleLogic(dataBase,0.1,filename)\n        # value = 0.00001\n        # mushroom = HewiUaprior().readFile('input/DataTest/mushroom.txt','input/DataTest/mushroom-weight-table.txt')\n        # HewiUaprior().handleLogic(mushroom,value,'mushroom-' + str(value * 100)+'%.txt')\n        # retail = HewiUaprior().readFile('input/DataTest/retail.txt','input/DataTest/retail-weight-table.txt')\n        # HewiUaprior().handleLogic(retail,value,'retail-' + str(value * 100)+'%.txt')",
         "detail": "HewiUaprior",
         "documentation": {}
     },
@@ -871,7 +829,7 @@
         "kind": 2,
         "importPath": "ItemsetWeightCalculator",
         "description": "ItemsetWeightCalculator",
-        "peekOfCode": "def itemsetWeightCalculator(itemset: ItemDto, weightTable: WeightTable):\n    total = 0\n    for item in itemset.item:\n        value=weightTable.get_weight(item=item)\n        total += value\n    return ItemDto(item=itemset.item,probability=total/len(itemset.item))",
+        "peekOfCode": "def itemsetWeightCalculator(itemset: ItemDto, weightTable: WeightTable):\n    \"\"\"lấy itemSet Weight\n    Args:\n        itemset (ItemDto): frequent itemSet\n        weightTable (WeightTable): weight table\n    Returns:\n        _type_: weight itemSet\n    \"\"\"\n    total = 0\n    #lap cac item trong frequent itemSet",
         "detail": "ItemsetWeightCalculator",
         "documentation": {}
     },
@@ -961,7 +919,7 @@
         "kind": 2,
         "importPath": "Util",
         "description": "Util",
-        "peekOfCode": "def getAboveMinSup(itemSet, itemSetList, minSup, globalItemSetWithSup):\n    freqItemSet = set()\n    localItemSetWithSup = defaultdict(int)\n    for item in itemSet:\n        for itemSet in itemSetList:\n            if item.issubset(itemSet):\n                globalItemSetWithSup[item] += 1\n                localItemSetWithSup[item] += 1\n    for item, supCount in localItemSetWithSup.items():\n        support = float(supCount / len(itemSetList))",
+        "peekOfCode": "def getAboveMinSup(itemSet:set, itemSetList:[set], minSup:float, globalItemSetWithSup:defaultdict(int)):\n    \"\"\"_summary_\n    Args:\n        itemSet (set): hubewis with k-1\n        itemSetList (set]): danh sách item in transactions\n        minSup (float): minSupport\n        globalItemSetWithSup (defaultdict): count sô lần xuất hiện của item trong transactions\n    Returns:\n        freqItemSet: list item xuất hiện thường xuyên\n    \"\"\"",
         "detail": "Util",
         "documentation": {}
     },
@@ -970,7 +928,7 @@
         "kind": 2,
         "importPath": "Util",
         "description": "Util",
-        "peekOfCode": "def getUnion(itemSet, length):\n    return set([i.union(j) for i in itemSet for j in itemSet if len(i.union(j)) == length])\ndef pruning(candidateSet, prevFreqSet, length):\n    tempCandidateSet = candidateSet.copy()\n    for item in candidateSet:\n        subsets = combinations(item, length)\n        for subset in subsets:\n            # if the subset is not in previous K-frequent get, then remove the set\n            if(frozenset(subset) not in prevFreqSet):\n                tempCandidateSet.remove(item)",
+        "peekOfCode": "def getUnion(itemSet, length:int):\n    return set([i.union(j) for i in itemSet for j in itemSet if len(i.union(j)) == length])\ndef pruning(candidateSet:set(), prevFreqSet:set(), length:int):\n    \"\"\"_summary_\n    Args:\n        candidateSet (set): danh sach ứng viên length = k\n        prevFreqSet (set): item xuất hiện thường xuyên length = k-1\n        length (int): length k-1\n    Returns:\n        tempCandidateSet: tập ứng viên sau khi cắt giảm",
         "detail": "Util",
         "documentation": {}
     },
@@ -979,16 +937,7 @@
         "kind": 2,
         "importPath": "Util",
         "description": "Util",
-        "peekOfCode": "def pruning(candidateSet, prevFreqSet, length):\n    tempCandidateSet = candidateSet.copy()\n    for item in candidateSet:\n        subsets = combinations(item, length)\n        for subset in subsets:\n            # if the subset is not in previous K-frequent get, then remove the set\n            if(frozenset(subset) not in prevFreqSet):\n                tempCandidateSet.remove(item)\n                break\n    return tempCandidateSet",
-        "detail": "Util",
-        "documentation": {}
-    },
-    {
-        "label": "associationRule",
-        "kind": 2,
-        "importPath": "Util",
-        "description": "Util",
-        "peekOfCode": "def associationRule(freqItemSet, itemSetWithSup, minConf):\n    rules = []\n    for k, itemSet in freqItemSet.items():\n        for item in itemSet:\n            subsets = powerset(item)\n            for s in subsets:\n                confidence = float(\n                    itemSetWithSup[item] / itemSetWithSup[frozenset(s)])\n                if(confidence > minConf):\n                    rules.append([set(s), set(item.difference(s)), confidence])",
+        "peekOfCode": "def pruning(candidateSet:set(), prevFreqSet:set(), length:int):\n    \"\"\"_summary_\n    Args:\n        candidateSet (set): danh sach ứng viên length = k\n        prevFreqSet (set): item xuất hiện thường xuyên length = k-1\n        length (int): length k-1\n    Returns:\n        tempCandidateSet: tập ứng viên sau khi cắt giảm\n    \"\"\"\n    tempCandidateSet = candidateSet.copy()",
         "detail": "Util",
         "documentation": {}
     },
