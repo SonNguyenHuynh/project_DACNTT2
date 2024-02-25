@@ -3,97 +3,43 @@ from collections import defaultdict
 from itertools import chain, combinations
 from optparse import OptionParser
 
-from Util import associationRule, getAboveMinSup, getFromFile, getItemSetFromList, getUnion, pruning
+from Util import  getAboveMinSup, getUnion, pruning
 
 
 
 
+def apriori(C1ItemSet: list[frozenset],itemSetList:list[set], minSup:float,k:int,globalItemSetWithSup:defaultdict(int)):
+    """_summary_
 
-def apriori(itemSetList, minSup, minConf):
-    C1ItemSet = getItemSetFromList(itemSetList)
-    # Final result global frequent itemset
+    Args:
+        C1ItemSet (_type_): hubewis with k-1 
+        itemSetList (_type_): danh sách item in transactions
+        minSup (_type_): minSupport
+        minConf (_type_): min Confident
+        k (_type_): độ rộng của item 
+        globalItemSetWithSup (defaultdict): count sô lần xuất hiện của item trong transactions
+
+    Returns:
+        globalFreqItemSet[k]: ItemSet length k xuất hiện thường xuyên, 
+        globalItemSetWithSup: count sô lần xuất hiện của item trong transactions
+    """
+
     globalFreqItemSet = dict()
-    # Storing global itemset with support count
-    globalItemSetWithSup = defaultdict(int)
 
-    L1ItemSet = getAboveMinSup(
-        C1ItemSet, itemSetList, minSup, globalItemSetWithSup)
-    currentLSet = L1ItemSet
-    k = 2
-
-    # Calculating frequent item set
-    while(currentLSet):
-        # Storing frequent itemset
-        globalFreqItemSet[k-1] = currentLSet
-        # Self-joining Lk
-        candidateSet = getUnion(currentLSet, k)
-        # Perform subset testing and remove pruned supersets
-        candidateSet = pruning(candidateSet, currentLSet, k-1)
-        # Scanning itemSet for counting support
-        currentLSet = getAboveMinSup(
-            candidateSet, itemSetList, minSup, globalItemSetWithSup)
-        k += 1
-
-    rules = associationRule(globalFreqItemSet, globalItemSetWithSup, minConf)
-    rules.sort(key=lambda x: x[2])
-
-    return globalFreqItemSet, rules
-
-def aprioriFromFile(fname, minSup, minConf):
-    C1ItemSet, itemSetList = getFromFile(fname)
-
-    # Final result global frequent itemset
-    globalFreqItemSet = dict()
-    # Storing global itemset with support count
-    globalItemSetWithSup = defaultdict(int)
-
-    L1ItemSet = getAboveMinSup(
-        C1ItemSet, itemSetList, minSup, globalItemSetWithSup)
-    currentLSet = L1ItemSet
-    k = 2
-
-    # Calculating frequent item set
-    while(currentLSet):
-        # Storing frequent itemset
-        globalFreqItemSet[k-1] = currentLSet
-        # Self-joinin g Lk
-        candidateSet = getUnion(currentLSet, k)
-        # Perform subset testing and remove pruned supersets
-        candidateSet = pruning(candidateSet, currentLSet, k-1)
-        # Scanning itemSet for counting support
-        currentLSet = getAboveMinSup(
-            candidateSet, itemSetList, minSup, globalItemSetWithSup)
-        k += 1
-
-    rules = associationRule(globalFreqItemSet, globalItemSetWithSup, minConf)
-    rules.sort(key=lambda x: x[2])
-
-    return globalFreqItemSet, rules
-
-def apriori(C1ItemSet,itemSetList, minSup, minConf,k,globalItemSetWithSup):
-
-    # Final result global frequent itemset
-    globalFreqItemSet = dict()
-    # Storing global itemset with support count
-
+    # tính item xuất hiện thường xuyên > minSup
     L1ItemSet = getAboveMinSup(
         C1ItemSet, itemSetList, minSup, globalItemSetWithSup)
     currentLSet = L1ItemSet
 
 
-    # Calculating frequent item set
-        # Storing frequent itemset
-        # Self-joinin g Lk
+    # tạo ứng viên có length k với item length k-1 xuất hiện thường xuyên
     candidateSet = getUnion(currentLSet, k)
-    # Perform subset testing and remove pruned supersets
+    # Thực hiện kiểm tra tập hợp con và loại bỏ các tập hợp con đã được cắt bớt
     candidateSet = pruning(candidateSet, currentLSet, k-1)
-    # Scanning itemSet for counting support
+    # tính  lại item xuất hiện thường xuyên sau khi cắt giảm ứng viên  > minSup
     currentLSet = getAboveMinSup(
         candidateSet, itemSetList, minSup, globalItemSetWithSup)
     globalFreqItemSet[k] = currentLSet
 
-    rules = associationRule(globalFreqItemSet, globalItemSetWithSup, minConf)
-    rules.sort(key=lambda x: x[2])
-
-    return globalFreqItemSet[k], rules ,globalItemSetWithSup
+    return globalFreqItemSet[k] ,globalItemSetWithSup
 

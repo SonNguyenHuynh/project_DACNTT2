@@ -74,51 +74,69 @@ def getFromFile(fname):
     return itemSet, itemSets
 
 
-def getAboveMinSup(itemSet, itemSetList, minSup, globalItemSetWithSup):
+def getAboveMinSup(itemSet:set, itemSetList:[set], minSup:float, globalItemSetWithSup:defaultdict(int)):
+    """_summary_
+
+    Args:
+        itemSet (set): hubewis with k-1
+        itemSetList (set]): danh sách item in transactions
+        minSup (float): minSupport
+        globalItemSetWithSup (defaultdict): count sô lần xuất hiện của item trong transactions
+
+    Returns:
+        freqItemSet: list item xuất hiện thường xuyên
+    """
     freqItemSet = set()
     localItemSetWithSup = defaultdict(int)
 
+    # lặp mỗi item trong itemSet
     for item in itemSet:
+        #lăp mỗi itemSet trong itemSetlist
         for itemSet in itemSetList:
+            # nếu item xuất hiện trong itemSet
             if item.issubset(itemSet):
+                # cộng 1 lần trong hiện cua item trong globalItemSetWithSup
                 globalItemSetWithSup[item] += 1
+                # cộng 1 lần trong hiện cua item trong localItemSetWithSup
                 localItemSetWithSup[item] += 1
 
+    # lăp item trong localItemSetWithSup
     for item, supCount in localItemSetWithSup.items():
+        # tinh phan tram xuat hiện của item trong transactions
         support = float(supCount / len(itemSetList))
+        # nếu phần trăm > minSup thì item được cho là xuất hiện thường xuyên
         if(support >= minSup):
             freqItemSet.add(item)
-
+    # trả về list item xuất hiện thường xuyên
     return freqItemSet
 
 
-def getUnion(itemSet, length):
+def getUnion(itemSet, length:int):
     return set([i.union(j) for i in itemSet for j in itemSet if len(i.union(j)) == length])
 
 
-def pruning(candidateSet, prevFreqSet, length):
+def pruning(candidateSet:set(), prevFreqSet:set(), length:int):
+    """_summary_
+
+    Args:
+        candidateSet (set): danh sach ứng viên length = k
+        prevFreqSet (set): item xuất hiện thường xuyên length = k-1
+        length (int): length k-1
+
+    Returns:
+        tempCandidateSet: tập ứng viên sau khi cắt giảm
+    """
     tempCandidateSet = candidateSet.copy()
+    # lăp item trong candidateSet
     for item in candidateSet:
         subsets = combinations(item, length)
         for subset in subsets:
-            # if the subset is not in previous K-frequent get, then remove the set
+            # nếu tập hợp con không nằm trong tập hợp K-thường xuyên nhận được trước đó thì hãy xóa tập hợp đó
             if(frozenset(subset) not in prevFreqSet):
                 tempCandidateSet.remove(item)
                 break
     return tempCandidateSet
 
-
-def associationRule(freqItemSet, itemSetWithSup, minConf):
-    rules = []
-    for k, itemSet in freqItemSet.items():
-        for item in itemSet:
-            subsets = powerset(item)
-            for s in subsets:
-                confidence = float(
-                    itemSetWithSup[item] / itemSetWithSup[frozenset(s)])
-                if(confidence > minConf):
-                    rules.append([set(s), set(item.difference(s)), confidence])
-    return rules
 
 
 def getItemSetFromList(itemSetList):
