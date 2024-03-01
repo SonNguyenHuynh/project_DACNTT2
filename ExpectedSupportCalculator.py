@@ -19,6 +19,15 @@ def expectedSupportCalculator(itemset: ItemDto, itemsetProbabilityInATransaction
     return ItemDto(item=itemset.item,probability=total)
 
 def expectedSupportCalculatorWithFrozenset(itemset: frozenset, itemsetProbabilityInATransactions: [ItemDto]):
+    """tính Expected support of an itemset in D
+
+    Args:
+        itemset (frozenset): itemSet
+        itemsetProbabilityInATransactions (ItemDto]): itemset Probability In A Transactions
+
+    Returns:
+        _type_: Expected support
+    """
     total = 0
     for itemsetProbabilityInATransaction in itemsetProbabilityInATransactions:
         total +=itemsetProbabilityInATransaction.probability

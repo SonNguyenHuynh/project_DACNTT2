@@ -36,6 +36,15 @@ def calculatorItemsetProbabilityInATransaction(itemset: ItemDto, ds:DS):
 
 
 def calculatorItemsetProbabilityInATransactionWithFrozenset(itemset: frozenset, ds:DS):
+    """tính toán ItemsetProbabilityInATransaction
+
+    Args:
+        itemset (ItemDto): frequent itemSet
+        ds (DS): ds transaction
+
+    Returns:
+        result: ItemsetProbabilityInATransaction
+    """
     result = []
     total = 1
     for transaction in ds.transactions:

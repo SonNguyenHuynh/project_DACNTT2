@@ -739,7 +739,7 @@
         "kind": 2,
         "importPath": "calculatoritemsetProbabilityInATransaction",
         "description": "calculatoritemsetProbabilityInATransaction",
-        "peekOfCode": "def calculatorItemsetProbabilityInATransactionWithFrozenset(itemset: frozenset, ds:DS):\n    result = []\n    total = 1\n    for transaction in ds.transactions:\n        total = 1\n        count = 0\n        for itemdto in transaction.items:\n            for item in itemset:\n                if(itemdto.item == item):\n                    count +=1",
+        "peekOfCode": "def calculatorItemsetProbabilityInATransactionWithFrozenset(itemset: frozenset, ds:DS):\n    \"\"\"tính toán ItemsetProbabilityInATransaction\n    Args:\n        itemset (ItemDto): frequent itemSet\n        ds (DS): ds transaction\n    Returns:\n        result: ItemsetProbabilityInATransaction\n    \"\"\"\n    result = []\n    total = 1",
         "detail": "calculatoritemsetProbabilityInATransaction",
         "documentation": {}
     },
@@ -766,7 +766,7 @@
         "kind": 2,
         "importPath": "ExpectedSupportCalculator",
         "description": "ExpectedSupportCalculator",
-        "peekOfCode": "def expectedSupportCalculatorWithFrozenset(itemset: frozenset, itemsetProbabilityInATransactions: [ItemDto]):\n    total = 0\n    for itemsetProbabilityInATransaction in itemsetProbabilityInATransactions:\n        total +=itemsetProbabilityInATransaction.probability\n    return ItemDto(item=itemset,probability=total)",
+        "peekOfCode": "def expectedSupportCalculatorWithFrozenset(itemset: frozenset, itemsetProbabilityInATransactions: [ItemDto]):\n    \"\"\"tính Expected support of an itemset in D\n    Args:\n        itemset (frozenset): itemSet\n        itemsetProbabilityInATransactions (ItemDto]): itemset Probability In A Transactions\n    Returns:\n        _type_: Expected support\n    \"\"\"\n    total = 0\n    for itemsetProbabilityInATransaction in itemsetProbabilityInATransactions:",
         "detail": "ExpectedSupportCalculator",
         "documentation": {}
     },
@@ -793,7 +793,7 @@
         "kind": 6,
         "importPath": "HewiUaprior",
         "description": "HewiUaprior",
-        "peekOfCode": "class HewiUaprior:\n    def execute(self):    \n        # weight_table = WeightTable()\n        dataBase,filename = HewiUaprior().createDataBase()\n        HewiUaprior().handleLogic(dataBase,0.1,filename)\n        # value = 0.00001\n        # mushroom = HewiUaprior().readFile('input/DataTest/mushroom.txt','input/DataTest/mushroom-weight-table.txt')\n        # HewiUaprior().handleLogic(mushroom,value,'mushroom-' + str(value * 100)+'%.txt')\n        # retail = HewiUaprior().readFile('input/DataTest/retail.txt','input/DataTest/retail-weight-table.txt')\n        # HewiUaprior().handleLogic(retail,value,'retail-' + str(value * 100)+'%.txt')",
+        "peekOfCode": "class HewiUaprior:\n    def execute(self):    \n        # weight_table = WeightTable()\n        # dataBase,filename = HewiUaprior().createDataBase()\n        # HewiUaprior().handleLogic(dataBase,0.1,filename)\n        value = 0.01\n        mushroom = HewiUaprior().readFile('input/DataTest/mushroom.txt','input/DataTest/mushroom-weight-table.txt')\n        HewiUaprior().handleLogic(mushroom,value,'mushroom-' + str(value * 100)+'%.txt')\n        # retail = HewiUaprior().readFile('input/DataTest/retail.txt','input/DataTest/retail-weight-table.txt')\n        # HewiUaprior().handleLogic(retail,value,'retail-' + str(value * 100)+'%.txt')",
         "detail": "HewiUaprior",
         "documentation": {}
     },
@@ -838,7 +838,7 @@
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def main():\n    hewiUaprior = HewiUaprior().execute()\n    # wdFim = WdFim().execute()\nif __name__ == \"__main__\":\n    main()",
+        "peekOfCode": "def main():\n    # hewiUaprior = HewiUaprior().execute()\n    wdFim = WdFim().execute()\nif __name__ == \"__main__\":\n    main()",
         "detail": "main",
         "documentation": {}
     },
@@ -955,7 +955,7 @@
         "kind": 6,
         "importPath": "WdFim",
         "description": "WdFim",
-        "peekOfCode": "class WdFim:\n    def execute(self):    \n    # weight_table = WeightTable()\n        dataBase,fileName = WdFim().createDataBase()\n        WdFim().handleLogic(dataBase,0.1,fileName)\n        value = 0.01\n        mushroom = WdFim().readFile('input/DataTest/mushroom.txt','input/DataTest/mushroom-weight-table.txt')\n        WdFim().handleLogic(mushroom,value,'mushroom-' + str(value * 100)+'%-test.txt')\n        retail = WdFim().readFile('input/DataTest/retail.txt','input/DataTest/retail-weight-table.txt')\n        WdFim().handleLogic(retail,value,'retail-' + str(value * 100)+'%.txt')",
+        "peekOfCode": "class WdFim:\n    def execute(self):    \n    # weight_table = WeightTable()\n        dataBase,fileName = WdFim().createDataBase()\n        WdFim().handleLogic(dataBase,0.1,fileName)\n        value = 0.01\n        mushroom = WdFim().readFile('input/DataTest/mushroom.txt','input/DataTest/mushroom-weight-table.txt')\n        WdFim().handleLogic(mushroom,value,'mushroom-' + str(value * 100)+'%-test.txt')\n        # retail = WdFim().readFile('input/DataTest/retail.txt','input/DataTest/retail-weight-table.txt')\n        # WdFim().handleLogic(retail,value,'retail-' + str(value * 100)+'%.txt')",
         "detail": "WdFim",
         "documentation": {}
     },

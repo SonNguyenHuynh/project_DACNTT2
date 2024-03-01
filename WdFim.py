@@ -32,10 +32,10 @@ class WdFim:
 
         mushroom = WdFim().readFile('input/DataTest/mushroom.txt','input/DataTest/mushroom-weight-table.txt')
         WdFim().handleLogic(mushroom,value,'mushroom-' + str(value * 100)+'%-test.txt')
-        retail = WdFim().readFile('input/DataTest/retail.txt','input/DataTest/retail-weight-table.txt')
-        WdFim().handleLogic(retail,value,'retail-' + str(value * 100)+'%.txt')
-        T40I10D100K = WdFim().readFile('input/DataTest/T40I10D100K.txt','input/DataTest/T40I10D100K-weight-table.txt')
-        WdFim().handleLogic(T40I10D100K,value,'T40I10D100K-' + str(value * 100)+'%.txt')
+        # retail = WdFim().readFile('input/DataTest/retail.txt','input/DataTest/retail-weight-table.txt')
+        # WdFim().handleLogic(retail,value,'retail-' + str(value * 100)+'%.txt')
+        # T40I10D100K = WdFim().readFile('input/DataTest/T40I10D100K.txt','input/DataTest/T40I10D100K-weight-table.txt')
+        # WdFim().handleLogic(T40I10D100K,value,'T40I10D100K-' + str(value * 100)+'%.txt')
     
     def handleLogic(self,dataBase: list,minEWSup: int,filename:str):    
         print('start')
@@ -52,6 +52,8 @@ class WdFim:
         expectedWeighted = minEWSup
         expectedWeightedValue = len(ds.transactions) * expectedWeighted
         data=[]
+
+        # loop từng trasaction trong ds
         for i in ds.transactions:
             tidKeys=[]
             for j in i.items:
@@ -116,6 +118,15 @@ class WdFim:
         
         print('done')    
     def calculatorRCWFISK(self,data1:list[frozenset],data2: list[frozenset]):
+        """tính RCWFISK
+
+        Args:
+            data1 (list[frozenset]): list CWFISK
+            data2 (list[frozenset]): list NCWFISK
+
+        Returns:
+            _type_: list RCWFISK
+        """
         RCWFISK:list[frozenset]=[]
         for i in data1:
             isValid =False
@@ -130,6 +141,15 @@ class WdFim:
 
         
     def removeItem(self,data1:list[ItemDto],data2: list[ItemDto]):
+        """remove item trùng nhau trong 2 list
+
+        Args:
+            data1 (list[ItemDto]): list 1 
+            data2 (list[ItemDto]): list 2
+
+        Returns:
+            _type_: list item không trùng nhau
+        """
         result: list[ItemDto] = []
         for i  in data1:
             isValid = False
@@ -143,6 +163,17 @@ class WdFim:
 
 
     def wConnection(self,removeItem:list[ItemDto],scwfi: list[ItemDto],length:int):
+        """tạo tổ hợp từ 2 list theo trọng số
+
+        Args:
+            removeItem (list[ItemDto]): list 1
+            scwfi (list[ItemDto]): list 2
+            length (int): độ dài tổ hợp
+
+        Returns:
+            result: list các tổ hợp
+
+        """
         result:list[ItemDto] =[]
 
         for i in removeItem:
@@ -153,6 +184,16 @@ class WdFim:
         return result
     
     def connection(self,wfis:list[ItemDto],cwfis: list[ItemDto],length:int):
+        """tính tổ hợp từ các item
+
+        Args:
+            wfis (list[ItemDto]): wfis
+            cwfis (list[ItemDto]): cwfis
+            length (int): độ dài tổ hợp
+
+        Returns:
+            result: list tổ hợp cần tạo
+        """
         return set([frozenset(i.item).union(frozenset(j.item)) for i in cwfis for j in wfis if len(frozenset(i.item).union(frozenset(j.item))) == length])
     
     def calculatorWeightItem(self,data:list[frozenset],weightTable: list[ItemDto]):
@@ -171,6 +212,16 @@ class WdFim:
 
     
     def calculateExpwSup(self,ds:DS,weightTable:WeightTable,expectedWeightedValue:int)-> list[ItemDto]:
+        """tính expwSup 
+
+        Args:
+            ds (DS): danh sach transaction trong db
+            weightTable (WeightTable): weight table
+            expectedWeightedValue (int): trọng số kì vọng
+
+        Returns:
+            list[ItemDto]: _description_
+        """
         expwSup:list[itemDto] = []
         expSup =[]
         cwfis1:list[ItemDto] = [] 
