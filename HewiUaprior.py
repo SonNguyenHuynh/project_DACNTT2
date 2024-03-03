@@ -24,11 +24,11 @@ class HewiUaprior:
     
     def execute(self):    
         # weight_table = WeightTable()
-        dataBase,filename = HewiUaprior().createDataBase()
-        HewiUaprior().handleLogic(dataBase,0.1,filename)
-        # value = 0.00001
-        # mushroom = HewiUaprior().readFile('input/DataTest/mushroom.txt','input/DataTest/mushroom-weight-table.txt')
-        # HewiUaprior().handleLogic(mushroom,value,'mushroom-' + str(value * 100)+'%.txt')
+        # dataBase,filename = HewiUaprior().createDataBase()
+        # HewiUaprior().handleLogic(dataBase,0.1,filename)
+        value = 0.01
+        mushroom = HewiUaprior().readFile('input/DataTest/mushroom.txt','input/DataTest/mushroom-weight-table.txt')
+        HewiUaprior().handleLogic(mushroom,value,'mushroom-' + str(value * 100)+'%.txt')
         # retail = HewiUaprior().readFile('input/DataTest/retail.txt','input/DataTest/retail-weight-table.txt')
         # HewiUaprior().handleLogic(retail,value,'retail-' + str(value * 100)+'%.txt')
         # T40I10D100K = HewiUaprior().readFile('input/DataTest/T40I10D100K.txt','input/DataTest/T40I10D100K-weight-table.txt')
@@ -185,43 +185,16 @@ class HewiUaprior:
             file.write('memory usage' + ' : '+ str(memory_usage) + ' MB'+ '\n')
 
 
-
-
-
-
-    def calculatorHewis(self,expectedWeightedSupportValue: list[ItemDto],expectedWeightedValue:int):
-        result =[]
-        for i in expectedWeightedSupportValue:
-            if(i.probability >=expectedWeightedValue):
-                result.append(i)
-
-        return result
-
-    def calculatorHubewi(self,iubwp,expectedWeightedValue):
-        result =[]
-        for i in iubwp:
-            if(i.get(list(i.keys())[0])>=expectedWeightedValue):
-                result.append(i)
-        sortedData = sorted(result, key=lambda x: len(list(x.keys())[0]))
-
-        return sortedData
-
-
-
-
-    def calculatorTubwp(self,tubp,tubw):
-        result =[]
-        for i in tubp:
-            for j in tubw:
-                if(list(i.keys())[0] == list(j.keys())[0]):
-                    tubpValue =  i.get(list(i.keys())[0])
-                    tubwValue = j.get(list(j.keys())[0])
-                    tubwpValue = tubpValue * tubwValue
-                    
-                    result.append({list(i.keys())[0]:tubwpValue})
-        return result
-
     def calculatetIubwp(self,ds:DS,tubwp)-> list[ItemDto]:
+        """tính iubwp
+
+        Args:
+            ds (DS): ds transiction
+            tubwp (_type_): tubwp
+
+        Returns:
+            list[ItemDto]: list iubwp
+        """
         iubwp = []
         for i in ds.transactions:
             for j in i.items:
