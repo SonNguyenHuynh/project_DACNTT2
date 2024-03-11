@@ -40,14 +40,6 @@
         "documentation": {}
     },
     {
-        "label": "defaultdict",
-        "importPath": "collections",
-        "description": "collections",
-        "isExtraImport": true,
-        "detail": "collections",
-        "documentation": {}
-    },
-    {
         "label": "chain",
         "importPath": "itertools",
         "description": "itertools",
@@ -296,14 +288,6 @@
         "documentation": {}
     },
     {
-        "label": "DS",
-        "importPath": "DS",
-        "description": "DS",
-        "isExtraImport": true,
-        "detail": "DS",
-        "documentation": {}
-    },
-    {
         "label": "ItemDto",
         "importPath": "ItemDto",
         "description": "ItemDto",
@@ -368,15 +352,7 @@
         "documentation": {}
     },
     {
-        "label": "ItemDto",
-        "importPath": "ItemDto",
-        "description": "ItemDto",
-        "isExtraImport": true,
-        "detail": "ItemDto",
-        "documentation": {}
-    },
-    {
-        "label": "TransactionDTO",
+        "label": "TransactionDto",
         "importPath": "TransactionDTO",
         "description": "TransactionDTO",
         "isExtraImport": true,
@@ -384,7 +360,7 @@
         "documentation": {}
     },
     {
-        "label": "TransactionDTO",
+        "label": "TransactionDto",
         "importPath": "TransactionDTO",
         "description": "TransactionDTO",
         "isExtraImport": true,
@@ -392,7 +368,7 @@
         "documentation": {}
     },
     {
-        "label": "TransactionDTO",
+        "label": "TransactionDto",
         "importPath": "TransactionDTO",
         "description": "TransactionDTO",
         "isExtraImport": true,
@@ -400,7 +376,7 @@
         "documentation": {}
     },
     {
-        "label": "TransactionDTO",
+        "label": "TransactionDto",
         "importPath": "TransactionDTO",
         "description": "TransactionDTO",
         "isExtraImport": true,
@@ -408,7 +384,7 @@
         "documentation": {}
     },
     {
-        "label": "TransactionDTO",
+        "label": "TransactionDto",
         "importPath": "TransactionDTO",
         "description": "TransactionDTO",
         "isExtraImport": true,
@@ -416,7 +392,7 @@
         "documentation": {}
     },
     {
-        "label": "TransactionDTO",
+        "label": "TransactionDto",
         "importPath": "TransactionDTO",
         "description": "TransactionDTO",
         "isExtraImport": true,
@@ -424,7 +400,7 @@
         "documentation": {}
     },
     {
-        "label": "TransactionDTO",
+        "label": "TransactionDto",
         "importPath": "TransactionDTO",
         "description": "TransactionDTO",
         "isExtraImport": true,
@@ -432,15 +408,7 @@
         "documentation": {}
     },
     {
-        "label": "TransactionDTO",
-        "importPath": "TransactionDTO",
-        "description": "TransactionDTO",
-        "isExtraImport": true,
-        "detail": "TransactionDTO",
-        "documentation": {}
-    },
-    {
-        "label": "TransactionDTO",
+        "label": "TransactionDto",
         "importPath": "TransactionDTO",
         "description": "TransactionDTO",
         "isExtraImport": true,
@@ -449,14 +417,6 @@
     },
     {
         "label": "expected_support",
-        "importPath": "ItemsetSupportCalculators",
-        "description": "ItemsetSupportCalculators",
-        "isExtraImport": true,
-        "detail": "ItemsetSupportCalculators",
-        "documentation": {}
-    },
-    {
-        "label": "itemsetWeight",
         "importPath": "ItemsetSupportCalculators",
         "description": "ItemsetSupportCalculators",
         "isExtraImport": true,
@@ -495,22 +455,6 @@
         "importPath": "random",
         "description": "random",
         "detail": "random",
-        "documentation": {}
-    },
-    {
-        "label": "WeightTable",
-        "importPath": "WeightTable",
-        "description": "WeightTable",
-        "isExtraImport": true,
-        "detail": "WeightTable",
-        "documentation": {}
-    },
-    {
-        "label": "WeightTable",
-        "importPath": "WeightTable",
-        "description": "WeightTable",
-        "isExtraImport": true,
-        "detail": "WeightTable",
         "documentation": {}
     },
     {
@@ -587,30 +531,6 @@
         "documentation": {}
     },
     {
-        "label": "TidDto",
-        "importPath": "TidDto",
-        "description": "TidDto",
-        "isExtraImport": true,
-        "detail": "TidDto",
-        "documentation": {}
-    },
-    {
-        "label": "TidDto",
-        "importPath": "TidDto",
-        "description": "TidDto",
-        "isExtraImport": true,
-        "detail": "TidDto",
-        "documentation": {}
-    },
-    {
-        "label": "TidDto",
-        "importPath": "TidDto",
-        "description": "TidDto",
-        "isExtraImport": true,
-        "detail": "TidDto",
-        "documentation": {}
-    },
-    {
         "label": "expectedSupportCalculator",
         "importPath": "ExpectedSupportCalculator",
         "description": "ExpectedSupportCalculator",
@@ -632,14 +552,6 @@
         "description": "ExpectedSupportCalculator",
         "isExtraImport": true,
         "detail": "ExpectedSupportCalculator",
-        "documentation": {}
-    },
-    {
-        "label": "expectedWeightedSupport",
-        "importPath": "ExpectedWeightedSupportCalculator",
-        "description": "ExpectedWeightedSupportCalculator",
-        "isExtraImport": true,
-        "detail": "ExpectedWeightedSupportCalculator",
         "documentation": {}
     },
     {
@@ -709,14 +621,6 @@
         "documentation": {}
     },
     {
-        "label": "process",
-        "importPath": "multiprocessing",
-        "description": "multiprocessing",
-        "isExtraImport": true,
-        "detail": "multiprocessing",
-        "documentation": {}
-    },
-    {
         "label": "apriori",
         "kind": 2,
         "importPath": "Apriori",
@@ -748,7 +652,7 @@
         "kind": 6,
         "importPath": "DS",
         "description": "DS",
-        "peekOfCode": "class DS:\n    def __init__(self, tid, transactions):\n        self.tid = tid\n        self.transactions = transactions\n        # self.syntheticChain = self.getSyntheticChain()\n    def getSyntheticChain(self):\n        listChart = []\n        for i in self.transactions:\n            for j in i.items:\n                listChart.append(j.item)",
+        "peekOfCode": "class DS:\n    def __init__(self, id, transactions):\n        self.id = id\n        self.transactions = transactions\n        # self.syntheticChain = self.getSyntheticChain()",
         "detail": "DS",
         "documentation": {}
     },
@@ -793,7 +697,7 @@
         "kind": 6,
         "importPath": "HewiUaprior",
         "description": "HewiUaprior",
-        "peekOfCode": "class HewiUaprior:\n    def execute(self):    \n        # weight_table = WeightTable()\n        # dataBase,filename = HewiUaprior().createDataBase()\n        # HewiUaprior().handleLogic(dataBase,0.1,filename)\n        value = 0.01\n        mushroom = HewiUaprior().readFile('input/DataTest/mushroom.txt','input/DataTest/mushroom-weight-table.txt')\n        HewiUaprior().handleLogic(mushroom,value,'mushroom-' + str(value * 100)+'%.txt')\n        # retail = HewiUaprior().readFile('input/DataTest/retail.txt','input/DataTest/retail-weight-table.txt')\n        # HewiUaprior().handleLogic(retail,value,'retail-' + str(value * 100)+'%.txt')",
+        "peekOfCode": "class HewiUaprior:\n    def execute(self):    \n        # weight_table = WeightTable()\n        dataBase,filename = HewiUaprior().createDataBase()\n        HewiUaprior().handleLogic(dataBase,0.1,filename)\n        # value = 0.01\n        # mushroom = HewiUaprior().readFile('input/DataTest/mushroom.txt','input/DataTest/mushroom-weight-table.txt')\n        # HewiUaprior().handleLogic(mushroom,value,'mushroom-' + str(value * 100)+'%.txt')\n        # retail = HewiUaprior().readFile('input/DataTest/retail.txt','input/DataTest/retail-weight-table.txt')\n        # HewiUaprior().handleLogic(retail,value,'retail-' + str(value * 100)+'%.txt')",
         "detail": "HewiUaprior",
         "documentation": {}
     },
@@ -802,7 +706,7 @@
         "kind": 6,
         "importPath": "ItemDto",
         "description": "ItemDto",
-        "peekOfCode": "class ItemDto:\n    def __init__(self, item, probability):\n        self.item = item\n        self.probability = probability",
+        "peekOfCode": "class ItemDto:\n    def __init__(self, item:str, probability:int):\n        self.item = item\n        self.probability = probability",
         "detail": "ItemDto",
         "documentation": {}
     },
@@ -811,7 +715,7 @@
         "kind": 2,
         "importPath": "ItemsetSupportCalculators",
         "description": "ItemsetSupportCalculators",
-        "peekOfCode": "def expected_support(itemset: Set[str], transactions: List[TransactionDTO]) -> float:\n    return sum(transaction.probability * (itemset.issubset(item.item for item in transaction.items)) for transaction in transactions)\ndef itemsetWeight(itemset: Set[str], transactions: List[TransactionDTO]) -> float:\n    total_weight = 0.0\n    total_items = 0\n    for transaction in transactions:\n        for item in transaction.items:\n            if item.item in itemset:\n                total_weight += transaction.weight_table.get_weight(item.item)\n                total_items += 1",
+        "peekOfCode": "def expected_support(itemset: Set[str], transactions: List[TransactionDto]) -> float:\n    return sum(transaction.probability * (itemset.issubset(item.item for item in transaction.items)) for transaction in transactions)\ndef itemsetWeight(itemset: Set[str], transactions: List[TransactionDto]) -> float:\n    total_weight = 0.0\n    total_items = 0\n    for transaction in transactions:\n        for item in transaction.items:\n            if item.item in itemset:\n                total_weight += transaction.weightTable.get_weight(item.item)\n                total_items += 1",
         "detail": "ItemsetSupportCalculators",
         "documentation": {}
     },
@@ -820,7 +724,7 @@
         "kind": 2,
         "importPath": "ItemsetSupportCalculators",
         "description": "ItemsetSupportCalculators",
-        "peekOfCode": "def itemsetWeight(itemset: Set[str], transactions: List[TransactionDTO]) -> float:\n    total_weight = 0.0\n    total_items = 0\n    for transaction in transactions:\n        for item in transaction.items:\n            if item.item in itemset:\n                total_weight += transaction.weight_table.get_weight(item.item)\n                total_items += 1\n    if total_items == 0:\n        return 0.0",
+        "peekOfCode": "def itemsetWeight(itemset: Set[str], transactions: List[TransactionDto]) -> float:\n    total_weight = 0.0\n    total_items = 0\n    for transaction in transactions:\n        for item in transaction.items:\n            if item.item in itemset:\n                total_weight += transaction.weightTable.get_weight(item.item)\n                total_items += 1\n    if total_items == 0:\n        return 0.0",
         "detail": "ItemsetSupportCalculators",
         "documentation": {}
     },
@@ -838,25 +742,16 @@
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def main():\n    # hewiUaprior = HewiUaprior().execute()\n    wdFim = WdFim().execute()\nif __name__ == \"__main__\":\n    main()",
+        "peekOfCode": "def main():\n    hewiUaprior = HewiUaprior().execute()\n    # wdFim = WdFim().execute()\nif __name__ == \"__main__\":\n    main()",
         "detail": "main",
         "documentation": {}
     },
     {
-        "label": "TidDto",
-        "kind": 6,
-        "importPath": "TidDto",
-        "description": "TidDto",
-        "peekOfCode": "class TidDto:\n    def __init__(self, tid):\n        self.tid = tid",
-        "detail": "TidDto",
-        "documentation": {}
-    },
-    {
-        "label": "TransactionDTO",
+        "label": "TransactionDto",
         "kind": 6,
         "importPath": "TransactionDTO",
         "description": "TransactionDTO",
-        "peekOfCode": "class TransactionDTO:\n    def __init__(self, tid, items: List[Tuple[str, float]], weight_table):\n        self.tid = tid\n        self.items = [ItemDto(item=item, probability=probability) for item, probability in items]\n        self.weight_table = weight_table\n    def syntheticChain(self):\n        listString= []\n        for item in self.items:\n            listString.append(item.item)\n        syntheticChain = sorted(generateStrings(self,listString))",
+        "peekOfCode": "class TransactionDto:\n    def __init__(self, tid, items: List[Tuple[str, float]], weightTable):\n        self.tid = tid\n        self.items = [ItemDto(item=item, probability=probability) for item, probability in items]\n        self.weightTable = weightTable\n    def calculateTubwt(self,weightTable):\n        array =[]\n        for i in self.items:\n            weight =weightTable.getWeight(i.item)\n            array.append(weight)",
         "detail": "TransactionDTO",
         "documentation": {}
     },
@@ -955,7 +850,7 @@
         "kind": 6,
         "importPath": "WdFim",
         "description": "WdFim",
-        "peekOfCode": "class WdFim:\n    def execute(self):    \n    # weight_table = WeightTable()\n        dataBase,fileName = WdFim().createDataBase()\n        WdFim().handleLogic(dataBase,0.1,fileName)\n        value = 0.01\n        mushroom = WdFim().readFile('input/DataTest/mushroom.txt','input/DataTest/mushroom-weight-table.txt')\n        WdFim().handleLogic(mushroom,value,'mushroom-' + str(value * 100)+'%-test.txt')\n        # retail = WdFim().readFile('input/DataTest/retail.txt','input/DataTest/retail-weight-table.txt')\n        # WdFim().handleLogic(retail,value,'retail-' + str(value * 100)+'%.txt')",
+        "peekOfCode": "class WdFim:\n    def execute(self):    \n    # weight_table = WeightTable()\n        dataBase,fileName = WdFim().createDataBase()\n        WdFim().handleLogic(dataBase,0.1,fileName)\n        # value = 0.01\n        mushroom = WdFim().readFile('input/DataTest/mushroom.txt','input/DataTest/mushroom-weight-table.txt')\n        WdFim().handleLogic(mushroom,value,'mushroom-' + str(value * 100)+'%-test.txt')\n        # retail = WdFim().readFile('input/DataTest/retail.txt','input/DataTest/retail-weight-table.txt')\n        # WdFim().handleLogic(retail,value,'retail-' + str(value * 100)+'%.txt')",
         "detail": "WdFim",
         "documentation": {}
     },
@@ -964,7 +859,7 @@
         "kind": 6,
         "importPath": "WeightTable",
         "description": "WeightTable",
-        "peekOfCode": "class WeightTable:\n    def __init__(self,weight):\n        self.weights = weight\n        # self.weights = {'A': 0.1, 'B': 0.8, 'C': 0.3, 'D': 1.0, 'E': 0.6, 'F': 1.0}\n    def get_weight(self, item):\n        return self.weights.get(item, 0.0)\n    def calculate_probability(self):\n        listString= list(self.weights.keys())\n        syntheticChain = AprioriGen(self,listString)\n        result= []",
+        "peekOfCode": "class WeightTable:\n    def __init__(self,weight:set):\n        self.weights = weight\n        # self.weights = {'A': 0.1, 'B': 0.8, 'C': 0.3, 'D': 1.0, 'E': 0.6, 'F': 1.0}\n    def getWeight(self, item):\n        return self.weights.get(item, 0.0)",
         "detail": "WeightTable",
         "documentation": {}
     }

@@ -1,43 +1,24 @@
 
+from File import File
+from Utils import Utils
 import WdFim
 import os
-from collections import defaultdict
-from multiprocessing import process
 import time
 
 import psutil
-from Apriori import apriori
-from ExpectedSupportCalculator import expectedSupportCalculator, expectedSupportCalculatorWithFrozenset
 from ItemDto import ItemDto
-from ItemsetSupportCalculators import itemsetWeight
-from ItemsetWeightCalculator import itemsetWeightCalculator
-from TidDto import TidDto
-from TransactionDTO import TransactionDTO
+
+from TransactionDTO import TransactionDto
 from WeightTable import WeightTable
 from DS import DS
-from ExpectedWeightedSupportCalculator import expectedWeightedSupport
 from itertools import product
-from calculatoritemsetProbabilityInATransaction import calculatorItemsetProbabilityInATransactionWithFrozenset
 
 
 
 
 class WdFim:
-
-    def execute(self):    
-    # weight_table = WeightTable()
-        dataBase,fileName = WdFim().createDataBase()
-        WdFim().handleLogic(dataBase,0.1,fileName)
-        value = 0.01
-
-        mushroom = WdFim().readFile('input/DataTest/mushroom.txt','input/DataTest/mushroom-weight-table.txt')
-        WdFim().handleLogic(mushroom,value,'mushroom-' + str(value * 100)+'%-test.txt')
-        # retail = WdFim().readFile('input/DataTest/retail.txt','input/DataTest/retail-weight-table.txt')
-        # WdFim().handleLogic(retail,value,'retail-' + str(value * 100)+'%.txt')
-        # T40I10D100K = WdFim().readFile('input/DataTest/T40I10D100K.txt','input/DataTest/T40I10D100K-weight-table.txt')
-        # WdFim().handleLogic(T40I10D100K,value,'T40I10D100K-' + str(value * 100)+'%.txt')
     
-    def handleLogic(self,dataBase: list,minEWSup: int,filename:str):    
+    def execute(self,dataBase: list,minEWSup: int,filename:str):    
         print('start')
         process = psutil.Process()
 
@@ -48,7 +29,7 @@ class WdFim:
         weightTable = dataBase[1]
         
         # print(weightOfSyntheticChain)
-        ds = DS(tid=1, transactions=transactions)
+        ds = DS(id=1, transactions=transactions)
         expectedWeighted = minEWSup
         expectedWeightedValue = len(ds.transactions) * expectedWeighted
         data=[]
@@ -88,16 +69,16 @@ class WdFim:
 
             WFISK_1=[]
             for i in RCWFISK:
-                itemsetProbabilityInATransaction= calculatorItemsetProbabilityInATransactionWithFrozenset(i,ds)
-                expectedSupportValue = expectedSupportCalculatorWithFrozenset(i, itemsetProbabilityInATransaction)
+                itemsetProbabilityInATransaction= Utils().calculatorItemsetProbabilityInATransactionWithFrozenset(i,ds)
+                expectedSupportValue = Utils().expectedSupportCalculatorWithFrozenset(i, itemsetProbabilityInATransaction)
                 # print(f"Expected Support of : {expectedSupportValue}")
                 # print(expectedSupportValue)
             
                 
-                itemsetWeight = itemsetWeightCalculator(expectedSupportValue,weightTable)
+                itemsetWeight = Utils().itemsetWeightCalculator(expectedSupportValue,weightTable)
 
                 # # Calculate Expected Weighted Support of an Itemset
-                expectedWeightedSupportValue = expectedWeightedSupport(itemsetWeight, expectedSupportValue)
+                expectedWeightedSupportValue = Utils().expectedWeightedSupport(itemsetWeight, expectedSupportValue)
                 # # print(f"Expected Weighted Support")
                 CWFISK_1.append(expectedWeightedSupportValue)
                 if(expectedWeightedSupportValue.probability >=expectedWeightedValue ):
@@ -114,7 +95,7 @@ class WdFim:
         runtime = endTime - startTime
         
 
-        WdFim().writeFile(filename,WFIS,runtime,memory_usage,len(ds.transactions),expectedWeighted)
+        File().writeFile(filename,WFIS,runtime,memory_usage,len(ds.transactions),expectedWeighted,"output/WdFim")
         
         print('done')    
     def calculatorRCWFISK(self,data1:list[frozenset],data2: list[frozenset]):
@@ -196,19 +177,6 @@ class WdFim:
         """
         return set([frozenset(i.item).union(frozenset(j.item)) for i in cwfis for j in wfis if len(frozenset(i.item).union(frozenset(j.item))) == length])
     
-    def calculatorWeightItem(self,data:list[frozenset],weightTable: list[ItemDto]):
-        result:list[ItemDto] =[]
-        for i in data:
-            for j in i:
-                total=0
-                count:[]
-                for k in weightTable:
-                    if(j==k.item):
-                        total+=k.probability
-            result.append(ItemDto(item=i,probability=total/len(i)))
-        return result
-
-
 
     
     def calculateExpwSup(self,ds:DS,weightTable:WeightTable,expectedWeightedValue:int)-> list[ItemDto]:
@@ -244,7 +212,7 @@ class WdFim:
                         expSup.append(ItemDto(item=itemDto.item,probability=weightValue))
 
         for item in expSup:
-            probability=item.probability * weightTable.get_weight(item.item)
+            probability=item.probability * weightTable.getWeight(item.item)
             cwfis1.append(ItemDto(item=item.item,probability=probability))
 
             if(probability > expectedWeightedValue):
@@ -272,94 +240,10 @@ class WdFim:
                         weightValue =itemDto.probability
                         expSup.append(ItemDto(item=itemDto.item,probability=weightValue))
         for item in expSup:
-            probability=item.probability * weightTable.get_weight(item.item)
+            probability=item.probability * weightTable.getWeight(item.item)
 
             if(probability > expectedWeightedValue):
                 expwSup.append(ItemDto(item=item.item,probability=probability))
         return expwSup
     
-    def createDataBase(self):
-
-        weightTable = WeightTable({'A': 0.1, 'B': 0.8, 'C': 0.3, 'D': 1.0, 'E': 0.6, 'F': 0.1})
-        transactions_data = [
-            [('A', 0.8), ('B', 0.4), ('D', 1.0)],
-            [('B', 0.3), ('F', 0.7)],
-            [('B', 0.7), ('C', 0.9), ('E', 1.0), ('F', 0.7)],
-            [('E', 1.0), ('F', 0.5)],
-            [('A', 0.6), ('C', 0.4), ('D', 1.0)],
-            [('A', 0.8), ('B', 0.8), ('C', 1.0), ('F', 0.3)],
-            [('A', 0.8), ('C', 0.9), ('D', 0.5), ('E', 1.0)],
-            [('C', 0.6), ('E', 0.4)],
-            [('A', 0.5), ('D', 0.8), ('F', 1.0)],
-            [('A', 0.7), ('B', 1.0), ('C', 0.9), ('E', 0.8)],
-        ]
-
-        transactions = [
-            TransactionDTO(tid=i+1, items=data, weight_table=weightTable) for i, data in enumerate(transactions_data)
-        ]
-
-        return [transactions,weightTable],'example.txt'
     
-    def readFile(self,dataFile:str,weightTableFile:str):
-        data=[]
-        items=[]
-        with open(dataFile, 'r') as file:
-            for line in file:
-                itemList = line.split()
-                dataLine = []
-                for number in itemList:
-                    numberValue = number.strip('()').split(',')
-                    dataLine.append((str(numberValue[0]),float(numberValue[1])))
-                data.append(dataLine)
-
-        with open(weightTableFile, 'r') as file:
-            for line in file:
-                itemList = line.split()
-                weightTable = {}
-                for number in itemList:
-                    numberValue = number.strip('()').split(',')
-                    weightTable[str(numberValue[0])] = float(numberValue[1])
-
-        # print(data)
-        # print(items)
-        # convertItems  = {key: round(random.uniform(0, 1), 2) for key in items}
-        # print(convertItems)
-        # convertData = [[(str(item), round(random.uniform(0, 1), 2)) for item in sublist] for sublist in data]
-        # print(convertData)
-
-        weightTable = WeightTable(weightTable)
-        transactions_data = data
-        transactions = [
-            TransactionDTO(tid=i+1, items=data, weight_table=weightTable) for i, data in enumerate(transactions_data)
-        ]
-
-        return [transactions,weightTable]
-    
-    def writeFile(self,filename:str,data:[ItemDto],runtime,memory_usage,lenData:int,minEXSup:float):
-        folderPath = "output/WdFim"
-        filePath = filename
-
-
-        # Ensure the folder exists, create it if necessary
-        if not os.path.exists(folderPath):
-            os.makedirs(folderPath)
-
-        # Construct the full file path
-        filePath = os.path.join(folderPath, filePath)
-
-
-        with open(filePath, 'w') as file:
-            for i in data:
-                if isinstance(i.item, frozenset):
-                    file.write(str(set(i.item)) +' : '+ str(i.probability) + '\n')
-                else:
-                    file.write(str(i.item) +' : '+ str(i.probability) + '\n')
-
-            
-            file.write('\n' + '\n'+ '\n' + '\n')
-            file.write('length' + ' : '+ str(lenData) + '\n')
-            file.write('minEXSup' + ' : '+ str(minEXSup*100)+ ' %' + '\n')
-            file.write('candidate' + ' : '+ str(len(data)) + '\n')
-            file.write('runtime' + ' : '+ str(runtime) + ' s' + '\n')
-            file.write('memory usage' + ' : '+ str(memory_usage) + ' MB'+ '\n')
-
