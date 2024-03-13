@@ -40,14 +40,6 @@
         "documentation": {}
     },
     {
-        "label": "defaultdict",
-        "importPath": "collections",
-        "description": "collections",
-        "isExtraImport": true,
-        "detail": "collections",
-        "documentation": {}
-    },
-    {
         "label": "chain",
         "importPath": "itertools",
         "description": "itertools",
@@ -104,279 +96,7 @@
         "documentation": {}
     },
     {
-        "label": "getAboveMinSup",
-        "importPath": "Util",
-        "description": "Util",
-        "isExtraImport": true,
-        "detail": "Util",
-        "documentation": {}
-    },
-    {
-        "label": "getUnion",
-        "importPath": "Util",
-        "description": "Util",
-        "isExtraImport": true,
-        "detail": "Util",
-        "documentation": {}
-    },
-    {
-        "label": "pruning",
-        "importPath": "Util",
-        "description": "Util",
-        "isExtraImport": true,
-        "detail": "Util",
-        "documentation": {}
-    },
-    {
-        "label": "generateStrings",
-        "importPath": "Util",
-        "description": "Util",
-        "isExtraImport": true,
-        "detail": "Util",
-        "documentation": {}
-    },
-    {
-        "label": "getItemByLength",
-        "importPath": "Util",
-        "description": "Util",
-        "isExtraImport": true,
-        "detail": "Util",
-        "documentation": {}
-    },
-    {
-        "label": "powerset",
-        "importPath": "Util",
-        "description": "Util",
-        "isExtraImport": true,
-        "detail": "Util",
-        "documentation": {}
-    },
-    {
-        "label": "AprioriGen",
-        "importPath": "Util",
-        "description": "Util",
-        "isExtraImport": true,
-        "detail": "Util",
-        "documentation": {}
-    },
-    {
-        "label": "generateStrings",
-        "importPath": "Util",
-        "description": "Util",
-        "isExtraImport": true,
-        "detail": "Util",
-        "documentation": {}
-    },
-    {
-        "label": "AprioriGen",
-        "importPath": "Util",
-        "description": "Util",
-        "isExtraImport": true,
-        "detail": "Util",
-        "documentation": {}
-    },
-    {
-        "label": "List",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Set",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "List",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Set",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "List",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Set",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "List",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Set",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "List",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Set",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "List",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Tuple",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "DS",
-        "importPath": "DS",
-        "description": "DS",
-        "isExtraImport": true,
-        "detail": "DS",
-        "documentation": {}
-    },
-    {
-        "label": "DS",
-        "importPath": "DS",
-        "description": "DS",
-        "isExtraImport": true,
-        "detail": "DS",
-        "documentation": {}
-    },
-    {
-        "label": "DS",
-        "importPath": "DS",
-        "description": "DS",
-        "isExtraImport": true,
-        "detail": "DS",
-        "documentation": {}
-    },
-    {
-        "label": "DS",
-        "importPath": "DS",
-        "description": "DS",
-        "isExtraImport": true,
-        "detail": "DS",
-        "documentation": {}
-    },
-    {
-        "label": "ItemDto",
-        "importPath": "ItemDto",
-        "description": "ItemDto",
-        "isExtraImport": true,
-        "detail": "ItemDto",
-        "documentation": {}
-    },
-    {
-        "label": "ItemDto",
-        "importPath": "ItemDto",
-        "description": "ItemDto",
-        "isExtraImport": true,
-        "detail": "ItemDto",
-        "documentation": {}
-    },
-    {
-        "label": "ItemDto",
-        "importPath": "ItemDto",
-        "description": "ItemDto",
-        "isExtraImport": true,
-        "detail": "ItemDto",
-        "documentation": {}
-    },
-    {
-        "label": "ItemDto",
-        "importPath": "ItemDto",
-        "description": "ItemDto",
-        "isExtraImport": true,
-        "detail": "ItemDto",
-        "documentation": {}
-    },
-    {
-        "label": "ItemDto",
-        "importPath": "ItemDto",
-        "description": "ItemDto",
-        "isExtraImport": true,
-        "detail": "ItemDto",
-        "documentation": {}
-    },
-    {
-        "label": "ItemDto",
-        "importPath": "ItemDto",
-        "description": "ItemDto",
-        "isExtraImport": true,
-        "detail": "ItemDto",
-        "documentation": {}
-    },
-    {
-        "label": "ItemDto",
-        "importPath": "ItemDto",
-        "description": "ItemDto",
-        "isExtraImport": true,
-        "detail": "ItemDto",
-        "documentation": {}
-    },
-    {
-        "label": "ItemDto",
-        "importPath": "ItemDto",
-        "description": "ItemDto",
-        "isExtraImport": true,
-        "detail": "ItemDto",
-        "documentation": {}
-    },
-    {
-        "label": "ItemDto",
-        "importPath": "ItemDto",
-        "description": "ItemDto",
-        "isExtraImport": true,
-        "detail": "ItemDto",
-        "documentation": {}
-    },
-    {
-        "label": "TransactionDTO",
+        "label": "TransactionDto",
         "importPath": "TransactionDTO",
         "description": "TransactionDTO",
         "isExtraImport": true,
@@ -384,7 +104,7 @@
         "documentation": {}
     },
     {
-        "label": "TransactionDTO",
+        "label": "TransactionDto",
         "importPath": "TransactionDTO",
         "description": "TransactionDTO",
         "isExtraImport": true,
@@ -392,7 +112,7 @@
         "documentation": {}
     },
     {
-        "label": "TransactionDTO",
+        "label": "TransactionDto",
         "importPath": "TransactionDTO",
         "description": "TransactionDTO",
         "isExtraImport": true,
@@ -400,7 +120,7 @@
         "documentation": {}
     },
     {
-        "label": "TransactionDTO",
+        "label": "TransactionDto",
         "importPath": "TransactionDTO",
         "description": "TransactionDTO",
         "isExtraImport": true,
@@ -408,75 +128,11 @@
         "documentation": {}
     },
     {
-        "label": "TransactionDTO",
+        "label": "TransactionDto",
         "importPath": "TransactionDTO",
         "description": "TransactionDTO",
         "isExtraImport": true,
         "detail": "TransactionDTO",
-        "documentation": {}
-    },
-    {
-        "label": "TransactionDTO",
-        "importPath": "TransactionDTO",
-        "description": "TransactionDTO",
-        "isExtraImport": true,
-        "detail": "TransactionDTO",
-        "documentation": {}
-    },
-    {
-        "label": "TransactionDTO",
-        "importPath": "TransactionDTO",
-        "description": "TransactionDTO",
-        "isExtraImport": true,
-        "detail": "TransactionDTO",
-        "documentation": {}
-    },
-    {
-        "label": "TransactionDTO",
-        "importPath": "TransactionDTO",
-        "description": "TransactionDTO",
-        "isExtraImport": true,
-        "detail": "TransactionDTO",
-        "documentation": {}
-    },
-    {
-        "label": "TransactionDTO",
-        "importPath": "TransactionDTO",
-        "description": "TransactionDTO",
-        "isExtraImport": true,
-        "detail": "TransactionDTO",
-        "documentation": {}
-    },
-    {
-        "label": "expected_support",
-        "importPath": "ItemsetSupportCalculators",
-        "description": "ItemsetSupportCalculators",
-        "isExtraImport": true,
-        "detail": "ItemsetSupportCalculators",
-        "documentation": {}
-    },
-    {
-        "label": "itemsetWeight",
-        "importPath": "ItemsetSupportCalculators",
-        "description": "ItemsetSupportCalculators",
-        "isExtraImport": true,
-        "detail": "ItemsetSupportCalculators",
-        "documentation": {}
-    },
-    {
-        "label": "itemsetWeight",
-        "importPath": "ItemsetSupportCalculators",
-        "description": "ItemsetSupportCalculators",
-        "isExtraImport": true,
-        "detail": "ItemsetSupportCalculators",
-        "documentation": {}
-    },
-    {
-        "label": "itemsetWeight",
-        "importPath": "ItemsetSupportCalculators",
-        "description": "ItemsetSupportCalculators",
-        "isExtraImport": true,
-        "detail": "ItemsetSupportCalculators",
         "documentation": {}
     },
     {
@@ -489,28 +145,43 @@
         "documentation": {}
     },
     {
-        "label": "random",
-        "kind": 6,
+        "label": "ItemDto",
+        "importPath": "ItemDto",
+        "description": "ItemDto",
         "isExtraImport": true,
-        "importPath": "random",
-        "description": "random",
-        "detail": "random",
+        "detail": "ItemDto",
         "documentation": {}
     },
     {
-        "label": "WeightTable",
-        "importPath": "WeightTable",
-        "description": "WeightTable",
+        "label": "ItemDto",
+        "importPath": "ItemDto",
+        "description": "ItemDto",
         "isExtraImport": true,
-        "detail": "WeightTable",
+        "detail": "ItemDto",
         "documentation": {}
     },
     {
-        "label": "WeightTable",
-        "importPath": "WeightTable",
-        "description": "WeightTable",
+        "label": "ItemDto",
+        "importPath": "ItemDto",
+        "description": "ItemDto",
         "isExtraImport": true,
-        "detail": "WeightTable",
+        "detail": "ItemDto",
+        "documentation": {}
+    },
+    {
+        "label": "ItemDto",
+        "importPath": "ItemDto",
+        "description": "ItemDto",
+        "isExtraImport": true,
+        "detail": "ItemDto",
+        "documentation": {}
+    },
+    {
+        "label": "ItemDto",
+        "importPath": "ItemDto",
+        "description": "ItemDto",
+        "isExtraImport": true,
+        "detail": "ItemDto",
         "documentation": {}
     },
     {
@@ -555,7 +226,7 @@
         "documentation": {}
     },
     {
-        "label": "apriori",
+        "label": "Apriori",
         "importPath": "Apriori",
         "description": "Apriori",
         "isExtraImport": true,
@@ -563,99 +234,76 @@
         "documentation": {}
     },
     {
-        "label": "apriori",
-        "importPath": "Apriori",
-        "description": "Apriori",
+        "label": "File",
+        "importPath": "File",
+        "description": "File",
         "isExtraImport": true,
-        "detail": "Apriori",
+        "detail": "File",
         "documentation": {}
     },
     {
-        "label": "itemsetWeightCalculator",
-        "importPath": "ItemsetWeightCalculator",
-        "description": "ItemsetWeightCalculator",
+        "label": "File",
+        "importPath": "File",
+        "description": "File",
         "isExtraImport": true,
-        "detail": "ItemsetWeightCalculator",
+        "detail": "File",
         "documentation": {}
     },
     {
-        "label": "itemsetWeightCalculator",
-        "importPath": "ItemsetWeightCalculator",
-        "description": "ItemsetWeightCalculator",
+        "label": "File",
+        "importPath": "File",
+        "description": "File",
         "isExtraImport": true,
-        "detail": "ItemsetWeightCalculator",
+        "detail": "File",
         "documentation": {}
     },
     {
-        "label": "TidDto",
-        "importPath": "TidDto",
-        "description": "TidDto",
+        "label": "Utils",
+        "importPath": "Utils",
+        "description": "Utils",
         "isExtraImport": true,
-        "detail": "TidDto",
+        "detail": "Utils",
         "documentation": {}
     },
     {
-        "label": "TidDto",
-        "importPath": "TidDto",
-        "description": "TidDto",
+        "label": "Utils",
+        "importPath": "Utils",
+        "description": "Utils",
         "isExtraImport": true,
-        "detail": "TidDto",
+        "detail": "Utils",
         "documentation": {}
     },
     {
-        "label": "TidDto",
-        "importPath": "TidDto",
-        "description": "TidDto",
+        "label": "DS",
+        "importPath": "DS",
+        "description": "DS",
         "isExtraImport": true,
-        "detail": "TidDto",
+        "detail": "DS",
         "documentation": {}
     },
     {
-        "label": "expectedSupportCalculator",
-        "importPath": "ExpectedSupportCalculator",
-        "description": "ExpectedSupportCalculator",
+        "label": "DS",
+        "importPath": "DS",
+        "description": "DS",
         "isExtraImport": true,
-        "detail": "ExpectedSupportCalculator",
+        "detail": "DS",
         "documentation": {}
     },
     {
-        "label": "expectedSupportCalculator",
-        "importPath": "ExpectedSupportCalculator",
-        "description": "ExpectedSupportCalculator",
+        "label": "DS",
+        "importPath": "DS",
+        "description": "DS",
         "isExtraImport": true,
-        "detail": "ExpectedSupportCalculator",
+        "detail": "DS",
         "documentation": {}
     },
     {
-        "label": "expectedSupportCalculatorWithFrozenset",
-        "importPath": "ExpectedSupportCalculator",
-        "description": "ExpectedSupportCalculator",
+        "label": "random",
+        "kind": 6,
         "isExtraImport": true,
-        "detail": "ExpectedSupportCalculator",
-        "documentation": {}
-    },
-    {
-        "label": "expectedWeightedSupport",
-        "importPath": "ExpectedWeightedSupportCalculator",
-        "description": "ExpectedWeightedSupportCalculator",
-        "isExtraImport": true,
-        "detail": "ExpectedWeightedSupportCalculator",
-        "documentation": {}
-    },
-    {
-        "label": "expectedWeightedSupport",
-        "importPath": "ExpectedWeightedSupportCalculator",
-        "description": "ExpectedWeightedSupportCalculator",
-        "isExtraImport": true,
-        "detail": "ExpectedWeightedSupportCalculator",
-        "documentation": {}
-    },
-    {
-        "label": "expectedWeightedSupport",
-        "importPath": "ExpectedWeightedSupportCalculator",
-        "description": "ExpectedWeightedSupportCalculator",
-        "isExtraImport": true,
-        "detail": "ExpectedWeightedSupportCalculator",
+        "importPath": "random",
+        "description": "random",
+        "detail": "random",
         "documentation": {}
     },
     {
@@ -668,22 +316,6 @@
         "documentation": {}
     },
     {
-        "label": "calculatorItemsetProbabilityInATransaction",
-        "importPath": "calculatoritemsetProbabilityInATransaction",
-        "description": "calculatoritemsetProbabilityInATransaction",
-        "isExtraImport": true,
-        "detail": "calculatoritemsetProbabilityInATransaction",
-        "documentation": {}
-    },
-    {
-        "label": "calculatorItemsetProbabilityInATransactionWithFrozenset",
-        "importPath": "calculatoritemsetProbabilityInATransaction",
-        "description": "calculatoritemsetProbabilityInATransaction",
-        "isExtraImport": true,
-        "detail": "calculatoritemsetProbabilityInATransaction",
-        "documentation": {}
-    },
-    {
         "label": "HewiUaprior",
         "importPath": "HewiUaprior",
         "description": "HewiUaprior",
@@ -709,38 +341,44 @@
         "documentation": {}
     },
     {
-        "label": "process",
-        "importPath": "multiprocessing",
-        "description": "multiprocessing",
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
         "isExtraImport": true,
-        "detail": "multiprocessing",
+        "detail": "typing",
         "documentation": {}
     },
     {
-        "label": "apriori",
-        "kind": 2,
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Set",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Apriori",
+        "kind": 6,
         "importPath": "Apriori",
         "description": "Apriori",
-        "peekOfCode": "def apriori(C1ItemSet: list[frozenset],itemSetList:list[set], minSup:float,k:int,globalItemSetWithSup:defaultdict(int)):\n    \"\"\"_summary_\n    Args:\n        C1ItemSet (_type_): hubewis with k-1 \n        itemSetList (_type_): danh sách item in transactions\n        minSup (_type_): minSupport\n        minConf (_type_): min Confident\n        k (_type_): độ rộng của item \n        globalItemSetWithSup (defaultdict): count sô lần xuất hiện của item trong transactions\n    Returns:",
+        "peekOfCode": "class Apriori:\n    def execute(self,C1ItemSet: list[frozenset],itemSetList:list[set], minSup:float,k:int,globalItemSetWithSup:defaultdict(int)):\n        \"\"\"_summary_\n        Args:\n            C1ItemSet (_type_): hubewis with k-1 \n            itemSetList (_type_): danh sách item in transactions\n            minSup (_type_): minSupport\n            minConf (_type_): min Confident\n            k (_type_): độ rộng của item \n            globalItemSetWithSup (defaultdict): count sô lần xuất hiện của item trong transactions",
         "detail": "Apriori",
-        "documentation": {}
-    },
-    {
-        "label": "calculatorItemsetProbabilityInATransaction",
-        "kind": 2,
-        "importPath": "calculatoritemsetProbabilityInATransaction",
-        "description": "calculatoritemsetProbabilityInATransaction",
-        "peekOfCode": "def calculatorItemsetProbabilityInATransaction(itemset: ItemDto, ds:DS):\n    \"\"\"tính toán ItemsetProbabilityInATransaction\n    Args:\n        itemset (ItemDto): frequent itemSet\n        ds (DS): ds transaction\n    Returns:\n        result: ItemsetProbabilityInATransaction\n    \"\"\"\n    result = []\n    total = 1",
-        "detail": "calculatoritemsetProbabilityInATransaction",
-        "documentation": {}
-    },
-    {
-        "label": "calculatorItemsetProbabilityInATransactionWithFrozenset",
-        "kind": 2,
-        "importPath": "calculatoritemsetProbabilityInATransaction",
-        "description": "calculatoritemsetProbabilityInATransaction",
-        "peekOfCode": "def calculatorItemsetProbabilityInATransactionWithFrozenset(itemset: frozenset, ds:DS):\n    \"\"\"tính toán ItemsetProbabilityInATransaction\n    Args:\n        itemset (ItemDto): frequent itemSet\n        ds (DS): ds transaction\n    Returns:\n        result: ItemsetProbabilityInATransaction\n    \"\"\"\n    result = []\n    total = 1",
-        "detail": "calculatoritemsetProbabilityInATransaction",
         "documentation": {}
     },
     {
@@ -748,44 +386,17 @@
         "kind": 6,
         "importPath": "DS",
         "description": "DS",
-        "peekOfCode": "class DS:\n    def __init__(self, tid, transactions):\n        self.tid = tid\n        self.transactions = transactions\n        # self.syntheticChain = self.getSyntheticChain()\n    def getSyntheticChain(self):\n        listChart = []\n        for i in self.transactions:\n            for j in i.items:\n                listChart.append(j.item)",
+        "peekOfCode": "class DS:\n    def __init__(self, id, transactions):\n        self.id = id\n        self.transactions = transactions\n        # self.syntheticChain = self.getSyntheticChain()",
         "detail": "DS",
         "documentation": {}
     },
     {
-        "label": "expectedSupportCalculator",
-        "kind": 2,
-        "importPath": "ExpectedSupportCalculator",
-        "description": "ExpectedSupportCalculator",
-        "peekOfCode": "def expectedSupportCalculator(itemset: ItemDto, itemsetProbabilityInATransactions: [ItemDto]):\n    \"\"\"tính Expected support of an itemset in D\n    Args:\n        itemset (ItemDto): itemSet\n        itemsetProbabilityInATransactions (ItemDto]): itemset Probability In A Transactions\n    Returns:\n        _type_: Expected support\n    \"\"\"\n    total = 0\n    # tổng itemset Probability trong các transaction  ",
-        "detail": "ExpectedSupportCalculator",
-        "documentation": {}
-    },
-    {
-        "label": "expectedSupportCalculatorWithFrozenset",
-        "kind": 2,
-        "importPath": "ExpectedSupportCalculator",
-        "description": "ExpectedSupportCalculator",
-        "peekOfCode": "def expectedSupportCalculatorWithFrozenset(itemset: frozenset, itemsetProbabilityInATransactions: [ItemDto]):\n    \"\"\"tính Expected support of an itemset in D\n    Args:\n        itemset (frozenset): itemSet\n        itemsetProbabilityInATransactions (ItemDto]): itemset Probability In A Transactions\n    Returns:\n        _type_: Expected support\n    \"\"\"\n    total = 0\n    for itemsetProbabilityInATransaction in itemsetProbabilityInATransactions:",
-        "detail": "ExpectedSupportCalculator",
-        "documentation": {}
-    },
-    {
-        "label": "expectedWeightedSupport",
-        "kind": 2,
-        "importPath": "ExpectedWeightedSupportCalculator",
-        "description": "ExpectedWeightedSupportCalculator",
-        "peekOfCode": "def expectedWeightedSupport(itemsetWeight: ItemDto, expectedSupportValue:ItemDto):\n    \"\"\"tính expected Weighted Support\n    Args:\n        itemsetWeight (ItemDto): weight frequent itemSet\n        expectedSupportValue (ItemDto): expectedSupportValue\n    Returns:\n        _type_: expectedWeightedSupport\n    \"\"\"\n    return ItemDto(item=itemsetWeight.item,probability=itemsetWeight.probability * expectedSupportValue.probability)",
-        "detail": "ExpectedWeightedSupportCalculator",
-        "documentation": {}
-    },
-    {
-        "label": "readFile",
-        "kind": 2,
-        "importPath": "GeneratoFIle",
-        "description": "GeneratoFIle",
-        "peekOfCode": "def readFile():\n    data=[]\n    items=[]\n    input= 'input/T40I10D100K.txt'\n    with open(input, 'r') as file:\n        for line in file:\n            itemList = line.split()\n            dataLine = [int(number) for number in itemList]\n            data.append(dataLine)\n            for item in itemList:",
-        "detail": "GeneratoFIle",
+        "label": "File",
+        "kind": 6,
+        "importPath": "File",
+        "description": "File",
+        "peekOfCode": "class File:\n    def createDataBase(self,type:str):\n        weightTableWdFim = WeightTable({'A': 0.1, 'B': 0.8, 'C': 0.3, 'D': 1.0, 'E': 0.6, 'F': 0.1})\n        transactionsDataWdFim = [\n            [('A', 0.8), ('B', 0.4), ('D', 1.0)],\n            [('B', 0.3), ('F', 0.7)],\n            [('B', 0.7), ('C', 0.9), ('E', 1.0), ('F', 0.7)],\n            [('E', 1.0), ('F', 0.5)],\n            [('A', 0.6), ('C', 0.4), ('D', 1.0)],\n            [('A', 0.8), ('B', 0.8), ('C', 1.0), ('F', 0.3)],",
+        "detail": "File",
         "documentation": {}
     },
     {
@@ -793,7 +404,7 @@
         "kind": 6,
         "importPath": "HewiUaprior",
         "description": "HewiUaprior",
-        "peekOfCode": "class HewiUaprior:\n    def execute(self):    \n        # weight_table = WeightTable()\n        # dataBase,filename = HewiUaprior().createDataBase()\n        # HewiUaprior().handleLogic(dataBase,0.1,filename)\n        value = 0.01\n        mushroom = HewiUaprior().readFile('input/DataTest/mushroom.txt','input/DataTest/mushroom-weight-table.txt')\n        HewiUaprior().handleLogic(mushroom,value,'mushroom-' + str(value * 100)+'%.txt')\n        # retail = HewiUaprior().readFile('input/DataTest/retail.txt','input/DataTest/retail-weight-table.txt')\n        # HewiUaprior().handleLogic(retail,value,'retail-' + str(value * 100)+'%.txt')",
+        "peekOfCode": "class HewiUaprior:\n    def execute(self,dataBase: list,minEWSup: int,filename:str):\n        \"\"\"_summary_\n        Args:\n            dataBase (list): gom dataItemSet va weight table\n            minEWSup (int): min expect weight support\n            filename (str): tên file output\n        \"\"\"\n        print('start')\n        process = psutil.Process()",
         "detail": "HewiUaprior",
         "documentation": {}
     },
@@ -802,35 +413,8 @@
         "kind": 6,
         "importPath": "ItemDto",
         "description": "ItemDto",
-        "peekOfCode": "class ItemDto:\n    def __init__(self, item, probability):\n        self.item = item\n        self.probability = probability",
+        "peekOfCode": "class ItemDto:\n    def __init__(self, item:str, probability:int):\n        self.item = item\n        self.probability = probability",
         "detail": "ItemDto",
-        "documentation": {}
-    },
-    {
-        "label": "expected_support",
-        "kind": 2,
-        "importPath": "ItemsetSupportCalculators",
-        "description": "ItemsetSupportCalculators",
-        "peekOfCode": "def expected_support(itemset: Set[str], transactions: List[TransactionDTO]) -> float:\n    return sum(transaction.probability * (itemset.issubset(item.item for item in transaction.items)) for transaction in transactions)\ndef itemsetWeight(itemset: Set[str], transactions: List[TransactionDTO]) -> float:\n    total_weight = 0.0\n    total_items = 0\n    for transaction in transactions:\n        for item in transaction.items:\n            if item.item in itemset:\n                total_weight += transaction.weight_table.get_weight(item.item)\n                total_items += 1",
-        "detail": "ItemsetSupportCalculators",
-        "documentation": {}
-    },
-    {
-        "label": "itemsetWeight",
-        "kind": 2,
-        "importPath": "ItemsetSupportCalculators",
-        "description": "ItemsetSupportCalculators",
-        "peekOfCode": "def itemsetWeight(itemset: Set[str], transactions: List[TransactionDTO]) -> float:\n    total_weight = 0.0\n    total_items = 0\n    for transaction in transactions:\n        for item in transaction.items:\n            if item.item in itemset:\n                total_weight += transaction.weight_table.get_weight(item.item)\n                total_items += 1\n    if total_items == 0:\n        return 0.0",
-        "detail": "ItemsetSupportCalculators",
-        "documentation": {}
-    },
-    {
-        "label": "itemsetWeightCalculator",
-        "kind": 2,
-        "importPath": "ItemsetWeightCalculator",
-        "description": "ItemsetWeightCalculator",
-        "peekOfCode": "def itemsetWeightCalculator(itemset: ItemDto, weightTable: WeightTable):\n    \"\"\"lấy itemSet Weight\n    Args:\n        itemset (ItemDto): frequent itemSet\n        weightTable (WeightTable): weight table\n    Returns:\n        _type_: weight itemSet\n    \"\"\"\n    total = 0\n    #lap cac item trong frequent itemSet",
-        "detail": "ItemsetWeightCalculator",
         "documentation": {}
     },
     {
@@ -838,116 +422,26 @@
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def main():\n    # hewiUaprior = HewiUaprior().execute()\n    wdFim = WdFim().execute()\nif __name__ == \"__main__\":\n    main()",
+        "peekOfCode": "def main():\n    value = 0.01\n    dataBaseWdFim,fileNameWdFim = File().createDataBase('WdFim')\n    WdFim().execute(dataBaseWdFim,value,fileNameWdFim)\n    dataBaseHewi,fileNameHewi = File().createDataBase('Hewi')\n    HewiUaprior().execute(dataBaseHewi,value,fileNameHewi)\n    # T40I10D100K = File().readFile('input/DataTest/T40I10D100K.txt','input/DataTest/T40I10D100K-weight-table.txt')\n    # mushroom = File.readFile('input/DataTest/mushroom.txt','input/DataTest/mushroom-weight-table.txt')\n    # retail = File().readFile('input/DataTest/retail.txt','input/DataTest/retail-weight-table.txt')\n    # WdFim().execute(mushroom,value,'mushroom-' + str(value * 100)+'%-test.txt')",
         "detail": "main",
         "documentation": {}
     },
     {
-        "label": "TidDto",
-        "kind": 6,
-        "importPath": "TidDto",
-        "description": "TidDto",
-        "peekOfCode": "class TidDto:\n    def __init__(self, tid):\n        self.tid = tid",
-        "detail": "TidDto",
-        "documentation": {}
-    },
-    {
-        "label": "TransactionDTO",
+        "label": "TransactionDto",
         "kind": 6,
         "importPath": "TransactionDTO",
         "description": "TransactionDTO",
-        "peekOfCode": "class TransactionDTO:\n    def __init__(self, tid, items: List[Tuple[str, float]], weight_table):\n        self.tid = tid\n        self.items = [ItemDto(item=item, probability=probability) for item, probability in items]\n        self.weight_table = weight_table\n    def syntheticChain(self):\n        listString= []\n        for item in self.items:\n            listString.append(item.item)\n        syntheticChain = sorted(generateStrings(self,listString))",
+        "peekOfCode": "class TransactionDto:\n    def __init__(self, tid, items: List[Tuple[str, float]], weightTable):\n        self.tid = tid\n        self.items = [ItemDto(item=item, probability=probability) for item, probability in items]\n        self.weightTable = weightTable\n    def calculateTubwt(self,weightTable):\n        array =[]\n        for i in self.items:\n            weight =weightTable.getWeight(i.item)\n            array.append(weight)",
         "detail": "TransactionDTO",
         "documentation": {}
     },
     {
-        "label": "generateStrings",
-        "kind": 2,
-        "importPath": "Util",
-        "description": "Util",
-        "peekOfCode": "def generateStrings(self,characters):\n    result = []\n    def generate_helper(current_string, index):\n        if index == len(characters):\n            if current_string:  # Only append non-empty strings\n                result.append(current_string)\n            return\n        # Include the character at the current index\n        generate_helper(current_string + characters[index], index + 1)\n        # Exclude the character at the current index",
-        "detail": "Util",
-        "documentation": {}
-    },
-    {
-        "label": "getItemByLength",
-        "kind": 2,
-        "importPath": "Util",
-        "description": "Util",
-        "peekOfCode": "def getItemByLength(characters: list[str],k:int):\n    result = [combo for combo in characters if len(combo) == k]\n    return result\ndef AprioriGen(frequent_itemsets_k):\n    candidate_itemsets_kplus1 = []\n    num_itemsets = len(frequent_itemsets_k)\n    for i in range(num_itemsets):\n        for j in range(i + 1, num_itemsets):\n            candidate_itemset = list(set(frequent_itemsets_k[i]).union(frequent_itemsets_k[j]))\n            if all(set(subset) in frequent_itemsets_k for subset in combinations(candidate_itemset, len(candidate_itemset) - 1)):",
-        "detail": "Util",
-        "documentation": {}
-    },
-    {
-        "label": "AprioriGen",
-        "kind": 2,
-        "importPath": "Util",
-        "description": "Util",
-        "peekOfCode": "def AprioriGen(frequent_itemsets_k):\n    candidate_itemsets_kplus1 = []\n    num_itemsets = len(frequent_itemsets_k)\n    for i in range(num_itemsets):\n        for j in range(i + 1, num_itemsets):\n            candidate_itemset = list(set(frequent_itemsets_k[i]).union(frequent_itemsets_k[j]))\n            if all(set(subset) in frequent_itemsets_k for subset in combinations(candidate_itemset, len(candidate_itemset) - 1)):\n                candidate_itemsets_kplus1.append(sorted(candidate_itemset))\n    return candidate_itemsets_kplus1\nfrom csv import reader",
-        "detail": "Util",
-        "documentation": {}
-    },
-    {
-        "label": "dataToCSV",
-        "kind": 2,
-        "importPath": "Util",
-        "description": "Util",
-        "peekOfCode": "def dataToCSV(fname):\n    first = True\n    currentID = 1\n    with open(fname, 'r') as dataFile, open(fname + '.csv', 'w') as outputCSV:\n        for line in dataFile:\n            nums = line.split()\n            itemSetID = nums[1]\n            item = nums[2]\n            if(int(itemSetID) == currentID):\n                if(first):",
-        "detail": "Util",
-        "documentation": {}
-    },
-    {
-        "label": "powerset",
-        "kind": 2,
-        "importPath": "Util",
-        "description": "Util",
-        "peekOfCode": "def powerset(s):\n    return chain.from_iterable(combinations(s, r) for r in range(1, len(s)))\ndef getFromFile(fname):\n    itemSets = []\n    itemSet = set()\n    with open(fname, 'r') as file:\n        csv_reader = reader(file,delimiter=',')\n        for line in csv_reader:\n            line = list(filter(None, line))\n            record = set(line)",
-        "detail": "Util",
-        "documentation": {}
-    },
-    {
-        "label": "getFromFile",
-        "kind": 2,
-        "importPath": "Util",
-        "description": "Util",
-        "peekOfCode": "def getFromFile(fname):\n    itemSets = []\n    itemSet = set()\n    with open(fname, 'r') as file:\n        csv_reader = reader(file,delimiter=',')\n        for line in csv_reader:\n            line = list(filter(None, line))\n            record = set(line)\n            for item in record:\n                itemSet.add(frozenset([item]))",
-        "detail": "Util",
-        "documentation": {}
-    },
-    {
-        "label": "getAboveMinSup",
-        "kind": 2,
-        "importPath": "Util",
-        "description": "Util",
-        "peekOfCode": "def getAboveMinSup(itemSet:set, itemSetList:[set], minSup:float, globalItemSetWithSup:defaultdict(int)):\n    \"\"\"_summary_\n    Args:\n        itemSet (set): hubewis with k-1\n        itemSetList (set]): danh sách item in transactions\n        minSup (float): minSupport\n        globalItemSetWithSup (defaultdict): count sô lần xuất hiện của item trong transactions\n    Returns:\n        freqItemSet: list item xuất hiện thường xuyên\n    \"\"\"",
-        "detail": "Util",
-        "documentation": {}
-    },
-    {
-        "label": "getUnion",
-        "kind": 2,
-        "importPath": "Util",
-        "description": "Util",
-        "peekOfCode": "def getUnion(itemSet, length:int):\n    return set([i.union(j) for i in itemSet for j in itemSet if len(i.union(j)) == length])\ndef pruning(candidateSet:set(), prevFreqSet:set(), length:int):\n    \"\"\"_summary_\n    Args:\n        candidateSet (set): danh sach ứng viên length = k\n        prevFreqSet (set): item xuất hiện thường xuyên length = k-1\n        length (int): length k-1\n    Returns:\n        tempCandidateSet: tập ứng viên sau khi cắt giảm",
-        "detail": "Util",
-        "documentation": {}
-    },
-    {
-        "label": "pruning",
-        "kind": 2,
-        "importPath": "Util",
-        "description": "Util",
-        "peekOfCode": "def pruning(candidateSet:set(), prevFreqSet:set(), length:int):\n    \"\"\"_summary_\n    Args:\n        candidateSet (set): danh sach ứng viên length = k\n        prevFreqSet (set): item xuất hiện thường xuyên length = k-1\n        length (int): length k-1\n    Returns:\n        tempCandidateSet: tập ứng viên sau khi cắt giảm\n    \"\"\"\n    tempCandidateSet = candidateSet.copy()",
-        "detail": "Util",
-        "documentation": {}
-    },
-    {
-        "label": "getItemSetFromList",
-        "kind": 2,
-        "importPath": "Util",
-        "description": "Util",
-        "peekOfCode": "def getItemSetFromList(itemSetList):\n    tempItemSet = set()\n    for itemSet in itemSetList:\n        for item in itemSet:\n            tempItemSet.add(frozenset([item]))\n    return tempItemSet",
-        "detail": "Util",
+        "label": "Utils",
+        "kind": 6,
+        "importPath": "Utils",
+        "description": "Utils",
+        "peekOfCode": "class Utils:\n    def expectedSupportCalculator(self,itemset: ItemDto, itemsetProbabilityInATransactions: [ItemDto]):\n        \"\"\"tính Expected support of an itemset in D\n        Args:\n            itemset (ItemDto): itemSet\n            itemsetProbabilityInATransactions (ItemDto]): itemset Probability In A Transactions\n        Returns:\n            _type_: Expected support\n        \"\"\"\n        total = 0",
+        "detail": "Utils",
         "documentation": {}
     },
     {
@@ -955,7 +449,7 @@
         "kind": 6,
         "importPath": "WdFim",
         "description": "WdFim",
-        "peekOfCode": "class WdFim:\n    def execute(self):    \n    # weight_table = WeightTable()\n        dataBase,fileName = WdFim().createDataBase()\n        WdFim().handleLogic(dataBase,0.1,fileName)\n        value = 0.01\n        mushroom = WdFim().readFile('input/DataTest/mushroom.txt','input/DataTest/mushroom-weight-table.txt')\n        WdFim().handleLogic(mushroom,value,'mushroom-' + str(value * 100)+'%-test.txt')\n        # retail = WdFim().readFile('input/DataTest/retail.txt','input/DataTest/retail-weight-table.txt')\n        # WdFim().handleLogic(retail,value,'retail-' + str(value * 100)+'%.txt')",
+        "peekOfCode": "class WdFim:\n    def execute(self,dataBase: list,minEWSup: int,filename:str):    \n        print('start')\n        process = psutil.Process()\n        startTime = time.time()\n        startMemory = process.memory_info().rss / (1024 ** 2)  # in megabytes\n        # weight_table = WeightTable()\n        transactions = dataBase[0]\n        weightTable = dataBase[1]\n        # print(weightOfSyntheticChain)",
         "detail": "WdFim",
         "documentation": {}
     },
@@ -964,7 +458,7 @@
         "kind": 6,
         "importPath": "WeightTable",
         "description": "WeightTable",
-        "peekOfCode": "class WeightTable:\n    def __init__(self,weight):\n        self.weights = weight\n        # self.weights = {'A': 0.1, 'B': 0.8, 'C': 0.3, 'D': 1.0, 'E': 0.6, 'F': 1.0}\n    def get_weight(self, item):\n        return self.weights.get(item, 0.0)\n    def calculate_probability(self):\n        listString= list(self.weights.keys())\n        syntheticChain = AprioriGen(self,listString)\n        result= []",
+        "peekOfCode": "class WeightTable:\n    def __init__(self,weight:set):\n        self.weights = weight\n        # self.weights = {'A': 0.1, 'B': 0.8, 'C': 0.3, 'D': 1.0, 'E': 0.6, 'F': 1.0}\n    def getWeight(self, item):\n        return self.weights.get(item, 0.0)",
         "detail": "WeightTable",
         "documentation": {}
     }
