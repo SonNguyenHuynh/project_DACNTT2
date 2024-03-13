@@ -16,9 +16,9 @@ def main():
 
 
 
-    # T40I10D100K = WdFim().readFile('input/DataTest/T40I10D100K.txt','input/DataTest/T40I10D100K-weight-table.txt')
+    # T40I10D100K = File().readFile('input/DataTest/T40I10D100K.txt','input/DataTest/T40I10D100K-weight-table.txt')
     # mushroom = File.readFile('input/DataTest/mushroom.txt','input/DataTest/mushroom-weight-table.txt')
-    # retail = WdFim().readFile('input/DataTest/retail.txt','input/DataTest/retail-weight-table.txt')
+    # retail = File().readFile('input/DataTest/retail.txt','input/DataTest/retail-weight-table.txt')
 
 
 
