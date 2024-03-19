@@ -42,7 +42,7 @@ class WdFim:
             data.append(set(tidKeys))
             # data.append(set(item for item in i.items)) 
         
-        WFIS,CWFIS1= WdFim().calculateExpwSup(ds=ds,weightTable=weightTable,expectedWeightedValue=expectedWeightedValue)
+        WFIS,CWFIS1= WdFim().calculateExpwSup(ds=ds,weightTable=weightTable,expectedWeightedValue=expectedWeightedValue,reliableProbabilisticSupport=reliableProbabilisticSupport)
 
         WFISK_1=WFIS
 
@@ -185,7 +185,7 @@ class WdFim:
     
 
     
-    def calculateExpwSup(self,ds:DS,weightTable:WeightTable,expectedWeightedValue:int)-> list[ItemDto]:
+    def calculateExpwSup(self,ds:DS,weightTable:WeightTable,expectedWeightedValue:int,reliableProbabilisticSupport:float)-> list[ItemDto]:
         """tính expwSup 
 
         Args:
@@ -203,7 +203,8 @@ class WdFim:
             for itemDto in transaction.items:
                 if(len(expSup)==0):
                     weightValue =itemDto.probability
-                    expSup.append(ItemDto(item=itemDto.item,probability=weightValue))
+                    if(weightValue>reliableProbabilisticSupport):
+                        expSup.append(ItemDto(item=itemDto.item,probability=weightValue))
                 else:
                     checkValue= False
                     for k in expSup:
@@ -212,7 +213,8 @@ class WdFim:
                             break
                     if(checkValue):
                         weightValue =itemDto.probability
-                        k.probability = k.probability + weightValue
+                        if(weightValue>reliableProbabilisticSupport):
+                            k.probability = k.probability + weightValue
                     else:
                         weightValue =itemDto.probability
                         expSup.append(ItemDto(item=itemDto.item,probability=weightValue))
