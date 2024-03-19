@@ -17,7 +17,7 @@ import psutil
 
 class HewiUaprior:
     
-    def execute(self,dataBase: list,minEWSup: int,filename:str):
+    def execute(self,dataBase: list,minEWSup: float,reliableProbabilisticSupport:float,filename:str):
         """_summary_
 
         Args:
@@ -111,6 +111,11 @@ class HewiUaprior:
         for i in hubewis:
             # tính Itemset Probability In A Transaction
             itemsetProbabilityInATransaction= Utils().calculatorItemsetProbabilityInATransaction(i,ds)
+
+            itemsetProbabilityReliable =[]
+            for itemset in itemsetProbabilityInATransaction:
+                if itemset.probability > reliableProbabilisticSupport:
+                    itemsetProbabilityReliable.append(itemset)
 
             # tính Expected support of an itemset in D
             expectedSupportValue = Utils().expectedSupportCalculator(i, itemsetProbabilityInATransaction)

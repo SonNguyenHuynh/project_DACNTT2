@@ -341,6 +341,15 @@
         "documentation": {}
     },
     {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
         "label": "List",
         "importPath": "typing",
         "description": "typing",
@@ -404,7 +413,7 @@
         "kind": 6,
         "importPath": "HewiUaprior",
         "description": "HewiUaprior",
-        "peekOfCode": "class HewiUaprior:\n    def execute(self,dataBase: list,minEWSup: int,filename:str):\n        \"\"\"_summary_\n        Args:\n            dataBase (list): gom dataItemSet va weight table\n            minEWSup (int): min expect weight support\n            filename (str): tên file output\n        \"\"\"\n        print('start')\n        process = psutil.Process()",
+        "peekOfCode": "class HewiUaprior:\n    def execute(self,dataBase: list,minEWSup: float,reliableProbabilisticSupport:float,filename:str):\n        \"\"\"_summary_\n        Args:\n            dataBase (list): gom dataItemSet va weight table\n            minEWSup (int): min expect weight support\n            filename (str): tên file output\n        \"\"\"\n        print('start')\n        process = psutil.Process()",
         "detail": "HewiUaprior",
         "documentation": {}
     },
@@ -422,7 +431,7 @@
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def main():\n    value = 0.01\n    dataBaseWdFim,fileNameWdFim = File().createDataBase('WdFim')\n    WdFim().execute(dataBaseWdFim,value,fileNameWdFim)\n    dataBaseHewi,fileNameHewi = File().createDataBase('Hewi')\n    HewiUaprior().execute(dataBaseHewi,value,fileNameHewi)\n    # T40I10D100K = File().readFile('input/DataTest/T40I10D100K.txt','input/DataTest/T40I10D100K-weight-table.txt')\n    # mushroom = File.readFile('input/DataTest/mushroom.txt','input/DataTest/mushroom-weight-table.txt')\n    # retail = File().readFile('input/DataTest/retail.txt','input/DataTest/retail-weight-table.txt')\n    # WdFim().execute(mushroom,value,'mushroom-' + str(value * 100)+'%-test.txt')",
+        "peekOfCode": "def main():\n    expectedWeightedSupport = float(sys.argv[1])\n    if expectedWeightedSupport>1 or expectedWeightedSupport <0:\n        print('Please enter expected weighted Support between 0-1')\n        return\n    reliableProbabilisticSupport = float(sys.argv[2])\n    if reliableProbabilisticSupport>1 or reliableProbabilisticSupport <0:\n        print('Please enter ???? between 0-1')\n        return\n    dataBaseWdFim,fileNameWdFim = File().createDataBase('WdFim')",
         "detail": "main",
         "documentation": {}
     },
@@ -449,7 +458,7 @@
         "kind": 6,
         "importPath": "WdFim",
         "description": "WdFim",
-        "peekOfCode": "class WdFim:\n    def execute(self,dataBase: list,minEWSup: int,filename:str):    \n        print('start')\n        process = psutil.Process()\n        startTime = time.time()\n        startMemory = process.memory_info().rss / (1024 ** 2)  # in megabytes\n        # weight_table = WeightTable()\n        transactions = dataBase[0]\n        weightTable = dataBase[1]\n        # print(weightOfSyntheticChain)",
+        "peekOfCode": "class WdFim:\n    def execute(self,dataBase: list,minEWSup: float,reliableProbabilisticSupport:float,filename:str):    \n        print('start')\n        process = psutil.Process()\n        startTime = time.time()\n        startMemory = process.memory_info().rss / (1024 ** 2)  # in megabytes\n        # weight_table = WeightTable()\n        transactions = dataBase[0]\n        weightTable = dataBase[1]\n        # print(weightOfSyntheticChain)",
         "detail": "WdFim",
         "documentation": {}
     },
