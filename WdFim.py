@@ -18,7 +18,7 @@ from itertools import product
 
 class WdFim:
     
-    def execute(self,dataBase: list,minEWSup: int,filename:str):    
+    def execute(self,dataBase: list,minEWSup: float,reliableProbabilisticSupport:float,filename:str):    
         print('start')
         process = psutil.Process()
 
@@ -70,7 +70,13 @@ class WdFim:
             WFISK_1=[]
             for i in RCWFISK:
                 itemsetProbabilityInATransaction= Utils().calculatorItemsetProbabilityInATransactionWithFrozenset(i,ds)
-                expectedSupportValue = Utils().expectedSupportCalculatorWithFrozenset(i, itemsetProbabilityInATransaction)
+
+                itemsetProbabilityReliable =[]
+                for itemset in itemsetProbabilityInATransaction:
+                    if itemset.probability > reliableProbabilisticSupport:
+                        itemsetProbabilityReliable.append(itemset)
+
+                expectedSupportValue = Utils().expectedSupportCalculatorWithFrozenset(i, itemsetProbabilityReliable)
                 # print(f"Expected Support of : {expectedSupportValue}")
                 # print(expectedSupportValue)
             
@@ -95,7 +101,7 @@ class WdFim:
         runtime = endTime - startTime
         
 
-        File().writeFile(filename,WFIS,runtime,memory_usage,len(ds.transactions),expectedWeighted,"output/WdFim")
+        File().writeFile(filename,WFIS,runtime,memory_usage,len(ds.transactions),expectedWeighted,"output/WdFim",reliableProbabilisticSupport)
         
         print('done')    
     def calculatorRCWFISK(self,data1:list[frozenset],data2: list[frozenset]):

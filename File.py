@@ -86,7 +86,7 @@ class File:
 
         return [transactions,weightTable]
     
-    def writeFile(self,filename:str,data:[ItemDto],runtime,memoryUsage,lenData:int,minEXSup:float,folderPath:str):
+    def writeFile(self,filename:str,data:[ItemDto],runtime,memoryUsage,lenData:int,minEXSup:float,folderPath:str,reliableProbabilisticSupport:float):
         filePath = filename
 
 
@@ -109,6 +109,7 @@ class File:
             file.write('\n' + '\n'+ '\n' + '\n')
             file.write('length' + ' : '+ str(lenData) + '\n')
             file.write('minEXSup' + ' : '+ str(minEXSup*100)+ ' %' + '\n')
+            file.write('reliableProbabilisticSupport' + ' : '+ str(reliableProbabilisticSupport) + '\n')
             file.write('candidate' + ' : '+ str(len(data)) + '\n')
             file.write('runtime' + ' : '+ str(runtime) + ' s' + '\n')
             file.write('memory usage' + ' : '+ str(memoryUsage) + ' MB'+ '\n')
