@@ -137,7 +137,7 @@ class HewiUaprior:
         runtime = endTime - startTime
         
 
-        File().writeFile(filename,hewis,runtime,memory_usage,len(ds.transactions),expectedWeighted,"output/HewiUaprior")
+        File().writeFile(filename,hewis,runtime,memory_usage,len(ds.transactions),expectedWeighted,"output/HewiUaprior",reliableProbabilisticSupport)
         
         print('done')
 

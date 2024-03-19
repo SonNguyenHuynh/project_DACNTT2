@@ -14,7 +14,7 @@ def main():
  
     reliableProbabilisticSupport = float(sys.argv[2])
     if reliableProbabilisticSupport>1 or reliableProbabilisticSupport <0:
-        print('Please enter ???? between 0-1')
+        print('Please enter reliable Probabilistic Support between 0-1')
         return
 
     dataBaseWdFim,fileNameWdFim = File().createDataBase('WdFim')
@@ -25,7 +25,7 @@ def main():
 
 
     # T40I10D100K = File().readFile('input/DataTest/T40I10D100K.txt','input/DataTest/T40I10D100K-weight-table.txt')
-    # mushroom = File.readFile('input/DataTest/mushroom.txt','input/DataTest/mushroom-weight-table.txt')
+    # mushroom = File().readFile('input/DataTest/mushroom.txt','input/DataTest/mushroom-weight-table.txt')
     # retail = File().readFile('input/DataTest/retail.txt','input/DataTest/retail-weight-table.txt')
 
 

@@ -431,7 +431,7 @@
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def main():\n    expectedWeightedSupport = float(sys.argv[1])\n    if expectedWeightedSupport>1 or expectedWeightedSupport <0:\n        print('Please enter expected weighted Support between 0-1')\n        return\n    reliableProbabilisticSupport = float(sys.argv[2])\n    if reliableProbabilisticSupport>1 or reliableProbabilisticSupport <0:\n        print('Please enter ???? between 0-1')\n        return\n    dataBaseWdFim,fileNameWdFim = File().createDataBase('WdFim')",
+        "peekOfCode": "def main():\n    expectedWeightedSupport = float(sys.argv[1])\n    if expectedWeightedSupport>1 or expectedWeightedSupport <0:\n        print('Please enter expected weighted Support between 0-1')\n        return\n    reliableProbabilisticSupport = float(sys.argv[2])\n    if reliableProbabilisticSupport>1 or reliableProbabilisticSupport <0:\n        print('Please enter reliable Probabilistic Support between 0-1')\n        return\n    dataBaseWdFim,fileNameWdFim = File().createDataBase('WdFim')",
         "detail": "main",
         "documentation": {}
     },

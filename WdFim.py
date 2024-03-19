@@ -101,7 +101,7 @@ class WdFim:
         runtime = endTime - startTime
         
 
-        File().writeFile(filename,WFIS,runtime,memory_usage,len(ds.transactions),expectedWeighted,"output/WdFim")
+        File().writeFile(filename,WFIS,runtime,memory_usage,len(ds.transactions),expectedWeighted,"output/WdFim",reliableProbabilisticSupport)
         
         print('done')    
     def calculatorRCWFISK(self,data1:list[frozenset],data2: list[frozenset]):
